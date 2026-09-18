@@ -1,0 +1,129 @@
+---
+import { WA } from '../lib/wa';
+import Icon from './Icon.astro';
+// ponytail: mientras no existan las demos, cada card abre WhatsApp pidiendo la demo
+const AGENT_HREF = WA.demoAgente;
+const LEAD_HREF = WA.demoLead;
+
+const chat = [
+  { from: 'user', text: 'Hola, quiero info del programa' },
+  { from: 'bot', text: '¡Hola! Claro. ¿Ya tenés un negocio en marcha o estás empezando?' },
+  { from: 'user', text: 'En marcha, vendo consultorías' },
+];
+const stages = ['Nuevo', 'Contactado', 'Calificado', 'Agendado'];
+---
+<section id="demos" class="section section--dark">
+  <div class="blob blob--purple" style="width:520px;height:520px;top:-200px;right:-160px"></div>
+  <div class="blob blob--green" style="width:320px;height:320px;bottom:-140px;left:20%"></div>
+
+  <div class="container">
+    <p class="eyebrow" data-reveal><span class="label">Experiencias y demostraciones</span></p>
+
+    <div class="section-head">
+      <h2 data-reveal style="--i:1">No solo te lo contamos.<br><span class="accent-green">Probalo.</span></h2>
+      <p class="lead" data-reveal style="--i:2">Experiencias reales para ver el sistema en acción.</p>
+    </div>
+
+    <div class="demos">
+      <!-- Demo 01: agente de IA — preview de chat animado -->
+      <a href={AGENT_HREF} target="_blank" rel="noopener" class="demo" data-spotlight data-reveal style="--i:3">
+        <div class="demo__preview chat" aria-hidden="true">
+          {chat.map((m, i) => (
+            <p class={`chat__msg chat__msg--${m.from}`} style={`--k:${i}`}>{m.text}</p>
+          ))}
+          <p class="chat__msg chat__msg--bot chat__typing" style="--k:3"><span></span><span></span><span></span></p>
+        </div>
+        <div class="demo__body">
+          <p class="demo__num">Demo</p>
+          <h3>Hablá con un agente de IA</h3>
+          <p class="small">Probá cómo responde, clasifica y gestiona una conversación.</p>
+          <span class="btn btn--outline">Probar agente <Icon name="arrow-right" size={16} strokeWidth={2} /></span>
+        </div>
+      </a>
+
+      <!-- Demo 02: seguí un lead — preview de pipeline animado -->
+      <a href={LEAD_HREF} target="_blank" rel="noopener" class="demo" data-spotlight data-reveal style="--i:4">
+        <div class="demo__preview pipeline" aria-hidden="true">
+          {stages.map((s, i) => (
+            <div class="pipeline__stage" style={`--k:${i}`}>
+              <span class="pipeline__label">{s}</span>
+              <span class="pipeline__card"><span class="pipeline__avatar"></span><span class="pipeline__lines"><i></i><i></i></span></span>
+            </div>
+          ))}
+        </div>
+        <div class="demo__body">
+          <p class="demo__num">Demo</p>
+          <h3>Seguí un lead</h3>
+          <p class="small">Completá el formulario y descubrí qué sucede después de enviarlo.</p>
+          <span class="btn btn--outline">Probar el sistema <Icon name="arrow-right" size={16} strokeWidth={2} /></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .demos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .demo {
+    display: flex; flex-direction: column;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+    cursor: pointer; --spot: rgba(62, 242, 107, 0.1); overflow: hidden;
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .demo:hover, .demo:focus-visible { border-color: var(--green); transform: translateY(-3px); }
+  .demo__preview {
+    height: 240px; padding: 1.5rem; border-bottom: 1px solid var(--line-dark);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    overflow: hidden;
+  }
+  .demo__body { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.75rem 2rem 2rem; flex: 1; }
+  .demo__num { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); }
+  .demo h3 { font-size: 1.4rem; }
+  .demo .btn { margin-top: auto; align-self: flex-start; }
+  .demo:hover .btn { background: rgba(62, 242, 107, 0.1); }
+
+  /* --- chat --- */
+  .chat { display: flex; flex-direction: column; gap: 0.5rem; justify-content: flex-end; }
+  .chat__msg {
+    max-width: 78%; font-size: 0.8rem; line-height: 1.4; padding: 0.55rem 0.85rem; border-radius: 12px;
+    opacity: 0; transform: translateY(8px);
+    animation: msg-in 0.4s var(--ease) forwards; animation-delay: calc(var(--k) * 0.9s + 0.4s);
+  }
+  .chat__msg--user { align-self: flex-end; background: var(--purple); color: var(--paper); border-bottom-right-radius: 4px; }
+  .chat__msg--bot { align-self: flex-start; background: rgba(255,255,255,0.08); color: var(--paper); border-bottom-left-radius: 4px; }
+  .chat__typing { display: flex; gap: 4px; padding-block: 0.7rem; }
+  .chat__typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--paper-muted); animation: blink 1.2s infinite; }
+  .chat__typing span:nth-child(2) { animation-delay: 0.2s; }
+  .chat__typing span:nth-child(3) { animation-delay: 0.4s; }
+  .demo:not(.is-visible) .chat__msg { animation-play-state: paused; }
+  @keyframes msg-in { to { opacity: 1; transform: none; } }
+  @keyframes blink { 0%, 80%, 100% { opacity: 0.3; } 40% { opacity: 1; } }
+
+  /* --- pipeline --- */
+  .pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; align-items: start; }
+  .pipeline__stage { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.6rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid var(--line-dark); min-height: 100%; }
+  .pipeline__label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-muted); }
+  .pipeline__card {
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 6px;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--line-dark);
+    opacity: 0; transform: translateX(-10px);
+    animation: card-in 0.5s var(--ease) forwards; animation-delay: calc(var(--k) * 1.1s + 0.5s);
+  }
+  .pipeline__stage:last-child .pipeline__card { border-color: var(--green); box-shadow: 0 0 0 3px rgba(62,242,107,0.15); }
+  .pipeline__avatar { width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--green)); flex-shrink: 0; }
+  .pipeline__lines { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .pipeline__lines i { display: block; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); }
+  .pipeline__lines i:last-child { width: 60%; }
+  .demo:not(.is-visible) .pipeline__card { animation-play-state: paused; }
+  @keyframes card-in { to { opacity: 1; transform: none; } }
+
+  @media (max-width: 800px) {
+    .demos { grid-template-columns: 1fr; }
+    .demo__body { padding: 1.5rem; }
+    .pipeline { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chat__msg, .pipeline__card { animation: none; opacity: 1; transform: none; }
+    .chat__typing span { animation: none; }
+  }
+</style>

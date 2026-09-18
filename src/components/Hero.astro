@@ -1,0 +1,98 @@
+---
+import { WA } from '../lib/wa';
+import Icon from './Icon.astro';
+import Aurora from './Aurora';
+// Stack con el que construyen (Simple Icons, CC0). Reemplazar por las herramientas reales.
+const stack = [
+  ['gohighlevel', 'GoHighLevel'], ['whatsapp', 'WhatsApp'], ['make', 'Make'], ['n8n', 'n8n'], ['zapier', 'Zapier'],
+  ['hubspot', 'HubSpot'], ['meta', 'Meta Ads'], ['googleads', 'Google Ads'], ['notion', 'Notion'],
+  ['calendly', 'Calendly'], ['stripe', 'Stripe'], ['mercadopago', 'Mercado Pago'], ['airtable', 'Airtable'], ['typeform', 'Typeform'],
+];
+
+// Palabras del h1 con índice para el stagger; la última va en verde.
+const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marketing.'];
+---
+<section class="section section--dark hero">
+  <div class="hero__aurora" aria-hidden="true">
+    <Aurora client:only="react" colorStops={['#7c3aed', '#3ef26b', '#7c3aed']} amplitude={1.3} blend={0.7} speed={0.5} />
+  </div>
+
+  <div class="container hero__inner">
+    <p class="eyebrow" data-reveal><span class="pip"></span><span>Agencia de marketing + tecnología</span><span class="eyebrow__sep"></span><span class="eyebrow__years">7 años construyendo sistemas</span></p>
+    <h1 class="words">
+      {words.map((w, i) => (
+        <>
+          <span class={`w${w === 'marketing.' ? ' accent-green' : ''}`} style={`--i:${i}`}>{w}</span>
+          {(w === 'infraestructura' || w === 'de') && <br />}{' '}
+        </>
+      ))}
+    </h1>
+    <p class="lead" data-reveal style="--i:4">Conectamos marketing, tecnología y operaciones para que cada parte de tu sistema trabaje como una sola.</p>
+    <div class="hero__cta" data-reveal style="--i:6">
+      <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos de tu proyecto <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+      <a href="#demos" class="btn btn--ghost">Ver demos <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+    </div>
+  </div>
+
+  <div class="container trusted" data-reveal style="--i:8">
+    <span class="trusted__label">Construimos<br>con</span>
+    <div class="marquee" aria-label="Herramientas con las que trabajamos">
+      {[0, 1].map(dup => (
+        <ul class="marquee__track" aria-hidden={dup === 1}>
+          {stack.map(([file, name]) => (
+            <li>
+              {file === 'gohighlevel'
+                ? <span class="marquee__mark">GHL</span>
+                : <img src={`/stack/${file}.svg`} alt="" width="20" height="20" loading="lazy" />}
+              <span>{name}</span>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { min-height: min(100vh, 880px); display: flex; flex-direction: column; justify-content: center; gap: 4rem; padding-block: 9rem 3.5rem; }
+  .hero__aurora { position: absolute; inset: 0; z-index: 0; opacity: 0.9; }
+  .hero__aurora::after {
+    /* funde el aurora hacia el fondo para que el texto siempre tenga contraste */
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(10,10,20,0.7) 30%, rgba(10,10,20,0.1) 60%, transparent 100%),
+                linear-gradient(0deg, var(--bg-dark) 0%, transparent 30%);
+  }
+  .hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1.75rem; }
+  .hero__inner > h1, .hero__inner > .lead { max-width: 42rem; }
+  .eyebrow { gap: 0.6rem; margin-bottom: 0; flex-wrap: wrap; }
+  .eyebrow__sep { width: 1px; height: 12px; background: var(--line-dark); margin-inline: 0.5rem; }
+  .eyebrow__years { opacity: 0.6; }
+  .pip { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(62,242,107,0.6); animation: pip 2.4s ease-out infinite; }
+  @keyframes pip { 70% { box-shadow: 0 0 0 8px rgba(62,242,107,0); } 100% { box-shadow: 0 0 0 0 rgba(62,242,107,0); } }
+  .hero__cta { display: flex; align-items: center; gap: 1.5rem; margin-top: 0.5rem; }
+
+  .trusted { position: relative; z-index: 2; display: flex; align-items: center; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--line-dark); }
+  .trusted__label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); line-height: 1.5; flex-shrink: 0; }
+  .marquee {
+    flex: 1; min-width: 0; display: flex; overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee__track { display: flex; gap: 2.5rem; padding-right: 2.5rem; flex-shrink: 0; animation: marquee 40s linear infinite; }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  .marquee__track li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 600; color: var(--paper-muted); white-space: nowrap; transition: color var(--dur) var(--ease); }
+  .marquee__track li:hover { color: var(--paper); }
+  .marquee__track img { width: 20px; height: 20px; filter: brightness(0) invert(1); opacity: 0.7; }
+  .marquee__mark { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.15rem 0.35rem; border: 1px solid currentColor; border-radius: 4px; }
+  @keyframes marquee { to { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+
+  @media (max-width: 900px) {
+    .hero { padding-top: 7rem; gap: 3rem; }
+    .eyebrow__sep { display: none; }
+    .eyebrow__years { flex-basis: 100%; }
+    .hero__aurora::after { background: linear-gradient(0deg, var(--bg-dark) 0%, rgba(10,10,20,0.7) 60%, rgba(10,10,20,0.3) 100%); }
+    .trusted { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .hero__cta { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pip { animation: none; } }
+</style>

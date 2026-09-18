@@ -1,0 +1,61 @@
+---
+import { WA } from '../lib/wa';
+import Icon from './Icon.astro';
+const cards = [
+  { icon: 'target', title: 'Conversión', text: 'Funnels, landing pages, websites y sistemas de agenda.' },
+  { icon: 'workflow', title: 'Operations', text: 'CRM, automatización, seguimiento y gestión de leads.' },
+  { icon: 'plug-zap', title: 'Integración', text: 'Herramientas conectadas. Información en movimiento.' },
+  { icon: 'cpu', title: 'Intelligence', text: 'IA y soluciones personalizadas integradas a tu operación.' },
+] as const;
+---
+<section id="soluciones" class="section section--dark">
+  <div class="blob blob--green" style="width:480px;height:480px;top:-120px;right:-240px"></div>
+  <div class="blob blob--purple" style="width:400px;height:400px;bottom:-160px;left:-120px"></div>
+
+  <div class="container">
+    <p class="eyebrow" data-reveal><span class="label">Soluciones</span></p>
+
+    <div class="section-head">
+      <h2 data-reveal style="--i:1">Construimos lo que<br>tu operación <span class="accent-purple">necesita.</span></h2>
+      <p class="lead" data-reveal style="--i:2">Desde una pieza puntual hasta un sistema completo.</p>
+    </div>
+
+    <ul class="grid-4 cards">
+      {cards.map((c, i) => (
+        <li data-reveal style={`--i:${i + 3}`}>
+          <a href={WA.soluciones} target="_blank" rel="noopener" class="card" data-spotlight>
+            <div class="card__top">
+              <Icon name={c.icon} size={28} />
+            </div>
+            <h3>{c.title}</h3>
+            <p class="small">{c.text}</p>
+            <span class="card__link"><Icon name="arrow-right" size={20} strokeWidth={1.75} /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="cta-row" data-reveal style="--i:7">
+      <a href={WA.soluciones} target="_blank" rel="noopener" class="btn btn--green">Hablemos <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cards li { display: flex; }
+  .card {
+    display: flex; flex-direction: column; gap: 0.75rem; flex: 1;
+    padding: 1.75rem; min-height: 260px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+    cursor: pointer; --spot: rgba(167, 139, 250, 0.18);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), background var(--dur) var(--ease);
+  }
+  .card:hover, .card:focus-visible { border-color: var(--purple-soft); background: rgba(255, 255, 255, 0.05); transform: translateY(-3px); }
+  .card__top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .card__link { margin-top: auto; padding-top: 1rem; color: var(--paper); display: inline-flex; }
+  .card__link :global(.icon) { color: currentColor; transition: transform var(--dur) var(--ease); }
+  .card:hover .card__link { color: var(--green); }
+  .card:hover .card__link :global(.icon) { transform: translateX(4px); }
+  .cta-row { margin-top: var(--space-block); }
+  @media (max-width: 900px) { .card { min-height: 0; padding: 1.5rem; } }
+</style>

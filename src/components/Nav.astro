@@ -1,0 +1,37 @@
+---
+import { WA } from '../lib/wa';
+import Icon from './Icon.astro';
+const links = [
+  ['Soluciones', '#soluciones'],
+  ['Proyectos', '#proyectos'],
+  ['Demos', '#demos'],
+  ['Para quién', '#para-quien'],
+];
+---
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="#" class="nav__logo">
+      <img src="/logo-novai.png" alt="NOVAI" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Secciones">
+      {links.map(([label, href]) => <a href={href}>{label}</a>)}
+    </nav>
+    <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--outline">Hablemos<span class="nav__cta-rest"> de tu proyecto</span> <Icon name="arrow-up-right" size={14} strokeWidth={2} /></a>
+  </div>
+</header>
+
+<style>
+  .nav { position: fixed; inset-inline: 0; top: 0; z-index: 50; padding-block: 1.25rem; transition: background var(--dur) var(--ease), padding var(--dur) var(--ease), border-color var(--dur) var(--ease); border-bottom: 1px solid transparent; }
+  .nav.is-scrolled { padding-block: 0.75rem; background: rgba(10, 10, 20, 0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line-dark); }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .nav__logo { display: flex; align-items: center; }
+  .nav__logo-img { height: 28px; width: auto; }
+  .nav__links { display: flex; gap: 1.75rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav__links a { opacity: 0.85; }
+  .nav__links a:hover { color: var(--green); opacity: 1; }
+  @media (max-width: 900px) {
+    .nav__links { display: none; }
+    .nav__cta-rest { display: none; }
+    .nav .btn { padding-inline: 1.1rem; }
+  }
+</style>

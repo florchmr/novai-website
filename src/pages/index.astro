@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import { SITE } from '../lib/site';
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Value from '../components/Value.astro';
+import Solutions from '../components/Solutions.astro';
+import Projects from '../components/Projects.astro';
+import Demos from '../components/Demos.astro';
+import Audience from '../components/Audience.astro';
+import Cta from '../components/Cta.astro';
+---
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <Head />
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <Hero />
+      <Value />
+      <Solutions />
+      <Projects />
+      <Demos />
+      <Audience />
+      <Cta />
+    </main>
+    <script src="../scripts/live.ts"></script>
+  </body>
+</html>

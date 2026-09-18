@@ -1,0 +1,23 @@
+# Permitimos buscadores y bots de IA (ChatGPT, Perplexity, Claude, Gemini) para poder ser citados.
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://fsystems.vercel.app/sitemap-index.xml

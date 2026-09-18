@@ -1,0 +1,95 @@
+---
+import { WA } from '../lib/wa';
+import Icon from './Icon.astro';
+const audiences = [
+  { title: 'Infoproductores', text: 'Cursos, programas, membresías y productos digitales que necesitan sistemas para captar, convertir y gestionar clientes.' },
+  { title: 'Expertos y consultores', text: 'Profesionales que venden servicios, programas o soluciones de alto valor y necesitan optimizar su proceso comercial.' },
+  { title: 'Negocios de servicios', text: 'Empresas que generan leads y necesitan mejorar su seguimiento, gestión y conversión.' },
+];
+const delegable = [
+  'Funnels y landing pages', 'Configuración de CRM', 'GoHighLevel', 'Automatizaciones', 'Email y WhatsApp',
+  'Sistemas de agenda', 'Integraciones', 'Agentes IA', 'Sistemas personalizados',
+];
+---
+<section id="para-quien" class="section section--light">
+  <div class="blob blob--purple" style="width:420px;height:420px;top:-160px;left:-140px"></div>
+
+  <div class="container">
+    <p class="eyebrow" data-reveal><span class="label">Nuestros clientes</span></p>
+    <h2 data-reveal style="--i:1">Para quién <span class="accent-purple">trabajamos.</span></h2>
+
+    <div class="two-cols">
+      <!-- Columna izquierda: negocios en marcha -->
+      <div class="col" data-reveal style="--i:2">
+        <h3>Negocios en marcha</h3>
+        <p class="col__desc">Trabajamos con negocios que ya tienen una oferta, clientes y un proceso comercial, y necesitan una infraestructura capaz de acompañar su crecimiento.</p>
+        <ul class="audiences">
+          {audiences.map((a, i) => (
+            <li class="audience" data-reveal style={`--i:${i + 3}`}>
+              <h4>{a.title}</h4>
+              <p class="small">{a.text}</p>
+            </li>
+          ))}
+        </ul>
+        <a href={WA.soluciones} target="_blank" rel="noopener" class="btn btn--outline-dark">Hablemos de tu negocio <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+      </div>
+
+      <!-- Columna derecha: agencias -->
+      <div class="col" data-reveal style="--i:3">
+        <h3>Agencias</h3>
+        <p class="col__desc">No todas las agencias necesitan desarrollar internamente un equipo especializado en funnels, CRM, automatización, integraciones o IA. Podemos funcionar como tu partner tecnológico para ejecutar esa parte del proyecto.</p>
+        <div class="delegable">
+          <p class="delegable__label">Podés delegarnos</p>
+          <ul class="tags">{delegable.map(t => <li>{t}</li>)}</ul>
+        </div>
+        <a href={WA.agencia} target="_blank" rel="noopener" class="btn btn--outline-dark">Hablemos de tu proyecto <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 { margin-bottom: var(--space-block); }
+
+  .two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .col {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    padding: 2.5rem;
+    background: var(--paper);
+    border: 1px solid var(--line-light);
+    border-radius: 12px;
+  }
+
+  .col h3 { font-size: 1.3rem; }
+
+  .col__desc { font-size: 1rem; line-height: 1.65; color: var(--ink-muted); text-wrap: pretty; }
+
+  .audiences { display: flex; flex-direction: column; gap: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--line-light); }
+  .audience { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1.25rem; border-left: 2px solid var(--purple); }
+
+  .delegable { display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--line-light); }
+  .delegable__label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tags li {
+    font-size: 0.78rem; color: var(--ink);
+    padding: 0.45rem 0.85rem; border: 1px solid var(--line-light); border-radius: var(--radius);
+    background: var(--bg-light);
+  }
+
+  .btn--outline-dark {
+    border-color: var(--ink); color: var(--ink); background: transparent;
+    margin-top: auto;
+  }
+  .btn--outline-dark:hover { background: rgba(10, 10, 20, 0.05); }
+
+  @media (max-width: 900px) {
+    .two-cols { grid-template-columns: 1fr; }
+    .col { padding: 2rem 1.5rem; }
+  }
+</style>
