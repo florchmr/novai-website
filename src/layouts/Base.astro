@@ -1,0 +1,18 @@
+---
+import '../styles/global.css';
+import { SITE } from '../lib/site';
+import Head from '../components/Head.astro';
+
+interface Props { title?: string; description?: string }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <Head title={title} description={description} />
+  </head>
+  <body>
+    <slot />
+    <script src="../scripts/live.ts"></script>
+  </body>
+</html>

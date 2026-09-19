@@ -2,9 +2,9 @@
 import Icon from './Icon.astro';
 // ponytail: href="#" hasta que existan las páginas de cada proyecto
 const projects = [
-  { title: 'Captación + agendamiento', tags: ['Landing', 'CRM', 'WhatsApp', 'Automatización', 'Agenda'], href: '#' },
-  { title: 'Proceso comercial', tags: ['Lead capture', 'Segmentación', 'Seguimiento', 'Workflows', 'Pipeline'], href: '#' },
-  { title: 'Ecosistema digital', tags: ['Website', 'Funnels', 'CRM', 'Integraciones', 'Automatización'], href: '#' },
+  { title: 'Event Operations', desc: 'Plataforma para centralizar ventas, generar accesos únicos y controlar el ingreso a eventos.', badge: 'Solución personalizada', href: '/proyectos/event-ops', image: '/projects/event-ops/portada.png' },
+  { title: 'Product Customization', desc: 'Sistema conectado con Shopify que transforma cada pedido en una experiencia de personalización y organiza automáticamente la información para producción.', badge: 'E-commerce + Automatización', href: '/proyectos/product-custom', image: '/projects/product-custom/portada.png' },
+  { title: 'Digital Education Ecosystem', desc: 'Ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada.', badge: 'Funnel + CRM + Automatización', href: '/proyectos/digital-education', image: '/projects/digital-education/portada.png' },
 ];
 ---
 <section id="proyectos" class="section section--light">
@@ -21,21 +21,17 @@ const projects = [
     <ol class="projects">
       {projects.map((p, i) => (
         <li data-reveal style={`--i:${i + 3}`}>
-          <a href={p.href} class="project" data-spotlight>
-            <div class="project__head">
-              <span class="project__num">Proyecto 0{i + 1}</span>
-              <span class="project__link">Ver proyecto <Icon name="arrow-up-right" size={16} strokeWidth={2} /></span>
+          <a href={p.href} class={`project ${p.image ? 'project--hero' : ''}`} data-spotlight>
+            {p.image && <img src={p.image} alt={p.title} class="project__img" loading="lazy" />}
+            <div class="project__content">
+              <div class="project__head">
+                <span class="project__num">Proyecto 0{i + 1}</span>
+                <span class="project__link">Ver proyecto <Icon name="arrow-up-right" size={16} strokeWidth={2} /></span>
+              </div>
+              <h3>{p.title}</h3>
+              <p class="project__desc">{p.desc}</p>
+              <span class="project__badge">{p.badge}</span>
             </div>
-            <h3>{p.title}</h3>
-            <!-- cadena: cada pieza conectada a la siguiente -->
-            <ul class="chain">
-              {p.tags.map((t, j) => (
-                <li class="chain__item" style={`--j:${j}`}>
-                  <span class="chain__chip">{t}</span>
-                  {j < p.tags.length - 1 && <span class="chain__link" aria-hidden="true"></span>}
-                </li>
-              ))}
-            </ul>
           </a>
         </li>
       ))}
@@ -65,20 +61,35 @@ const projects = [
   .project:hover .project__link :global(.icon) { transform: translate(2px, -2px); }
   .project h3 { font-size: 1.4rem; }
 
-  .chain { display: flex; flex-wrap: wrap; align-items: center; row-gap: 0.75rem; }
-  .chain__item { display: flex; align-items: center; }
-  .chain__chip {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink);
-    padding: 0.5rem 0.9rem; border: 1px solid var(--line-light); border-radius: var(--radius); background: var(--bg-light);
-    transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
-    transition-delay: calc(var(--j) * 60ms);
+  /* Card hero con imagen */
+  .project--hero {
+    flex-direction: row; overflow: hidden; padding: 0;
+    background: var(--bg-dark); border-color: var(--line-dark);
+    --spot: rgba(62, 242, 107, 0.08);
   }
-  .project:hover .chain__chip { border-color: var(--purple); background: rgba(124, 58, 237, 0.08); color: var(--purple); }
-  .chain__link { width: 1.75rem; height: 1px; background: var(--line-light); position: relative; }
-  .chain__link::after { content: ''; position: absolute; right: 0; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: var(--purple); transform: translate(50%, -50%); opacity: 0.5; }
+  .project--hero:hover, .project--hero:focus-visible { border-color: var(--green); box-shadow: 0 16px 40px -24px rgba(62, 242, 107, 0.35); }
+  .project__img { width: 55%; min-height: 420px; object-fit: cover; display: block; flex-shrink: 0; }
+  .project__content { display: flex; flex-direction: column; gap: 1.25rem; padding: 2rem 2.25rem; justify-content: center; }
+  .project--hero .project__num { color: var(--green); }
+  .project--hero .project__link { color: var(--paper-muted); }
+  .project--hero:hover .project__link { color: var(--green); }
+  .project--hero h3 { color: var(--paper); font-size: 1.6rem; }
+  .project__desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.6; }
+  .project--hero .project__desc { color: var(--paper-muted); }
+  .project__badge {
+    display: inline-block; width: fit-content;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.4rem 0.85rem; border-radius: var(--radius);
+    border: 1px solid var(--line-light); color: var(--ink-muted); background: var(--bg-light);
+    transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), background var(--dur) var(--ease);
+  }
+  .project:hover .project__badge { border-color: var(--purple); color: var(--purple); background: rgba(124, 58, 237, 0.06); }
+  .project--hero .project__badge { border-color: var(--line-dark); color: var(--paper-muted); background: rgba(255,255,255,0.05); }
+  .project--hero:hover .project__badge { border-color: var(--green); color: var(--green); background: rgba(62, 242, 107, 0.08); }
   @media (max-width: 700px) {
     .project { padding: 1.5rem; }
-    .chain__link { display: none; }
-    .chain { gap: 0.5rem; }
+    .project--hero { flex-direction: column; padding: 0; }
+    .project__img { width: 100%; }
+    .project__content { padding: 1.5rem; }
   }
 </style>

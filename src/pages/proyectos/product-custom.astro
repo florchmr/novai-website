@@ -1,0 +1,268 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+---
+<Base title="Product Customization System — NOVAI" description="Sistema de personalización conectado con Shopify que adapta automáticamente la experiencia según cada pedido.">
+  <Nav />
+  <main class="case">
+
+    <!-- Back -->
+    <div class="container case__back">
+      <a href="/#proyectos" class="btn btn--ghost case__back-link">
+        <Icon name="arrow-left" size={16} strokeWidth={2} /> Proyectos
+      </a>
+    </div>
+
+    <!-- Hero -->
+    <section class="section section--dark case__hero">
+      <div class="blob blob--purple" style="width:520px;height:520px;top:-200px;right:-180px"></div>
+      <div class="container">
+        <p class="eyebrow" data-reveal>02 / PRODUCT CUSTOMIZATION SYSTEM</p>
+        <h1 data-reveal style="--i:1">Cada pedido era diferente.<br>El formulario era siempre el mismo.</h1>
+        <p class="lead case__intro" data-reveal style="--i:2">Un sistema de personalización conectado con Shopify que adapta automáticamente la experiencia según cada pedido.</p>
+      </div>
+    </section>
+
+    <!-- Contexto -->
+    <section class="section section--dark">
+      <div class="container case__context">
+        <p data-reveal style="--i:0">FabuMap vende mapas personalizados que pueden variar en producto, estilo y cantidad de ubicaciones. Después de comprar, cada cliente debía completar la información necesaria para crear su mapa. El proceso dependía de formularios genéricos que no conocían qué había comprado cada persona.</p>
+        <p data-reveal style="--i:1">Esto generaba una experiencia desconectada: un cliente que había comprado un mapa de 5 ubicaciones podía encontrarse con campos para muchas más, debía volver a indicar información que ya existía en su pedido y el equipo tenía que organizar manualmente los datos recibidos.</p>
+        <p class="case__highlight" data-reveal style="--i:2">El problema no era recopilar información.<br>Era conectar la compra con todo lo que sucedía después.</p>
+      </div>
+    </section>
+
+    <!-- Portada -->
+    <div class="container case__img-wrap" data-reveal style="--i:0">
+      <img src="/projects/product-custom/portada.png" alt="Vista general del sistema de personalización FabuMap" class="case__img" loading="lazy" />
+    </div>
+
+    <!-- Proceso -->
+    <section class="section section--dark">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Proceso</p>
+        <h2 data-reveal style="--i:1">De la compra a producción, todo conectado.</h2>
+        <p class="lead" data-reveal style="--i:2">Cada compra genera automáticamente una experiencia específica para ese cliente.</p>
+
+        <div class="case__img-wrap case__img-wrap--no-border" data-reveal style="--i:3">
+          <img src="/projects/product-custom/proceso.png" alt="Flujo de 4 pasos: compra, pedido identificado, personalización, producción" class="case__img case__img--no-border" loading="lazy" />
+        </div>
+
+        <div class="steps">
+          <div class="step" data-reveal data-spotlight style="--i:4">
+            <span class="step__num">01</span>
+            <h3>Se detecta el pedido</h3>
+            <p>El sistema toma automáticamente la información de la compra realizada en Shopify.</p>
+          </div>
+          <div class="step" data-reveal data-spotlight style="--i:5">
+            <span class="step__num">02</span>
+            <h3>Se genera la experiencia</h3>
+            <p>Cada pedido obtiene un formulario asociado con el producto y la cantidad de ubicaciones correspondientes.</p>
+          </div>
+          <div class="step" data-reveal data-spotlight style="--i:6">
+            <span class="step__num">03</span>
+            <h3>El cliente personaliza</h3>
+            <p>Completa nombres, lugares, historias y fotografías dentro de un recorrido guiado paso a paso.</p>
+          </div>
+          <div class="step" data-reveal data-spotlight style="--i:7">
+            <span class="step__num">04</span>
+            <h3>Todo queda organizado</h3>
+            <p>La información y los archivos se estructuran automáticamente para que el equipo pueda continuar con la creación del mapa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personalización dinámica (= Roles en event-ops) -->
+    <section class="section section--dark">
+      <div class="container case__center">
+        <h2 data-reveal>Cinco ubicaciones compradas.<br>Cinco ubicaciones para completar.</h2>
+        <p class="lead" data-reveal style="--i:1">El formulario se adapta a cada orden. Si el cliente compró un mapa de cinco ubicaciones, el sistema solicita exactamente cinco. Si eligió otro producto o configuración, la experiencia cambia en función de esa compra.</p>
+        <div class="pills" data-reveal style="--i:2">
+          <span class="pill">Shopify</span>
+          <span class="pill">Personalización</span>
+          <span class="pill">Automatización</span>
+          <span class="pill">Operaciones</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Antes / Después -->
+    <section class="section section--dark">
+      <div class="container">
+        <h2 class="case__center" data-reveal>Antes, formularios genéricos.<br>Ahora, una experiencia conectada.</h2>
+        <div class="compare">
+          <div class="compare__col compare__col--antes" data-reveal style="--i:1">
+            <span class="compare__label">Antes</span>
+            <ul>
+              <li>Formularios genéricos para todos los pedidos</li>
+              <li>El cliente reconstruía su compra desde cero</li>
+              <li>Información desorganizada para el equipo</li>
+              <li>Organización manual de datos y archivos</li>
+            </ul>
+          </div>
+          <div class="compare__col compare__col--ahora" data-reveal style="--i:2">
+            <span class="compare__label">Ahora</span>
+            <ul>
+              <li>Experiencia personalizada por pedido</li>
+              <li>Información del pedido ya vinculada</li>
+              <li>Recorrido guiado paso a paso</li>
+              <li>Datos y archivos organizados en Google Drive</li>
+              <li>E-commerce, personalización y operación conectados</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cierre: frase + imagen detalle -->
+    <section class="section section--dark case__close">
+      <div class="container case__close-grid">
+        <p class="case__quote" data-reveal>Menos fricción para el cliente.<br>Más orden para el equipo.</p>
+        <div class="case__close-img" data-reveal style="--i:1">
+          <img src="/projects/product-custom/detalle.png" alt="Detalle del formulario de personalización por ubicación" class="case__img" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--dark case__cta-wrap">
+      <div class="container">
+        <div class="case__cta" data-reveal>
+          <div class="blob blob--purple" style="width:360px;height:360px;left:-120px;top:-140px"></div>
+          <div class="blob blob--green" style="width:280px;height:280px;right:-100px;bottom:-140px"></div>
+          <div class="case__cta-text">
+            <p class="eyebrow"><span class="label">¿Necesitás un sistema como este?</span></p>
+            <h2>Veamos qué necesita <span class="accent-green">tu proyecto.</span></h2>
+            <p class="case__cta-desc">Contanos qué querés construir, mejorar o conectar. Vemos tu caso y definimos juntos el próximo paso.</p>
+          </div>
+          <div class="case__cta-actions">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+            <a href={WA.agenda} target="_blank" rel="noopener" class="btn btn--outline">Agendar una videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back final -->
+    <div class="container case__back case__back--bottom">
+      <a href="/#proyectos" class="btn btn--ghost case__back-link">
+        <Icon name="arrow-left" size={16} strokeWidth={2} /> Ver más proyectos
+      </a>
+    </div>
+
+  </main>
+</Base>
+
+<style>
+  /* Back link */
+  .case__back { padding-top: 6.5rem; }
+  .case__back--bottom { padding-top: 0; padding-bottom: var(--space-section); }
+  .case__back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* Hero */
+  .case__hero { padding-bottom: 2rem; }
+  .case__hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 720px; margin-bottom: 1.5rem; }
+  .case__intro { max-width: 38rem; }
+  .case h2 { margin-bottom: 1.25rem; }
+
+  /* Contexto */
+  .case__context { max-width: 38rem; }
+  .case__context p { font-size: 1.05rem; color: var(--paper-muted); line-height: 1.75; }
+  .case__highlight { font-size: 1.2rem !important; color: var(--paper) !important; font-weight: 500; margin-top: 1.5rem; }
+
+  /* Imágenes */
+  .case__img-wrap { padding-block: 2rem; }
+  .case__img { width: 100%; height: auto; display: block; border-radius: var(--radius-card); border: 1px solid var(--line-dark); }
+  .case__img--no-border { border: none; }
+
+  /* Pasos */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: var(--space-block); }
+  .step {
+    padding: 1.75rem 1.5rem; border-radius: var(--radius-card);
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line-dark);
+    --spot: rgba(124, 58, 237, 0.15);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .step:hover { border-color: var(--purple-soft); transform: translateY(-2px); }
+  .step__num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; color: var(--purple-soft); }
+  .step h3 { font-size: 1rem; margin-top: 0.75rem; }
+  .step p { font-size: 0.88rem; color: var(--paper-muted); margin-top: 0.5rem; line-height: 1.6; }
+
+  /* Centro */
+  .case__center { text-align: center; }
+  .case__center h2 { text-align: center; }
+  .case__center .lead { max-width: 38rem; margin-inline: auto; }
+
+  /* Pills */
+  .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; }
+  .pill {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.6rem 1.2rem; border-radius: var(--radius);
+    border: 1px solid var(--line-dark); background: rgba(255, 255, 255, 0.04); color: var(--paper-muted);
+  }
+
+  /* Antes / Después */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: var(--space-block); }
+  .compare__col {
+    padding: 2rem; border-radius: var(--radius-card);
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line-dark);
+  }
+  .compare__col--antes { border-top: 3px solid var(--paper-muted); }
+  .compare__col--ahora { border-top: 3px solid var(--green); }
+  .compare__label {
+    display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .compare__col--antes .compare__label { color: var(--paper-muted); }
+  .compare__col--ahora .compare__label { color: var(--green); }
+  .compare__col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .compare__col li { font-size: 0.92rem; color: var(--paper-muted); padding-left: 1.25rem; position: relative; }
+  .compare__col li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; }
+  .compare__col--antes li::before { background: var(--paper-muted); opacity: 0.4; }
+  .compare__col--ahora li::before { background: var(--green); }
+  .compare__col--ahora li { color: var(--paper); }
+
+  /* Cierre */
+  .case__close { min-height: 50vh; display: grid; place-items: center; }
+  .case__close-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .case__quote {
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 600; line-height: 1.3;
+    text-wrap: balance;
+    background: linear-gradient(135deg, var(--green), var(--purple-soft));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .case__close-img { display: flex; align-items: center; }
+  .case__close-img .case__img { border-radius: 12px; }
+
+  /* CTA */
+  .case__cta-wrap { padding-block: 0 4rem; }
+  .case__cta {
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center;
+    padding: 3.5rem; border-radius: 12px;
+    background: var(--bg-dark-2); border: 1px solid var(--line-dark);
+  }
+  .case__cta > :not(.blob) { position: relative; z-index: 1; }
+  .case__cta-text { display: flex; flex-direction: column; gap: 1rem; }
+  .case__cta-desc { font-size: 1.05rem; line-height: 1.6; color: var(--paper); opacity: 0.75; max-width: 36rem; text-wrap: pretty; }
+  .case__cta .eyebrow { margin-bottom: 0; }
+  .case__cta h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); text-align: left; }
+  .case__cta-actions { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; justify-self: end; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .steps { grid-template-columns: 1fr 1fr; }
+    .compare { grid-template-columns: 1fr; }
+    .case__close-grid { grid-template-columns: 1fr; text-align: center; }
+    .case__cta { grid-template-columns: 1fr; padding: 2.25rem 1.75rem; gap: 2rem; }
+    .case__cta-actions { justify-self: start; }
+  }
+  @media (max-width: 600px) {
+    .steps { grid-template-columns: 1fr; }
+    .case__hero h1 { font-size: 1.8rem; }
+  }
+</style>
