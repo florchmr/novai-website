@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // ponytail: cambiar `site` cuando haya dominio propio (afecta sitemap, canonical y OG)
 export default defineConfig({
-  site: 'https://fsystems.vercel.app',
+  site: 'https://agencianovai.com',
   integrations: [react(), sitemap()],
 });

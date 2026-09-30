@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base title="Agendar videollamada — NOVAI" description="Elegí el día y horario que te quede mejor para que veamos juntos tu proyecto.">
+  <Nav />
+  <main class="booking-page">
+    <div class="container">
+      <a href="/" class="btn btn--ghost back-link">
+        <Icon name="arrow-left" size={16} strokeWidth={2} /> Volver
+      </a>
+      <div class="booking-page__hero">
+        <p class="eyebrow"><span class="label">Agendar videollamada</span></p>
+        <h1>Contanos sobre tu proyecto</h1>
+        <p class="lead">Elegí el día y horario que te quede mejor. La videollamada dura 30 minutos y es sin compromiso.</p>
+      </div>
+      <div class="booking-widget">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/UfCRHI99HLacLarernLK"
+          allow="payment"
+          style="border:none;width:100%;height:700px;overflow:hidden"
+          scrolling="no"
+          id="UfCRHI99HLacLarernLK_1790800984911"
+          title="Agendar videollamada con NOVAI"
+        ></iframe>
+      </div>
+    </div>
+  </main>
+  <script src="https://link.msgsndr.com/js/form_embed.js" is:inline></script>
+</Base>
+
+<style>
+  .booking-page { padding-top: 8rem; padding-bottom: 4rem; }
+  .back-link { margin-bottom: 2rem; }
+  .booking-page__hero { max-width: 600px; margin-bottom: 2.5rem; }
+  .booking-page__hero .eyebrow { margin-bottom: 1rem; }
+  .booking-page__hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem; }
+  .booking-page__hero .lead { color: var(--paper-muted); line-height: 1.6; }
+  .booking-widget {
+    max-width: 800px;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid var(--line-dark);
+  }
+  @media (max-width: 600px) {
+    .booking-widget iframe { height: 800px; }
+  }
+</style>

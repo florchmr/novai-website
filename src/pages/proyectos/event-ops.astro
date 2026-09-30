@@ -2,9 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
-import { WA } from '../../lib/wa';
+import { WA, CALENDAR_URL } from '../../lib/wa';
 ---
-<Base title="Event Operations — NOVAI" description="Diseñamos una plataforma para centralizar ventas, generar accesos únicos y controlar el ingreso a eventos desde un mismo sistema.">
+<Base title="Operaciones de Eventos — NOVAI" description="Diseñamos una plataforma para centralizar ventas, generar accesos únicos y controlar el ingreso a eventos desde un mismo sistema.">
   <Nav />
   <main class="case">
 
@@ -19,7 +19,7 @@ import { WA } from '../../lib/wa';
     <section class="section section--dark case__hero">
       <div class="blob blob--purple" style="width:520px;height:520px;top:-200px;right:-180px"></div>
       <div class="container">
-        <p class="eyebrow" data-reveal>01 / EVENT OPERATIONS</p>
+        <p class="eyebrow" data-reveal>01 / OPERACIONES DE EVENTOS</p>
         <h1 data-reveal style="--i:1">De una planilla<br>a un sistema completo.</h1>
         <p class="lead case__intro" data-reveal style="--i:2">Diseñamos y desarrollamos una plataforma para centralizar las ventas, generar accesos únicos y controlar el ingreso a eventos desde un mismo sistema.</p>
       </div>
@@ -35,7 +35,7 @@ import { WA } from '../../lib/wa';
 
     <!-- Portada -->
     <div class="container case__img-wrap" data-reveal style="--i:0">
-      <img src="/projects/event-ops/portada.png" alt="Vista general de la plataforma Event Operations" class="case__img" loading="lazy" />
+      <img src="/projects/event-ops/portada.png" alt="Vista general de la plataforma Operaciones de Eventos" class="case__img" loading="lazy" />
     </div>
 
     <!-- Proceso -->
@@ -139,7 +139,7 @@ import { WA } from '../../lib/wa';
           </div>
           <div class="case__cta-actions">
             <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
-            <a href={WA.agenda} target="_blank" rel="noopener" class="btn btn--outline">Agendar una videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+            <a href={CALENDAR_URL} target="_blank" rel="noopener" class="btn btn--outline">Agendar una videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 // Links a WhatsApp con mensaje prearmado: la persona solo toca "enviar".
-export const WA_NUMBER = '5491160560371';
+export const WA_NUMBER = '5491123983952';
 
 export const wa = (text: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
@@ -11,3 +11,7 @@ export const WA = {
   demoAgente: wa('Hola! Quiero probar el agente de IA.'),
   demoLead: wa('Hola! Quiero ver la demo de seguimiento de un lead.'),
 };
+
+// Calendario de GHL para agendar videollamadas (desactivado por ahora, todo va a WhatsApp)
+// export const CALENDAR_URL = '/agendar';
+export const CALENDAR_URL = wa('Hola! Me gustaria agendar una videollamada para contarles mi caso.');

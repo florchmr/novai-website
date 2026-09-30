@@ -1,9 +1,8 @@
 ---
-import { WA } from '../lib/wa';
+import { WA, CALENDAR_URL } from '../lib/wa';
 import Icon from './Icon.astro';
-// ponytail: la agenda también va a WhatsApp; cambiar por Calendly/GHL cuando exista
 const WHATSAPP = WA.proyecto;
-const AGENDA = WA.agenda;
+const AGENDA = CALENDAR_URL;
 ---
 <section id="contacto" class="section section--light cta-wrap">
   <div class="container">

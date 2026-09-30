@@ -1,0 +1,68 @@
+---
+const testimonials = [
+  {
+    name: 'Aloha Fit',
+    logo: '/testimonials/aloha-fit.png',
+    text: 'Cuando la conocí, yo no tenía sistemas. Entregaba todo de forma manual y eso me impedía escalar. Me presentó una herramienta que destrabó todo: empezamos a entregar de forma organizada y automatizada. Después trabajamos páginas de venta que realmente convierten, embudos de venta y automatizaciones. Poder contar con un equipo de profesionales de marketing que sabe lo que hace me da muchísima tranquilidad. Lo recomiendo 100%.',
+  },
+  {
+    name: 'DIA — Desarrollos e Inversiones Agrarias',
+    logo: '/testimonials/dia.png',
+    text: 'Nos construyó la web de nuestra nueva empresa y nos asesoró en cómo difundir la marca. Es una profesional que realmente sabe de marketing.',
+  },
+  {
+    name: 'Abogados en Acción',
+    logo: '/testimonials/abogados.png',
+    text: 'Empezamos con una página web, pero una simple página no vende. Necesitábamos un funnel de ventas y ahí es donde se especializa. Hicimos publicidad en Facebook y llegamos a tener hasta 2.000 registros para un evento, con procesos de conversión conectados a pasarelas de pago y plataformas de cursos.',
+  },
+  {
+    name: 'Dafne Schilling',
+    logo: '/testimonials/dafne.png',
+    text: 'Quería lograr diseños profesionales para mis landings y no lo conseguía con mi equipo interno. Trabajando juntas logré tener landings más lindas y en mucho menos tiempo. Lo que más valoro es el profesionalismo, la predisposición y la calidad humana. Se lo recomendaría a cualquier emprendedor que se dedique a venta de productos online.',
+  },
+];
+---
+<section id="testimonios" class="section section--dark">
+  <div class="blob blob--green" style="width:380px;height:380px;top:-160px;left:-120px"></div>
+  <div class="container">
+    <p class="eyebrow" data-reveal><span class="label">Testimonios</span></p>
+    <div class="section-head">
+      <h2 data-reveal style="--i:1">Lo que dicen quienes<br><span class="accent-green">ya trabajan con nosotros.</span></h2>
+    </div>
+    <div class="testimonials">
+      {testimonials.map((t, i) => (
+        <blockquote class="testimonial" data-reveal style={`--i:${i + 2}`}>
+          <div class="testimonial__logo-wrap">
+            <img src={t.logo} alt={t.name} class="testimonial__logo" loading="lazy" />
+          </div>
+          <p class="testimonial__text">"{t.text}"</p>
+          <cite class="testimonial__name">{t.name}</cite>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .testimonial {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    padding: 2rem; border-radius: var(--radius-card);
+    background: var(--paper); border: 1px solid var(--line-light);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  .testimonial:hover { border-color: var(--green); box-shadow: 0 8px 24px -12px rgba(62, 242, 107, 0.2); }
+  .testimonial__logo-wrap {
+    height: 60px; display: flex; align-items: center;
+  }
+  .testimonial__logo {
+    max-height: 48px; max-width: 160px; width: auto; object-fit: contain;
+  }
+  .testimonial__text {
+    font-size: 0.95rem; line-height: 1.7; color: var(--ink-muted);
+    font-style: italic; flex: 1;
+  }
+  .testimonial__name { font-style: normal; font-weight: 600; font-size: 0.85rem; color: var(--ink-muted); }
+
+  @media (max-width: 900px) { .testimonials { grid-template-columns: 1fr; } }
+</style>

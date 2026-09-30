@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base title="Demo — Agente de IA — NOVAI" description="Probá cómo un agente de IA responde, clasifica y gestiona una conversación en tiempo real.">
+  <Nav />
+  <main class="demo-page">
+    <div class="container">
+      <a href="/#demos" class="btn btn--ghost back-link">
+        <Icon name="arrow-left" size={16} strokeWidth={2} /> Volver
+      </a>
+      <div class="demo-page__hero">
+        <p class="eyebrow">Demo en vivo</p>
+        <h1>Hablá con un agente de IA</h1>
+        <p class="lead">Este es un asistente real funcionando con inteligencia artificial.<br>Hacé clic en el chat de abajo a la derecha y probalo.</p>
+      </div>
+    </div>
+  </main>
+  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6abd611bcb9ce9d3ea9931de"></script>
+</Base>
+
+<style>
+  .demo-page { min-height: 80vh; display: flex; align-items: center; }
+  .back-link { margin-bottom: 2rem; }
+  .demo-page__hero { max-width: 600px; }
+  .demo-page__hero .eyebrow { color: var(--green); margin-bottom: 1rem; }
+  .demo-page__hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+  .demo-page__hero .lead { color: var(--paper-muted); }
+</style>

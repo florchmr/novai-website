@@ -2,7 +2,7 @@
 import { WA } from '../lib/wa';
 import Icon from './Icon.astro';
 // ponytail: mientras no existan las demos, cada card abre WhatsApp pidiendo la demo
-const AGENT_HREF = WA.demoAgente;
+const AGENT_HREF = '/demo-agente';
 const LEAD_HREF = WA.demoLead;
 
 const chat = [
@@ -26,7 +26,7 @@ const stages = ['Nuevo', 'Contactado', 'Calificado', 'Agendado'];
 
     <div class="demos">
       <!-- Demo 01: agente de IA — preview de chat animado -->
-      <a href={AGENT_HREF} target="_blank" rel="noopener" class="demo" data-spotlight data-reveal style="--i:3">
+      <a href={AGENT_HREF} class="demo" data-spotlight data-reveal style="--i:3">
         <div class="demo__preview chat" aria-hidden="true">
           {chat.map((m, i) => (
             <p class={`chat__msg chat__msg--${m.from}`} style={`--k:${i}`}>{m.text}</p>

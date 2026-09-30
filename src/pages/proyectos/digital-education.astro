@@ -2,9 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
-import { WA } from '../../lib/wa';
+import { WA, CALENDAR_URL } from '../../lib/wa';
 ---
-<Base title="Digital Education Ecosystem — NOVAI" description="Ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada.">
+<Base title="Ecosistema de Educación Digital — NOVAI" description="Ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada.">
   <Nav />
   <main class="case">
 
@@ -19,7 +19,7 @@ import { WA } from '../../lib/wa';
     <section class="section section--dark case__hero">
       <div class="blob blob--purple" style="width:520px;height:520px;top:-200px;right:-180px"></div>
       <div class="container">
-        <p class="eyebrow" data-reveal>03 / DIGITAL EDUCATION ECOSYSTEM</p>
+        <p class="eyebrow" data-reveal>03 / ECOSISTEMA DE EDUCACIÓN DIGITAL</p>
         <h1 data-reveal style="--i:1">De una formación lista para vender<br>a un ecosistema completo.</h1>
         <p class="lead case__intro" data-reveal style="--i:2">Un ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada.</p>
       </div>
@@ -147,7 +147,7 @@ import { WA } from '../../lib/wa';
           </div>
           <div class="case__cta-actions">
             <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
-            <a href={WA.agenda} target="_blank" rel="noopener" class="btn btn--outline">Agendar una videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+            <a href={CALENDAR_URL} target="_blank" rel="noopener" class="btn btn--outline">Agendar una videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
           </div>
         </div>
       </div>

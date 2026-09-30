@@ -1,9 +1,9 @@
 // Identidad del sitio para <head>, OG y JSON-LD. Un solo lugar para cambiar nombre, textos o dominio.
 export const SITE = {
   name: 'NOVAI',
-  title: 'NOVAI — Marketing + Technology',
+  title: 'NOVAI | Agencia de Marketing, Automatización e IA',
   description:
-    'Agencia de marketing y tecnología. Conectamos marketing, tecnología y operaciones: funnels, CRM, automatización, integraciones y agentes de IA.',
+    'Funnels, CRM, automatizaciones e inteligencia artificial para escalar tu negocio. Conectamos marketing, tecnología y operaciones en un solo sistema.',
   locale: 'es_AR',
   lang: 'es-AR',
   ogImage: '/og.jpg',
