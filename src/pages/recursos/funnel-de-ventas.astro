@@ -271,6 +271,20 @@ const errores = [
   })),
 })} />
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo armar un funnel de ventas',
+  description: 'Las 5 etapas para construir un funnel de ventas que convierta: desde la atracción hasta la postventa.',
+  step: [
+    { '@type': 'HowToStep', name: 'Atracción', text: 'El primer contacto. La persona ve un anuncio, un post, un video o llega por Google. Todavía no te conoce.' },
+    { '@type': 'HowToStep', name: 'Captura', text: 'La persona llega a una landing page y deja sus datos a cambio de algo: un recurso, una demo, una consulta gratuita.' },
+    { '@type': 'HowToStep', name: 'Nutrición', text: 'Le enviás información relevante para que entienda su problema y tu solución. Construís confianza antes de vender.' },
+    { '@type': 'HowToStep', name: 'Conversión', text: 'La persona está lista para decidir. Agenda una llamada, pide una propuesta o compra directamente.' },
+    { '@type': 'HowToStep', name: 'Postventa', text: 'El funnel no termina con la venta. El seguimiento postventa genera recompras, referidos y retención.' },
+  ],
+})} />
+
 <style>
   .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
   .article__hero h1 { margin-bottom: 1.5rem; }

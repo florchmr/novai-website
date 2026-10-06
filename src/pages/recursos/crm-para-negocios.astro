@@ -331,6 +331,20 @@ const errores = [
   })),
 })} />
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo implementar un CRM en un negocio de servicios',
+  description: 'Guía paso a paso para elegir e implementar un CRM en un negocio de servicios, desde definir el proceso de venta hasta capacitar al equipo.',
+  step: [
+    { '@type': 'HowToStep', name: 'Definí tu proceso de venta', text: 'Antes de tocar cualquier herramienta, mapeá cómo vendés hoy: desde que llega un lead hasta que cierra (o se pierde). Etapas, acciones, criterios.' },
+    { '@type': 'HowToStep', name: 'Elegí el CRM según tu realidad', text: 'No el más caro ni el más popular. El que se ajusta a tu proceso, tu volumen, tu presupuesto y las herramientas que ya usás.' },
+    { '@type': 'HowToStep', name: 'Configurá el pipeline y los campos', text: 'Armá las etapas de tu embudo, los campos que necesitás de cada contacto y las vistas que va a usar cada persona del equipo.' },
+    { '@type': 'HowToStep', name: 'Importá datos y conectá fuentes', text: 'Traé tus contactos existentes (limpios) y conectá los formularios, WhatsApp y landing pages para que los leads nuevos entren directo.' },
+    { '@type': 'HowToStep', name: 'Capacitá y medí', text: 'Entrenamiento al equipo + revisión semanal de métricas. Después de 2-3 semanas de uso real, automatizá lo que sea repetitivo.' },
+  ],
+})} />
+
 <style>
   .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
   .article__hero h1 { margin-bottom: 1.5rem; }

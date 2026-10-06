@@ -1,0 +1,273 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = 'WhatsApp Business para ventas: cómo usarlo de forma profesional';
+const description = 'Guía para usar WhatsApp Business en tu proceso de ventas. API vs app, automatización, integración con CRM y errores que evitar.';
+
+const faqItems = [
+  { q: '¿Cuál es la diferencia entre WhatsApp Business app y WhatsApp Business API?', a: 'La app de WhatsApp Business es gratuita y funciona en un solo teléfono. Permite catálogo, respuestas rápidas y etiquetas, pero no se conecta con CRM ni permite automatizaciones reales. La API de WhatsApp Business permite múltiples agentes, integración con CRM, chatbots, automatizaciones y mensajes masivos segmentados. La API requiere un proveedor (Meta Business Suite, 360dialog, Twilio, o viene integrada en plataformas como GoHighLevel).' },
+  { q: '¿Se puede automatizar WhatsApp sin que parezca spam?', a: 'Sí, si los mensajes son relevantes, esperados y tienen valor. Un mensaje de bienvenida cuando alguien llena un formulario no es spam — es atención. Un recordatorio de una cita agendada no es spam — es servicio. Lo que sí es spam: mandar promociones masivas a contactos que nunca te dieron permiso, o insistir después de que alguien no respondió 3 veces.' },
+  { q: '¿Cuánto cuesta usar la API de WhatsApp Business?', a: 'Meta cobra por conversación: las conversaciones iniciadas por el negocio (marketing, utilidad) cuestan entre $0.02 y $0.08 USD dependiendo del país. Las conversaciones iniciadas por el usuario son gratuitas las primeras 1.000 por mes. Si usás GoHighLevel, la API viene integrada y se paga por mensaje enviado. Si usás un proveedor directo, hay costos de setup más el costo por conversación.' },
+  { q: '¿WhatsApp Business funciona con CRM?', a: 'Con la API sí. GoHighLevel, Kommo y Clientify tienen integración nativa con WhatsApp. HubSpot y Salesforce requieren conectores de terceros. Con Make o Zapier podés conectar WhatsApp API a casi cualquier CRM. La integración permite que las conversaciones de WhatsApp queden registradas en el CRM, se asignen a vendedores y disparen automatizaciones.' },
+  { q: '¿Puedo usar WhatsApp para vender sin la API?', a: 'Sí, la app gratuita de WhatsApp Business funciona para negocios chicos con poco volumen. Podés usar respuestas rápidas, catálogo y etiquetas para organizar contactos. El límite es que todo es manual, no se conecta con otras herramientas y solo funciona en un dispositivo. Cuando el volumen crece, la API se vuelve necesaria.' },
+  { q: '¿Cómo evitar que WhatsApp me bloquee la cuenta?', a: 'Meta penaliza el spam con restricciones y bloqueos. Para evitarlo: solo mandá mensajes a personas que te dieron permiso, no envíes más de un mensaje promocional por semana al mismo contacto, usá plantillas aprobadas por Meta para mensajes masivos, mantené una tasa de bloqueo baja (menos del 2%) y siempre ofrecé una forma de dejar de recibir mensajes.' },
+  { q: '¿Qué tipo de mensajes puedo automatizar por WhatsApp?', a: 'Los más comunes y efectivos: mensaje de bienvenida cuando un lead deja sus datos, confirmación y recordatorio de citas agendadas, seguimiento post-reunión, notificación de estado de pedido o proyecto, encuestas de satisfacción y secuencias de nutrición con contenido educativo. Lo que no conviene automatizar: negociaciones de precio, manejo de quejas y cierre de ventas high-ticket.' },
+];
+
+const useCases = [
+  {
+    title: 'Respuesta inmediata a leads',
+    desc: 'Cuando alguien llena un formulario o hace clic en un anuncio, recibe un WhatsApp automático en segundos. La velocidad de respuesta es el factor #1 en conversión de leads.',
+    auto: true,
+  },
+  {
+    title: 'Recordatorios de citas',
+    desc: 'Recordatorio automático 24h antes y 1h antes de una reunión agendada. Reduce el no-show en un 30-50%.',
+    auto: true,
+  },
+  {
+    title: 'Seguimiento post-reunión',
+    desc: 'Email o WhatsApp automático después de una reunión con resumen y próximos pasos. Mantiene el momentum de la venta.',
+    auto: true,
+  },
+  {
+    title: 'Calificación de leads',
+    desc: 'Chatbot que hace preguntas clave (presupuesto, tiempo, necesidad) antes de derivar al vendedor. El vendedor solo habla con leads calificados.',
+    auto: true,
+  },
+  {
+    title: 'Conversación de venta',
+    desc: 'El momento de escuchar, entender la necesidad y proponer la solución. Esto requiere un humano — la automatización prepara al lead para este momento.',
+    auto: false,
+  },
+  {
+    title: 'Manejo de objeciones',
+    desc: 'Cuando un prospecto dice "es caro", "lo tengo que pensar" o "no es el momento", la respuesta correcta depende del contexto. Un bot no puede manejar esto.',
+    auto: false,
+  },
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--purple" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">WhatsApp Business<br><span class="accent-green">para ventas.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">WhatsApp es el canal de venta más importante en Latinoamérica. Así se usa de forma profesional, sin parecer spam.</p>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section section--light">
+      <div class="container article__body">
+        <h2>WhatsApp ya no es opcional en ventas</h2>
+        <p>En Latinoamérica, <strong>WhatsApp es donde pasan las conversaciones de venta</strong>. No en email, no en formularios web, no en llamadas en frío. Si tu proceso comercial no incluye WhatsApp, estás perdiendo la mayoría de las oportunidades.</p>
+        <p>El problema es que la mayoría de los negocios usan WhatsApp de forma artesanal: un vendedor con su celular personal, sin registro de conversaciones, sin seguimiento, sin métricas. Funciona con 5 clientes. Con 50, es un caos.</p>
+        <p><strong>Usar WhatsApp Business de forma profesional</strong> significa integrarlo con tu CRM, automatizar lo repetitivo, medir resultados y mantener un estándar de comunicación. No es reemplazar al vendedor — es darle superpoderes.</p>
+      </div>
+    </section>
+
+    <!-- App vs API -->
+    <section class="section section--dark">
+      <div class="container article__body article__body--dark">
+        <h2>WhatsApp Business App vs API: cuál necesitás</h2>
+        <div class="article__table-wrap">
+          <table class="article__table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>App (gratuita)</th>
+                <th>API</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Precio</strong></td><td>Gratis</td><td>Por conversación ($0.02-0.08/conv)</td></tr>
+              <tr><td><strong>Dispositivos</strong></td><td>1 teléfono + 4 vinculados</td><td>Ilimitados</td></tr>
+              <tr><td><strong>Agentes simultáneos</strong></td><td>1</td><td>Ilimitados</td></tr>
+              <tr><td><strong>CRM integrado</strong></td><td>No</td><td>Sí</td></tr>
+              <tr><td><strong>Automatización</strong></td><td>Respuestas rápidas básicas</td><td>Chatbots, workflows, secuencias</td></tr>
+              <tr><td><strong>Mensajes masivos</strong></td><td>Listas de difusión (256 max)</td><td>Campañas segmentadas ilimitadas</td></tr>
+              <tr><td><strong>Métricas</strong></td><td>Básicas</td><td>Completas (entrega, lectura, respuesta)</td></tr>
+              <tr><td><strong>Ideal para</strong></td><td>1-2 personas, bajo volumen</td><td>Equipos, volumen medio-alto</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Regla práctica:</strong> si respondés más de 20 conversaciones por día o tenés más de una persona vendiendo, necesitás la API.</p>
+      </div>
+    </section>
+
+    <!-- Qué automatizar y qué no -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="label">Criterio clave</span></p>
+        <h2 data-reveal style="--i:1">Qué automatizar y qué no.</h2>
+        <p class="lead" data-reveal style="--i:2" style="max-width: 48rem; margin-bottom: 2.5rem;">La automatización potencia al vendedor. No lo reemplaza. Saber qué automatizar y qué dejar en manos humanas es la diferencia entre eficiencia y frialdad.</p>
+        <div class="article__cases">
+          {useCases.map((uc, i) => (
+            <div class={`article__case ${uc.auto ? 'article__case--auto' : 'article__case--human'}`} data-reveal style={`--i:${i + 3}`}>
+              <span class="article__case-badge">{uc.auto ? 'Automatizable' : 'Requiere humano'}</span>
+              <h3>{uc.title}</h3>
+              <p>{uc.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--dark">
+      <div class="container article__body article__body--dark">
+        <div class="article__callout article__callout--dark">
+          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Querés profesionalizar tu uso de WhatsApp?</h2>
+          <p>En NOVAI integramos WhatsApp Business API con tu CRM, configuramos automatizaciones y entrenamos a tu equipo para vender más sin perder el toque personal.</p>
+          <div style="margin-top: 1.5rem;">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="label">Preguntas frecuentes</span></p>
+        <h2 data-reveal style="--i:1">Todo sobre WhatsApp Business para ventas.</h2>
+        <div class="article__faq" data-reveal style="--i:2">
+          {faqItems.map((item) => (
+            <details class="article__faq-item">
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Seguí leyendo -->
+    <section class="section section--dark">
+      <div class="container">
+        <h2 data-reveal>Seguí leyendo</h2>
+        <div class="article__related" data-reveal style="--i:1">
+          <a href="/recursos/automatizar-seguimiento-leads/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Automatizar el seguimiento de leads</h3>
+            <p>Cómo automatizar sin perder oportunidades ni el toque humano.</p>
+          </a>
+          <a href="/recursos/crm-para-negocios/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>CRM para negocios de servicios</h3>
+            <p>Cómo elegir el CRM correcto e implementarlo sin drama.</p>
+          </a>
+          <a href="/recursos/ghl-vs-hubspot/" class="article__related-card">
+            <span class="article__related-tag">Comparativa</span>
+            <h3>GoHighLevel vs HubSpot vs alternativas</h3>
+            <p>Cuál elegir según tu negocio. Precios reales y diferencias clave.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/whatsapp-business-ventas/' },
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__intro { max-width: 48rem; }
+  .article__back { margin-bottom: 2rem; font-size: 0.8rem; }
+
+  .article__body { max-width: 52rem; }
+  .article__body h2 { margin-bottom: 1.5rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body--dark p { color: var(--paper-muted); }
+  .article__body--dark h2 { color: var(--paper); }
+
+  .article__callout--dark { margin: 2rem 0; padding: 2rem; border-radius: var(--radius-card); background: var(--bg-dark-2); border-left: 4px solid var(--green); text-align: center; }
+  .article__callout--dark h2 { color: var(--paper); }
+  .article__callout--dark p { color: var(--paper-muted); margin-bottom: 0; }
+
+  /* Tabla */
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .article__table th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--green); color: var(--green); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .article__table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--line-dark); color: var(--paper-muted); line-height: 1.6; }
+
+  /* Cases */
+  .article__cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .article__case {
+    padding: 1.5rem; border-radius: var(--radius-card);
+    background: var(--paper); border: 1px solid var(--line-light);
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .article__case-badge {
+    display: inline-block; width: fit-content;
+    padding: 0.2rem 0.6rem; border-radius: var(--radius);
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .article__case--auto .article__case-badge { background: rgba(62, 242, 107, 0.12); color: var(--green); }
+  .article__case--human .article__case-badge { background: rgba(124, 58, 237, 0.12); color: var(--purple-soft); }
+  .article__case h3 { font-size: 1rem; }
+  .article__case p { color: var(--ink-muted); font-size: 0.9rem; line-height: 1.6; }
+
+  /* FAQ */
+  .article__faq { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; }
+  .article__faq-item { border: 1px solid var(--line-light); border-radius: var(--radius-card); overflow: hidden; }
+  .article__faq-item summary {
+    padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+    transition: background var(--dur) var(--ease);
+  }
+  .article__faq-item summary:hover { background: var(--bg-light); }
+  .article__faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--green); font-weight: 300; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { padding: 0 1.5rem 1.25rem; color: var(--ink-muted); line-height: 1.8; font-size: 0.95rem; }
+
+  /* Seguí leyendo */
+  .article__related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .article__related-card {
+    display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+    text-decoration: none; color: var(--paper);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .article__related-card:hover { border-color: var(--green); transform: translateY(-2px); }
+  .article__related-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); font-weight: 600; }
+  .article__related-card h3 { font-size: 1rem; }
+  .article__related-card p { color: var(--paper-muted); font-size: 0.85rem; line-height: 1.6; }
+
+  .section--light .eyebrow .label { color: var(--ink-muted); }
+  .section--light h2 { color: var(--ink); }
+  .section--light .lead { color: var(--ink-muted); }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__cases { grid-template-columns: 1fr; }
+    .article__related { grid-template-columns: 1fr; }
+  }
+</style>
