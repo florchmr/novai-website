@@ -1,0 +1,91 @@
+---
+import Icon from './Icon.astro';
+
+const recursos = [
+  {
+    title: 'Automatización comercial',
+    desc: 'Qué es, cuándo la necesitás y cómo implementarla sin sobrecomplicar tu negocio.',
+    href: '/recursos/automatizacion-comercial/',
+    tag: 'Guía',
+  },
+  {
+    title: 'Funnel de ventas',
+    desc: 'Qué es, cómo funciona y cómo armar uno que realmente convierta.',
+    href: '/recursos/funnel-de-ventas/',
+    tag: 'Guía',
+  },
+  {
+    title: 'CRM para negocios de servicios',
+    desc: 'Cómo elegir el CRM correcto e implementarlo sin drama.',
+    href: '/recursos/crm-para-negocios/',
+    tag: 'Guía',
+  },
+  {
+    title: 'GHL vs HubSpot vs alternativas',
+    desc: 'Comparativa honesta. Precios reales, diferencias clave y para quién sirve cada uno.',
+    href: '/recursos/ghl-vs-hubspot/',
+    tag: 'Comparativa',
+  },
+];
+---
+<section class="section section--dark" id="recursos">
+  <div class="container">
+    <p class="eyebrow" data-reveal>Recursos</p>
+    <h2 data-reveal style="--i:1">Guías para decidir <span class="accent-green">mejor.</span></h2>
+    <p class="lead res__lead" data-reveal style="--i:2">Contenido pensado para que entiendas qué herramientas y procesos necesita tu negocio.</p>
+
+    <div class="res__grid">
+      {recursos.map((item, i) => (
+        <a href={item.href} class="res__card" data-reveal style={`--i:${i + 3}`}>
+          <span class="res__tag">{item.tag}</span>
+          <h3>{item.title}</h3>
+          <p>{item.desc}</p>
+          <span class="res__link">Leer <Icon name="arrow-right" size={14} strokeWidth={2} /></span>
+        </a>
+      ))}
+    </div>
+
+    <div class="res__more" data-reveal style="--i:7">
+      <a href="/recursos/" class="btn btn--ghost">Ver todos los recursos <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 { margin-bottom: 1rem; }
+  .res__lead { max-width: 40rem; margin-bottom: 2.5rem; }
+
+  .res__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+
+  .res__card {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 1.5rem; border-radius: var(--radius-card);
+    border: 1px solid var(--line-dark); text-decoration: none; color: var(--paper);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .res__card:hover { border-color: var(--green); transform: translateY(-2px); }
+
+  .res__tag {
+    display: inline-block; width: fit-content;
+    padding: 0.2rem 0.6rem; border-radius: var(--radius);
+    background: rgba(62, 242, 107, 0.1); color: var(--green);
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  .res__card h3 { font-size: 1rem; line-height: 1.35; }
+  .res__card p { color: var(--paper-muted); font-size: 0.85rem; line-height: 1.6; flex: 1; }
+
+  .res__link {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    color: var(--green); font-size: 0.8rem; font-weight: 600; margin-top: 0.25rem;
+  }
+
+  .res__more { margin-top: 2rem; text-align: center; }
+
+  @media (max-width: 900px) {
+    .res__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .res__grid { grid-template-columns: 1fr; }
+  }
+</style>
