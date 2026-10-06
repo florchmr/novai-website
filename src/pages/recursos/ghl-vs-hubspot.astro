@@ -298,6 +298,29 @@ const faqItems = [
       </div>
     </article>
 
+    <section class="section section--dark">
+      <div class="container">
+        <h2 data-reveal>Seguí leyendo</h2>
+        <div class="article__related" data-reveal style="--i:1">
+          <a href="/recursos/crm-para-negocios/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>CRM para negocios de servicios</h3>
+            <p>Cómo elegir el CRM correcto e implementarlo sin drama.</p>
+          </a>
+          <a href="/recursos/automatizacion-comercial/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Automatización comercial</h3>
+            <p>Qué es, cuándo la necesitás y cómo implementarla.</p>
+          </a>
+          <a href="/recursos/funnel-de-ventas/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Funnel de ventas: la guía práctica</h3>
+            <p>Qué es, cómo funciona y cómo armar uno que convierta.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 </Base>
 
@@ -378,9 +401,23 @@ const faqItems = [
   .article__faq-item[open] summary::after { content: '−'; }
   .article__faq-item p { margin-top: 1rem; margin-bottom: 0; color: var(--ink-muted); line-height: 1.8; font-size: 0.92rem; }
 
+  /* Seguí leyendo */
+  .article__related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .article__related-card {
+    display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+    text-decoration: none; color: var(--paper);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .article__related-card:hover { border-color: var(--green); transform: translateY(-2px); }
+  .article__related-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); font-weight: 600; }
+  .article__related-card h3 { font-size: 1rem; }
+  .article__related-card p { color: var(--paper-muted); font-size: 0.85rem; line-height: 1.6; }
+
   @media (max-width: 900px) {
     .article__hero { padding-top: 7rem; }
     .article__meta { flex-wrap: wrap; }
     .article__cta-buttons { flex-wrap: wrap; }
+    .article__related { grid-template-columns: 1fr; }
   }
 </style>

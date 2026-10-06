@@ -42,6 +42,13 @@ GoHighLevel, WhatsApp Business, Make, n8n, Zapier, HubSpot, Meta Ads, Google Ads
 - **Sistema de personalización**: Integración con Shopify que adapta la experiencia de compra según cada pedido.
 - **Ecosistema de educación digital**: Sistema completo para captar leads, convertirlos en clientes y entregar formación online automatizada.
 
+## Recursos y guías
+
+- [Automatización comercial: qué es, cuándo la necesitás y cómo implementarla](https://agencianovai.com/recursos/automatizacion-comercial/)
+- [Funnel de ventas: qué es, cómo funciona y cómo armar uno que convierta](https://agencianovai.com/recursos/funnel-de-ventas/)
+- [CRM para negocios de servicios: cómo elegir e implementar el correcto](https://agencianovai.com/recursos/crm-para-negocios/)
+- [GoHighLevel vs HubSpot vs alternativas: cuál elegir según tu negocio](https://agencianovai.com/recursos/ghl-vs-hubspot/)
+
 ## Clientes
 
 Aloha Fit, DIA (Desarrollos e Inversiones Agrarias), Abogados en Acción, Dafne Schilling, Advisors Academy, FabuMap.
