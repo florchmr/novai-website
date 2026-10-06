@@ -5,5 +5,8 @@ import sitemap from '@astrojs/sitemap';
 // ponytail: cambiar `site` cuando haya dominio propio (afecta sitemap, canonical y OG)
 export default defineConfig({
   site: 'https://agencianovai.com',
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({ lastmod: new Date() }),
+  ],
 });

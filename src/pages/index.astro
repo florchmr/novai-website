@@ -1,7 +1,5 @@
 ---
-import '../styles/global.css';
-import { SITE } from '../lib/site';
-import Head from '../components/Head.astro';
+import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import Value from '../components/Value.astro';
@@ -12,23 +10,16 @@ import Testimonials from '../components/Testimonials.astro';
 import Audience from '../components/Audience.astro';
 import Cta from '../components/Cta.astro';
 ---
-<!doctype html>
-<html lang={SITE.lang}>
-  <head>
-    <Head />
-  </head>
-  <body>
-    <Nav />
-    <main>
-      <Hero />
-      <Value />
-      <Solutions />
-      <Projects />
-      <!-- <Demos /> oculto hasta mejorar -->
-      <Testimonials />
-      <Audience />
-      <Cta />
-    </main>
-    <script src="../scripts/live.ts"></script>
-  </body>
-</html>
+<Base>
+  <Nav />
+  <main>
+    <Hero />
+    <Value />
+    <Solutions />
+    <Projects />
+    <!-- <Demos /> oculto hasta mejorar -->
+    <Testimonials />
+    <Audience />
+    <Cta />
+  </main>
+</Base>

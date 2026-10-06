@@ -1,0 +1,401 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = 'CRM para negocios de servicios: cómo elegir e implementar el correcto';
+const description = 'Guía práctica sobre CRM para negocios de servicios. Qué buscar, cómo implementarlo, errores comunes y qué opciones existen según tu tipo de negocio.';
+
+const faqItems = [
+  { q: '¿Qué es un CRM y para qué sirve?', a: 'CRM significa Customer Relationship Management (gestión de relaciones con clientes). Es un sistema que centraliza toda la información de tus contactos, leads y clientes en un solo lugar: datos de contacto, historial de conversaciones, estado de cada oportunidad de venta y tareas pendientes. Sirve para que ningún lead se pierda y para que todo el equipo tenga visibilidad del proceso comercial.' },
+  { q: '¿Cuándo un negocio necesita un CRM?', a: 'Cuando tenés más leads de los que podés seguir de memoria o con una planilla. Si alguna vez perdiste una venta porque te olvidaste de hacer seguimiento, o si tenés leads en WhatsApp, email y redes sin saber en qué estado está cada uno, necesitás un CRM. También cuando sumás un equipo comercial y necesitás visibilidad de qué hace cada vendedor.' },
+  { q: '¿Puedo usar una planilla de Excel o Google Sheets como CRM?', a: 'Podés, pero tiene límites claros: no automatiza seguimientos, no registra conversaciones, no envía recordatorios y requiere actualización manual constante. Funciona para 20-30 contactos activos. Más allá de eso, empezás a perder oportunidades. Un CRM real no solo guarda datos — ejecuta acciones automáticas basadas en esos datos.' },
+  { q: '¿Cuál es el mejor CRM para negocios en Latinoamérica?', a: 'Depende del tipo de negocio. GoHighLevel es ideal para negocios de servicios y agencias que necesitan CRM + funnels + WhatsApp + automatizaciones en una sola plataforma. HubSpot tiene un CRM gratuito muy completo pero escala caro. Kommo se especializa en ventas por WhatsApp. Clientify es una opción en español pensada para el mercado hispano. No hay "mejor" universal — hay mejor para tu caso.' },
+  { q: '¿Cuánto cuesta un CRM?', a: 'Desde $0 (HubSpot CRM gratuito, Zoho gratis para 3 usuarios) hasta miles de dólares por mes (Salesforce, HubSpot Enterprise). Para negocios de servicios PyME, las opciones más comunes están entre $50-300/mes. GoHighLevel cuesta $97-297/mes con todo incluido. Lo que importa no es el precio del CRM sino cuánto te cuesta NO tenerlo: leads perdidos, seguimientos olvidados, ventas que no cerraron.' },
+  { q: '¿Cuánto tarda implementar un CRM?', a: 'Una implementación básica (importar contactos, configurar pipeline, entrenar al equipo) puede estar lista en 1-2 semanas. Una implementación completa (con automatizaciones, integraciones, WhatsApp, formularios y reportes) tarda entre 3-6 semanas. Lo más importante es que el equipo realmente lo use — la implementación técnica es solo la mitad del trabajo.' },
+  { q: '¿Qué pasa con los datos si cambio de CRM?', a: 'Todos los CRM serios permiten exportar tus datos (contactos, notas, historial) en formato CSV o mediante API. La migración requiere planificación para no perder información, pero es factible. Lo que no se migra fácilmente son las automatizaciones y los workflows — esos hay que reconfigurar en la nueva plataforma.' },
+];
+
+const signals = [
+  'Tenés leads en 3 o más lugares distintos (WhatsApp, email, DMs, planilla)',
+  'No sabés cuántos leads activos tenés ni en qué etapa está cada uno',
+  'Te olvidás de hacer seguimiento y perdés ventas por eso',
+  'No podés medir cuántas consultas se convierten en ventas',
+  'Sumaste un vendedor y no hay forma de saber qué hace con cada lead',
+  'Respondés a todos igual sin importar si están listos para comprar o no',
+];
+
+const queBuscar = [
+  {
+    title: 'Pipeline visual',
+    desc: 'Ver de un vistazo en qué etapa está cada oportunidad. Arrastrar y soltar para mover leads entre etapas.',
+  },
+  {
+    title: 'Integración con WhatsApp',
+    desc: 'En Latinoamérica es innegociable. El CRM tiene que registrar y permitir enviar mensajes de WhatsApp desde la misma plataforma.',
+  },
+  {
+    title: 'Automatizaciones',
+    desc: 'Emails automáticos, recordatorios de seguimiento, cambio de etapa por acción del contacto. Si todo es manual, el CRM es solo una planilla cara.',
+  },
+  {
+    title: 'Formularios y landing pages',
+    desc: 'Que los leads que llegan desde tu web o ads entren directo al CRM sin copiar y pegar.',
+  },
+  {
+    title: 'Reportes y métricas',
+    desc: 'Saber cuántos leads entraron, cuántos avanzaron, cuántos cerraron y dónde se pierden. Sin datos, no hay mejora.',
+  },
+  {
+    title: 'Facilidad de uso',
+    desc: 'Si el equipo no lo usa, no sirve. El CRM más poderoso del mundo es inútil si queda abandonado a la semana.',
+  },
+];
+
+const errores = [
+  {
+    title: 'Comprar el CRM antes de definir el proceso',
+    desc: 'El CRM organiza tu proceso de venta. Si no tenés claro cómo vendés (etapas, criterios, acciones), el CRM no va a inventarlo por vos.',
+  },
+  {
+    title: 'Elegir por features en vez de por problema',
+    desc: 'No necesitás el CRM con más funciones. Necesitás el que resuelve tu problema principal. Un CRM simple que se usa es mejor que uno complejo que se abandona.',
+  },
+  {
+    title: 'No capacitar al equipo',
+    desc: 'Configurar el CRM es la mitad. La otra mitad es que el equipo entienda por qué lo usa, cómo lo usa y qué pasa si no lo usa. Sin adopción, la inversión se pierde.',
+  },
+  {
+    title: 'Querer automatizar todo desde el día uno',
+    desc: 'Primero usá el CRM de forma manual para entender tu proceso. Después automatizá lo repetitivo. Automatizar un proceso que no entendés es multiplicar errores.',
+  },
+  {
+    title: 'No limpiar los datos al migrar',
+    desc: 'Si importás una planilla con leads duplicados, datos viejos y contactos que nunca respondieron, arrancás con ruido. Limpiá antes de migrar.',
+  },
+  {
+    title: 'Usar el CRM solo como agenda de contactos',
+    desc: 'Un CRM no es una libreta de teléfonos. Si solo guardás nombres y mails pero no registrás interacciones, etapas y seguimientos, estás desperdiciando la herramienta.',
+  },
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--green" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">CRM para negocios<br><span class="accent-green">de servicios.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">Cómo elegir el CRM correcto, implementarlo sin drama y que tu equipo realmente lo use.</p>
+      </div>
+    </section>
+
+    <!-- Qué es -->
+    <section class="section section--light">
+      <div class="container article__body">
+        <h2>Qué es un CRM (sin vueltas)</h2>
+        <p>Un <strong>CRM</strong> es el sistema donde vivE toda la información de tus clientes y potenciales clientes. No es solo una base de datos — es la herramienta que te dice <strong>quién te contactó, qué necesita, en qué etapa está y qué tenés que hacer para avanzar esa venta</strong>.</p>
+        <p>Sin CRM, la información vive en la cabeza del vendedor, en WhatsApp, en una planilla, en emails sueltos. Con CRM, todo está en un solo lugar y el proceso avanza de forma visible y predecible.</p>
+        <p>Para un negocio de servicios — consultor, agencia, profesional, empresa PyME — el CRM es la diferencia entre "creo que tengo como 30 leads" y "tengo 47 leads activos, 12 en etapa de propuesta y 3 por cerrar esta semana".</p>
+
+        <div class="article__callout">
+          <p><strong>Un CRM no te vende más por tenerlo. Te vende más porque deja de perder las oportunidades que ya tenías.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Señales -->
+    <section class="section section--dark">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Señales</p>
+        <h2 data-reveal style="--i:1">¿Necesitás un CRM? Estas señales te lo confirman.</h2>
+        <div class="article__signals">
+          {signals.map((signal, i) => (
+            <div class="article__signal" data-reveal style={`--i:${i + 2}`}>
+              <span class="article__signal-dot"></span>
+              <p>{signal}</p>
+            </div>
+          ))}
+        </div>
+        <p class="article__signal-note" data-reveal style="--i:8">Si te identificaste con 2 o más, es momento de implementar uno.</p>
+      </div>
+    </section>
+
+    <!-- Qué buscar -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="label">Criterios</span></p>
+        <h2 data-reveal style="--i:1">Qué buscar en un CRM para servicios.</h2>
+        <div class="article__features">
+          {queBuscar.map((item, i) => (
+            <div class="article__feature" data-reveal style={`--i:${i + 2}`}>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparativa rápida -->
+    <section class="section section--dark">
+      <div class="container article__body article__body--dark">
+        <h2>Opciones de CRM: comparativa rápida</h2>
+        <p>No existe un CRM perfecto. Existe el que resuelve tu problema sin complicarte la vida.</p>
+
+        <div class="article__table-wrap">
+          <table class="article__table">
+            <thead>
+              <tr>
+                <th>CRM</th>
+                <th>Ideal para</th>
+                <th>WhatsApp</th>
+                <th>Precio desde</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>GoHighLevel</strong></td>
+                <td>Negocios de servicios, agencias, infoproductores</td>
+                <td>Nativo</td>
+                <td>$97/mes</td>
+              </tr>
+              <tr>
+                <td><strong>HubSpot</strong></td>
+                <td>Empresas medianas-grandes con presupuesto</td>
+                <td>Integración</td>
+                <td>Gratis (CRM) / $890/mes (Marketing)</td>
+              </tr>
+              <tr>
+                <td><strong>Kommo</strong></td>
+                <td>Equipos de venta que viven en WhatsApp</td>
+                <td>Nativo</td>
+                <td>$15/usuario/mes</td>
+              </tr>
+              <tr>
+                <td><strong>Clientify</strong></td>
+                <td>PyMEs del mercado hispano</td>
+                <td>Nativo</td>
+                <td>$39/mes</td>
+              </tr>
+              <tr>
+                <td><strong>Zoho CRM</strong></td>
+                <td>Empresas que necesitan mucha personalización</td>
+                <td>Integración</td>
+                <td>Gratis (3 usuarios) / $14/usuario/mes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Para una comparativa más detallada, leé nuestra <a href="/recursos/ghl-vs-hubspot/" style="color: var(--green);">guía completa de GHL vs HubSpot vs alternativas</a>.</p>
+      </div>
+    </section>
+
+    <!-- Errores -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="label">Errores frecuentes</span></p>
+        <h2 data-reveal style="--i:1">6 errores al implementar un CRM.</h2>
+        <div class="article__errores">
+          {errores.map((error, i) => (
+            <div class="article__error" data-reveal style={`--i:${i + 2}`}>
+              <h3>{error.title}</h3>
+              <p>{error.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="section section--dark">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Implementación</p>
+        <h2 data-reveal style="--i:1">Cómo implementar un CRM en 5 pasos.</h2>
+        <div class="article__pasos">
+          <div class="article__paso" data-reveal style="--i:2">
+            <div class="article__paso-num">01</div>
+            <div>
+              <h3>Definí tu proceso de venta</h3>
+              <p>Antes de tocar cualquier herramienta, mapeá cómo vendés hoy: desde que llega un lead hasta que cierra (o se pierde). Etapas, acciones, criterios.</p>
+            </div>
+          </div>
+          <div class="article__paso" data-reveal style="--i:3">
+            <div class="article__paso-num">02</div>
+            <div>
+              <h3>Elegí el CRM según tu realidad</h3>
+              <p>No el más caro ni el más popular. El que se ajusta a tu proceso, tu volumen, tu presupuesto y las herramientas que ya usás.</p>
+            </div>
+          </div>
+          <div class="article__paso" data-reveal style="--i:4">
+            <div class="article__paso-num">03</div>
+            <div>
+              <h3>Configurá el pipeline y los campos</h3>
+              <p>Armá las etapas de tu embudo, los campos que necesitás de cada contacto y las vistas que va a usar cada persona del equipo.</p>
+            </div>
+          </div>
+          <div class="article__paso" data-reveal style="--i:5">
+            <div class="article__paso-num">04</div>
+            <div>
+              <h3>Importá datos y conectá fuentes</h3>
+              <p>Traé tus contactos existentes (limpios) y conectá los formularios, WhatsApp y landing pages para que los leads nuevos entren directo.</p>
+            </div>
+          </div>
+          <div class="article__paso" data-reveal style="--i:6">
+            <div class="article__paso-num">05</div>
+            <div>
+              <h3>Capacitá y medí</h3>
+              <p>Entrenamiento al equipo + revisión semanal de métricas. Después de 2-3 semanas de uso real, automatizá lo que sea repetitivo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--light">
+      <div class="container article__body">
+        <div class="article__callout">
+          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Necesitás implementar un CRM?</h2>
+          <p>En NOVAI configuramos e implementamos CRM completos: pipeline, automatizaciones, WhatsApp, formularios y capacitación. Todo conectado a tu proceso de venta real.</p>
+          <div style="margin-top: 1.5rem;">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--dark">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Preguntas frecuentes</p>
+        <h2 data-reveal style="--i:1">Todo lo que necesitás saber sobre CRM.</h2>
+        <div class="article__faq article__faq--dark" data-reveal style="--i:2">
+          {faqItems.map((item) => (
+            <details class="article__faq-item">
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/crm-para-negocios/' },
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__intro { max-width: 48rem; }
+  .article__back { margin-bottom: 2rem; font-size: 0.8rem; }
+
+  .article__body { max-width: 52rem; }
+  .article__body h2 { margin-bottom: 1.5rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body--dark p { color: var(--paper-muted); }
+  .article__body--dark h2 { color: var(--paper); }
+
+  .article__callout {
+    margin: 2rem 0; padding: 2rem; border-radius: var(--radius-card);
+    background: var(--bg-light); border-left: 4px solid var(--green);
+  }
+  .article__callout p { color: var(--ink); margin-bottom: 0; }
+
+  /* Señales */
+  .article__signals { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; }
+  .article__signal {
+    display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+  }
+  .article__signal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .article__signal p { color: var(--paper-muted); line-height: 1.6; font-size: 0.95rem; }
+  .article__signal-note { color: var(--paper-muted); margin-top: 1.5rem; font-size: 0.9rem; font-style: italic; }
+
+  /* Features */
+  .article__features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .article__feature {
+    padding: 2rem; border-radius: var(--radius-card);
+    background: var(--paper); border: 1px solid var(--line-light);
+    transition: border-color var(--dur) var(--ease);
+  }
+  .article__feature:hover { border-color: var(--green); }
+  .article__feature h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+  .article__feature p { color: var(--ink-muted); line-height: 1.7; font-size: 0.9rem; }
+
+  /* Tabla */
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .article__table th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--green); color: var(--green); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .article__table td { padding: 1rem; border-bottom: 1px solid var(--line-dark); color: var(--paper-muted); line-height: 1.6; }
+
+  /* Errores */
+  .article__errores { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .article__error {
+    padding: 2rem; border-radius: var(--radius-card);
+    background: var(--paper); border: 1px solid var(--line-light);
+    transition: border-color var(--dur) var(--ease);
+  }
+  .article__error:hover { border-color: var(--green); }
+  .article__error h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+  .article__error p { color: var(--ink-muted); line-height: 1.7; font-size: 0.9rem; }
+
+  /* Pasos */
+  .article__pasos { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+  .article__paso {
+    display: flex; gap: 1.5rem; padding: 2rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+  }
+  .article__paso-num { font-size: 1.5rem; font-weight: 700; color: var(--green); min-width: 2.5rem; }
+  .article__paso h3 { margin-bottom: 0.5rem; }
+  .article__paso p { color: var(--paper-muted); line-height: 1.7; font-size: 0.95rem; }
+
+  /* FAQ */
+  .article__faq { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; }
+  .article__faq-item { border: 1px solid var(--line-light); border-radius: var(--radius-card); overflow: hidden; }
+  .article__faq--dark .article__faq-item { border-color: var(--line-dark); }
+  .article__faq-item summary {
+    padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+    transition: background var(--dur) var(--ease);
+  }
+  .article__faq-item summary:hover { background: rgba(255,255,255,0.05); }
+  .article__faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--green); font-weight: 300; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { padding: 0 1.5rem 1.25rem; color: var(--paper-muted); line-height: 1.8; font-size: 0.95rem; }
+
+  .section--light .eyebrow .label { color: var(--ink-muted); }
+  .section--light h2 { color: var(--ink); }
+  .section--light .lead { color: var(--ink-muted); }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__features { grid-template-columns: 1fr; }
+    .article__errores { grid-template-columns: 1fr; }
+    .article__paso { flex-direction: column; gap: 0.75rem; }
+  }
+</style>

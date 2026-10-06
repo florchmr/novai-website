@@ -1,0 +1,47 @@
+# NOVAI
+
+> Infraestructura digital para marketing y ventas.
+
+NOVAI es una agencia que conecta marketing, tecnología y operaciones. Construimos los sistemas digitales que hacen que el marketing y las ventas funcionen: funnels, CRM, automatizaciones, integraciones y agentes de IA.
+
+## Datos clave
+
+- Nombre: NOVAI
+- Sitio web: https://agencianovai.com
+- Fundada: 2019
+- Ubicación: Argentina
+- Área de servicio: Argentina y Latinoamérica
+- Idioma: Español
+- Contacto: WhatsApp +54 9 11 2398-3952
+
+## Qué hacemos
+
+Trabajamos en la intersección entre marketing, tecnología y operaciones. El marketing genera oportunidades; nosotros construimos la infraestructura para que esas oportunidades avancen: captación, seguimiento, agenda, conversión, comunicación y gestión.
+
+## Servicios
+
+- **Conversión**: Funnels de venta, landing pages, sitios web, sistemas de agenda.
+- **Operations**: CRM, automatización de procesos comerciales, seguimiento de leads.
+- **Integración**: Conexión de herramientas (WhatsApp, email, pasarelas de pago, plataformas).
+- **Intelligence**: Agentes de IA, soluciones personalizadas, dashboards.
+
+## Stack tecnológico
+
+GoHighLevel, WhatsApp Business, Make, n8n, Zapier, HubSpot, Meta Ads, Google Ads, Shopify, Stripe, Mercado Pago, Notion, Calendly, Airtable, Typeform.
+
+## Para quién trabajamos
+
+- Infoproductores y creadores de cursos online.
+- Consultores y expertos que venden servicios.
+- Negocios de servicios que necesitan sistematizar su proceso comercial.
+- Agencias que necesitan delegar la parte tecnológica de un proyecto.
+
+## Proyectos destacados
+
+- **Operaciones de eventos**: Plataforma para centralizar ventas, generar accesos únicos y controlar ingreso a eventos.
+- **Sistema de personalización**: Integración con Shopify que adapta la experiencia de compra según cada pedido.
+- **Ecosistema de educación digital**: Sistema completo para captar leads, convertirlos en clientes y entregar formación online automatizada.
+
+## Clientes
+
+Aloha Fit, DIA (Desarrollos e Inversiones Agrarias), Abogados en Acción, Dafne Schilling, Advisors Academy, FabuMap.

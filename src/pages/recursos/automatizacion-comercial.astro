@@ -1,0 +1,345 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = 'Automatización comercial: qué es, cuándo la necesitás y cómo implementarla';
+const description = 'Guía completa sobre automatización de procesos comerciales. Qué se puede automatizar, cuándo tiene sentido hacerlo y cómo implementarlo sin sobrecomplicar tu negocio.';
+
+const faqItems = [
+  { q: '¿Qué es la automatización comercial?', a: 'La automatización comercial es el uso de tecnología para ejecutar tareas repetitivas del proceso de ventas sin intervención manual: seguimiento de leads, envío de emails, recordatorios de agenda, calificación de contactos y actualización de CRM. El objetivo es que el equipo comercial se enfoque en vender, no en tareas administrativas.' },
+  { q: '¿Cuándo una empresa necesita automatizar su proceso comercial?', a: 'Cuando empieza a perder oportunidades por falta de seguimiento, cuando el equipo dedica más tiempo a tareas administrativas que a vender, o cuando el volumen de leads supera la capacidad de gestionarlos manualmente. Si tenés leads que se enfrían porque nadie los contactó a tiempo, necesitás automatización.' },
+  { q: '¿Qué herramientas se usan para automatizar procesos comerciales?', a: 'Las más comunes son GoHighLevel (CRM + automatización todo en uno), HubSpot (CRM con automatización avanzada en planes pagos), ActiveCampaign (email marketing y automatización), Make y Zapier (conectores entre herramientas), y WhatsApp Business API (comunicación automatizada). La elección depende del proceso que necesitás resolver.' },
+  { q: '¿Cuánto cuesta automatizar el proceso comercial de una empresa?', a: 'El costo varía según la complejidad. Una automatización básica (emails + CRM) puede costar entre $100-200/mes en herramientas. Un sistema completo (funnels + CRM + WhatsApp + automatizaciones + integraciones) puede estar entre $200-500/mes en herramientas más el costo de implementación. Lo importante es que el retorno supere la inversión: un lead que se pierde por falta de seguimiento es más caro que cualquier herramienta.' },
+  { q: '¿Se puede automatizar el seguimiento de leads por WhatsApp?', a: 'Sí. Con herramientas como GoHighLevel o integraciones con la API de WhatsApp Business, podés automatizar mensajes de bienvenida, recordatorios de citas, seguimiento post-reunión y secuencias de nutrición. Lo importante es que los mensajes sean relevantes y no spam — la automatización debe mejorar la experiencia del contacto, no empeorarla.' },
+  { q: '¿La automatización reemplaza al equipo comercial?', a: 'No. La automatización elimina tareas repetitivas (seguimiento, recordatorios, actualización de datos) para que el equipo se enfoque en lo que realmente requiere intervención humana: conversaciones de venta, negociación, cierre y relación con el cliente. Un vendedor que no pierde tiempo copiando datos entre planillas vende más.' },
+  { q: '¿Qué es un funnel de ventas automatizado?', a: 'Es un sistema donde el recorrido del potencial cliente está diseñado y conectado: desde que ve un anuncio o llega a una landing page, hasta que agenda una reunión o compra. Incluye páginas de captura, secuencias de email, calificación automática de leads, recordatorios y seguimiento. Todo funciona sin intervención manual constante, aunque el cierre suele ser humano.' },
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--green" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">Automatización comercial:<br><span class="accent-green">la guía completa.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">Qué es, cuándo la necesitás y cómo implementarla sin sobrecomplicar tu negocio.</p>
+        <div class="article__meta" data-reveal style="--i:3">
+          <span>NOVAI</span>
+          <span class="article__sep"></span>
+          <time datetime="2026-10">Octubre 2026</time>
+          <span class="article__sep"></span>
+          <span>12 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="section section--light">
+      <div class="container article__body">
+
+        <h2>¿Qué es la automatización comercial?</h2>
+        <p>La automatización comercial es el uso de tecnología para ejecutar tareas repetitivas del proceso de ventas sin intervención manual. Seguimiento de leads, envío de emails, recordatorios de agenda, calificación de contactos, actualización de CRM — todo eso puede funcionar solo.</p>
+        <p>El objetivo no es reemplazar al equipo comercial. Es <strong>liberar tiempo</strong> para que se enfoque en lo que realmente requiere una persona: conversaciones, negociación, cierre y relación con el cliente.</p>
+        <p>Un vendedor que no pierde tiempo copiando datos entre planillas, mandando recordatorios a mano o preguntándose qué leads tiene que llamar hoy, vende más.</p>
+
+        <h2>¿Cuándo necesitás automatizar?</h2>
+        <p>No todos los negocios necesitan automatización desde el día uno. Pero hay señales claras de que llegó el momento:</p>
+
+        <div class="article__signals">
+          <div class="article__signal">
+            <h3>Leads que se enfrían</h3>
+            <p>Llegan consultas pero nadie las contacta en las primeras horas. Cuando finalmente responden, el interés ya pasó.</p>
+          </div>
+          <div class="article__signal">
+            <h3>Seguimiento manual</h3>
+            <p>El seguimiento depende de la memoria o de una planilla que nadie actualiza. Si alguien se enferma o se va de vacaciones, se pierden oportunidades.</p>
+          </div>
+          <div class="article__signal">
+            <h3>No sabés dónde está cada lead</h3>
+            <p>No hay visibilidad de en qué etapa está cada oportunidad. No sabés cuántos leads tenés, cuántos se contactaron, cuántos están por cerrar.</p>
+          </div>
+          <div class="article__signal">
+            <h3>Tareas repetitivas</h3>
+            <p>El equipo dedica horas a mandar los mismos emails, confirmar las mismas reuniones, pasar la misma información de un lugar a otro.</p>
+          </div>
+          <div class="article__signal">
+            <h3>Crecimiento frenado</h3>
+            <p>Podrías atender más clientes, pero el proceso manual no escala. Contratar más gente no es la solución si el proceso sigue siendo ineficiente.</p>
+          </div>
+        </div>
+
+        <p>Si te identificás con 2 o más de estas señales, la automatización probablemente te va a dar un retorno real.</p>
+
+        <h2>¿Qué se puede automatizar en un proceso comercial?</h2>
+        <p>No todo se debe automatizar. La clave es identificar qué tareas son repetitivas, predecibles y no requieren criterio humano.</p>
+
+        <h3>Lo que sí conviene automatizar</h3>
+        <div class="article__table-wrap">
+          <table class="article__table">
+            <thead>
+              <tr>
+                <th>Tarea</th>
+                <th>Qué se automatiza</th>
+                <th>Ejemplo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Captura de leads</strong></td>
+                <td>Formulario → CRM automático</td>
+                <td>Alguien completa un formulario y aparece en tu pipeline sin que hagas nada</td>
+              </tr>
+              <tr>
+                <td><strong>Respuesta inmediata</strong></td>
+                <td>Email o WhatsApp automático al registrarse</td>
+                <td>"Gracias por tu consulta, te contactamos en las próximas 24hs"</td>
+              </tr>
+              <tr>
+                <td><strong>Calificación</strong></td>
+                <td>Scoring por comportamiento</td>
+                <td>Si abrió 3 emails y visitó la página de precios → lead caliente</td>
+              </tr>
+              <tr>
+                <td><strong>Seguimiento</strong></td>
+                <td>Secuencias de email/WhatsApp</td>
+                <td>Si no respondió en 3 días → mensaje de seguimiento automático</td>
+              </tr>
+              <tr>
+                <td><strong>Agenda</strong></td>
+                <td>Link de calendario + confirmación + recordatorio</td>
+                <td>El lead elige horario, recibe confirmación y recordatorio 1 hora antes</td>
+              </tr>
+              <tr>
+                <td><strong>Nutrición</strong></td>
+                <td>Contenido educativo por etapa</td>
+                <td>Secuencia de 5 emails que explica tu servicio antes de la reunión</td>
+              </tr>
+              <tr>
+                <td><strong>Post-venta</strong></td>
+                <td>Onboarding y bienvenida</td>
+                <td>Email con accesos + guía de inicio + encuesta de satisfacción a los 30 días</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Lo que NO conviene automatizar</h3>
+        <ul>
+          <li><strong>Conversaciones de venta complejas.</strong> La negociación requiere empatía y criterio humano.</li>
+          <li><strong>Resolución de problemas.</strong> Los reclamos y situaciones delicadas necesitan una persona.</li>
+          <li><strong>Relación con clientes clave.</strong> Los clientes grandes valoran el trato personal.</li>
+          <li><strong>Decisiones estratégicas.</strong> Qué vender, a quién, a qué precio — eso no se automatiza.</li>
+        </ul>
+
+        <p>La regla es simple: <strong>automatizá lo repetitivo, dejá lo estratégico para las personas</strong>.</p>
+
+        <h2>Cómo implementar automatización comercial</h2>
+        <p>El error más común es empezar por la herramienta. "¿Qué CRM me conviene?" es la pregunta equivocada. La pregunta correcta es:</p>
+
+        <div class="article__highlight">
+          <p><strong>¿Qué tiene que pasar en mi proceso comercial y qué infraestructura lo permite?</strong></p>
+        </div>
+
+        <p>Este es el proceso que usamos en NOVAI:</p>
+
+        <h3>1. Mapear el proceso actual</h3>
+        <p>Antes de automatizar, necesitás entender qué pasa hoy. ¿De dónde vienen los leads? ¿Quién los contacta? ¿Qué pasa después del primer contacto? ¿Dónde se pierden? ¿Cuánto tarda cada etapa?</p>
+        <p>Si no podés describir tu proceso en un párrafo, probablemente no lo tenés claro — y automatizar algo que no entendés solo amplifica el desorden.</p>
+
+        <h3>2. Identificar los cuellos de botella</h3>
+        <p>¿Dónde se pierde tiempo, información o leads? Los cuellos de botella más comunes son:</p>
+        <ul>
+          <li>Tiempo de respuesta al primer contacto (más de 24hs = oportunidad perdida)</li>
+          <li>Seguimiento inconsistente (depende de que alguien se acuerde)</li>
+          <li>Información dispersa (datos en WhatsApp, email, planilla y cabeza del vendedor)</li>
+          <li>Falta de visibilidad (no sabés cuántos leads tenés ni en qué etapa están)</li>
+        </ul>
+
+        <h3>3. Diseñar el sistema</h3>
+        <p>Definir qué tiene que pasar en cada etapa del proceso: qué acción se dispara, quién interviene, qué comunicación se envía, qué datos se registran. Esto es <strong>diseño de sistema</strong>, no configuración de herramientas.</p>
+
+        <h3>4. Elegir las herramientas</h3>
+        <p>Recién acá elegís la tecnología. Y la elección depende del sistema que diseñaste, no al revés. Algunas combinaciones comunes:</p>
+        <ul>
+          <li><strong>Todo en uno:</strong> GoHighLevel (CRM + funnels + email + WhatsApp + agenda + automatización)</li>
+          <li><strong>Modular:</strong> HubSpot (CRM) + ActiveCampaign (email) + Calendly (agenda) + Zapier (conexión)</li>
+          <li><strong>Mínimo viable:</strong> Google Sheets + Calendly + WhatsApp Business (para empezar con poco volumen)</li>
+        </ul>
+
+        <h3>5. Implementar por fases</h3>
+        <p>No intentes automatizar todo de una vez. Empezá por lo que más impacta:</p>
+        <ol>
+          <li><strong>Fase 1:</strong> Captura de leads centralizada + respuesta automática + CRM básico</li>
+          <li><strong>Fase 2:</strong> Seguimiento automatizado + agenda con recordatorios</li>
+          <li><strong>Fase 3:</strong> Calificación de leads + secuencias de nutrición + reporting</li>
+          <li><strong>Fase 4:</strong> Integraciones avanzadas + IA + optimización basada en datos</li>
+        </ol>
+
+        <h3>6. Medir y ajustar</h3>
+        <p>La automatización no es "set and forget". Necesitás medir qué funciona: tasa de respuesta, tiempo de cierre, leads perdidos, conversión por etapa. Y ajustar en base a datos reales, no suposiciones.</p>
+
+        <h2>Errores comunes</h2>
+
+        <div class="article__mistakes">
+          <div class="article__mistake">
+            <h3>Automatizar sin proceso</h3>
+            <p>"Compré un CRM pero nadie lo usa." Si el proceso no está definido antes de la herramienta, la herramienta no resuelve nada.</p>
+          </div>
+          <div class="article__mistake">
+            <h3>Sobreautomatizar</h3>
+            <p>No todo necesita un workflow de 15 pasos. A veces la solución es un simple recordatorio o un template de mensaje. La complejidad sin necesidad es un lastre.</p>
+          </div>
+          <div class="article__mistake">
+            <h3>Automatizar spam</h3>
+            <p>Mandar 10 emails seguidos a un lead que no respondió no es "automatización" — es spam automatizado. Cada mensaje debe aportar valor o no debería existir.</p>
+          </div>
+          <div class="article__mistake">
+            <h3>No medir resultados</h3>
+            <p>"Implementamos automatización" no es un resultado. ¿Bajó el tiempo de respuesta? ¿Aumentaron las reuniones agendadas? ¿Se pierden menos leads? Sin métricas, no sabés si funciona.</p>
+          </div>
+        </div>
+
+        <h2>La automatización como infraestructura</h2>
+        <p>En NOVAI pensamos la automatización como parte de la <strong>infraestructura digital</strong> del negocio. No es un proyecto de una vez — es un sistema que se construye, se conecta con el marketing y las ventas, y evoluciona con el negocio.</p>
+        <p>El orden siempre es el mismo:</p>
+        <ol>
+          <li><strong>Problema</strong> → ¿qué está frenando al negocio?</li>
+          <li><strong>Proceso</strong> → ¿qué tiene que pasar?</li>
+          <li><strong>Sistema</strong> → ¿cómo se conectan las piezas?</li>
+          <li><strong>Tecnología</strong> → ¿qué herramienta lo implementa mejor?</li>
+          <li><strong>Resultado</strong> → ¿mejoró lo que queríamos mejorar?</li>
+        </ol>
+        <p>La herramienta es el medio. El resultado de negocio es el fin.</p>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="article__faq">
+          {faqItems.map((item, i) => (
+            <details class="article__faq-item" open={i === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+
+        <div class="article__cta">
+          <h2>¿Querés automatizar tu proceso comercial?</h2>
+          <p>Contanos cómo funciona tu proceso hoy y te ayudamos a diseñar el sistema que lo haga escalar.</p>
+          <div class="article__cta-buttons">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+            <a href="/agendar" class="btn btn--outline">Agendar videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  datePublished: '2026-10-05',
+  dateModified: '2026-10-05',
+  mainEntityOfPage: 'https://agencianovai.com/recursos/automatizacion-comercial/',
+  inLanguage: 'es',
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__back { margin-bottom: 2rem; }
+  .article__intro { max-width: 48rem; }
+  .article__meta { display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--paper-muted); margin-top: 1.5rem; }
+  .article__sep { width: 1px; height: 12px; background: var(--line-dark); }
+
+  .article__body { max-width: 48rem; margin: 0 auto; }
+  .article__body h2 { color: var(--ink); margin-top: 3rem; margin-bottom: 1rem; }
+  .article__body h2:first-child { margin-top: 0; }
+  .article__body h3 { color: var(--ink); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.05rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body ul, .article__body ol { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .article__body li { margin-bottom: 0.5rem; }
+  .article__body strong { color: var(--ink); }
+
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--line-light); border-radius: var(--radius-card); }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 600px; }
+  .article__table th { background: var(--bg-dark); color: var(--paper); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .article__table td { padding: 0.75rem 1rem; border-top: 1px solid var(--line-light); color: var(--ink-muted); vertical-align: top; }
+  .article__table td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .article__table tr:hover td { background: rgba(62, 242, 107, 0.03); }
+
+  .article__highlight {
+    background: var(--bg-dark); color: var(--paper); padding: 2rem; border-radius: var(--radius-card); margin: 2rem 0;
+  }
+  .article__highlight p { color: var(--paper-muted); margin-bottom: 0; }
+  .article__highlight strong { color: var(--paper); }
+
+  .article__signals { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+  .article__signal {
+    padding: 1.5rem; border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    transition: border-color var(--dur) var(--ease);
+  }
+  .article__signal:hover { border-color: var(--green); }
+  .article__signal:last-child { grid-column: span 2; }
+  .article__signal h3 { margin-top: 0; margin-bottom: 0.5rem; }
+  .article__signal p { margin-bottom: 0; font-size: 0.92rem; }
+
+  .article__mistakes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+  .article__mistake {
+    padding: 1.5rem; border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    border-left: 3px solid var(--purple);
+  }
+  .article__mistake h3 { margin-top: 0; margin-bottom: 0.5rem; }
+  .article__mistake p { margin-bottom: 0; font-size: 0.92rem; }
+
+  .article__faq { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+  .article__faq-item {
+    border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    padding: 1.25rem 1.5rem; transition: border-color var(--dur) var(--ease);
+  }
+  .article__faq-item[open] { border-color: var(--green); }
+  .article__faq-item summary {
+    font-weight: 600; font-size: 0.95rem; color: var(--ink); cursor: pointer;
+    list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .article__faq-item summary::-webkit-details-marker { display: none; }
+  .article__faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--green); flex-shrink: 0; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { margin-top: 1rem; margin-bottom: 0; color: var(--ink-muted); line-height: 1.8; font-size: 0.92rem; }
+
+  .article__cta {
+    margin-top: 3rem; padding: 2.5rem; border-radius: var(--radius-card);
+    background: var(--bg-dark); text-align: center;
+  }
+  .article__cta h2 { color: var(--paper) !important; margin-top: 0 !important; }
+  .article__cta p { color: var(--paper-muted); }
+  .article__cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__meta { flex-wrap: wrap; }
+    .article__signals { grid-template-columns: 1fr; }
+    .article__signal:last-child { grid-column: span 1; }
+    .article__mistakes { grid-template-columns: 1fr; }
+    .article__cta-buttons { flex-wrap: wrap; }
+  }
+</style>

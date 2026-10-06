@@ -1,0 +1,323 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = 'Funnel de ventas: qué es, cómo funciona y cómo armar uno que convierta';
+const description = 'Guía práctica sobre funnels de venta. Qué son, qué etapas tienen, qué herramientas usar y los errores más comunes al implementarlos.';
+
+const faqItems = [
+  { q: '¿Qué es un funnel de ventas?', a: 'Un funnel (o embudo) de ventas es el recorrido que hace una persona desde que descubre tu negocio hasta que compra. Incluye todas las etapas intermedias: ver un anuncio, visitar una landing page, dejar sus datos, recibir información, agendar una reunión y finalmente comprar. Se llama "embudo" porque en cada etapa avanza un porcentaje menor de personas.' },
+  { q: '¿Cuál es la diferencia entre un funnel y una landing page?', a: 'Una landing page es una sola página con un objetivo (captar un dato, vender un producto). Un funnel es el sistema completo: la landing page + los emails de seguimiento + la página de agradecimiento + los recordatorios + la secuencia de venta + el checkout. La landing page es una pieza del funnel, no el funnel en sí.' },
+  { q: '¿Qué herramientas se usan para crear un funnel de ventas?', a: 'Las más comunes son GoHighLevel (todo en uno: landing, CRM, email, WhatsApp, calendario), ClickFunnels (especializado en funnels), WordPress + Elementor (más flexible pero requiere más configuración), y Systeme.io (opción económica). Para negocios en Latinoamérica, GoHighLevel suele ser la mejor opción por su integración nativa con WhatsApp y Mercado Pago.' },
+  { q: '¿Cuánto cuesta armar un funnel de ventas?', a: 'Depende de la complejidad. Un funnel básico (landing + emails + thank you page) puede costar entre $200-500 USD de implementación más $50-100/mes en herramientas. Un funnel completo (con CRM, automatizaciones, WhatsApp, calendario y seguimiento) puede costar entre $800-2.500 USD de implementación más $100-300/mes. Lo importante es que el retorno justifique la inversión.' },
+  { q: '¿Cuánto tarda un funnel en dar resultados?', a: 'Un funnel bien armado con tráfico (ads o contenido orgánico) puede generar los primeros leads en las primeras 24-48 horas. Pero optimizar las tasas de conversión lleva entre 2 y 4 semanas de datos. No existe un funnel perfecto desde el día uno — se ajusta con datos reales: tasas de apertura de emails, clics, conversiones en cada etapa.' },
+  { q: '¿Necesito un funnel si ya vendo por WhatsApp o redes sociales?', a: 'Sí, especialmente si querés escalar. Vender por WhatsApp funciona cuando tenés pocos leads, pero cuando el volumen crece se vuelve imposible dar seguimiento manual a todos. Un funnel automatiza la captación, calificación y seguimiento para que cuando llegues a hablar con alguien, ya esté informado e interesado. No reemplaza a WhatsApp — lo complementa.' },
+  { q: '¿Qué tasa de conversión es normal en un funnel?', a: 'Varía por industria y tipo de oferta, pero como referencia: landing page a lead (registro) entre 15-35%, lead a reunión agendada entre 10-25%, reunión a venta entre 20-40% en servicios de alto valor. Si tu landing convierte menos del 10% de las visitas, hay un problema de mensaje, diseño o calidad del tráfico que vale la pena investigar.' },
+];
+
+const etapas = [
+  {
+    name: 'Atracción',
+    desc: 'El primer contacto. La persona ve un anuncio, un post, un video o llega por Google. Todavía no te conoce.',
+    tools: 'Meta Ads, Google Ads, SEO, contenido orgánico, referidos.',
+  },
+  {
+    name: 'Captura',
+    desc: 'La persona llega a una landing page y deja sus datos a cambio de algo: un recurso, una demo, una consulta gratuita.',
+    tools: 'Landing pages, formularios, pop-ups, lead magnets.',
+  },
+  {
+    name: 'Nutrición',
+    desc: 'Le enviás información relevante para que entienda su problema y tu solución. Construís confianza antes de vender.',
+    tools: 'Email marketing, WhatsApp, contenido educativo.',
+  },
+  {
+    name: 'Conversión',
+    desc: 'La persona está lista para decidir. Agenda una llamada, pide una propuesta o compra directamente.',
+    tools: 'Calendario de agenda, checkout, propuestas, llamadas de venta.',
+  },
+  {
+    name: 'Postventa',
+    desc: 'El funnel no termina con la venta. El seguimiento postventa genera recompras, referidos y retención.',
+    tools: 'Onboarding automatizado, encuestas, upsells, programa de referidos.',
+  },
+];
+
+const errores = [
+  {
+    title: 'Armar el funnel sin tener claro el proceso de venta',
+    desc: 'Un funnel digitaliza un proceso comercial. Si no tenés claro cómo vendés hoy, el funnel no va a inventar un proceso que funcione.',
+  },
+  {
+    title: 'Enfocarse solo en la landing page',
+    desc: 'La landing capta el lead, pero lo que convierte es el seguimiento. Un formulario sin secuencia de emails ni follow-up es un lead desperdiciado.',
+  },
+  {
+    title: 'No medir nada',
+    desc: 'Si no sabés cuántas personas entran, cuántas dejan sus datos y cuántas compran, no podés mejorar. Sin métricas, todo es intuición.',
+  },
+  {
+    title: 'Complicar el funnel desde el inicio',
+    desc: 'No necesitás 15 emails, 3 upsells y un webinar automatizado desde el día uno. Empezá simple: landing + 3-5 emails + CTA claro. Complejizá cuando tengas datos.',
+  },
+  {
+    title: 'Copiar funnels de otros nichos',
+    desc: 'Un funnel que funciona para un curso online no funciona igual para un servicio de consultoría. El proceso depende de tu negocio, tu audiencia y tu ticket.',
+  },
+  {
+    title: 'No integrar WhatsApp en Latinoamérica',
+    desc: 'En esta región, WhatsApp es el canal principal de comunicación comercial. Un funnel que solo usa email pierde la mayoría de las conversaciones.',
+  },
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--purple" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">Funnel de ventas:<br><span class="accent-green">la guía práctica.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">Qué es, cómo funciona, qué etapas tiene y cómo armar uno que realmente convierta — sin sobrecomplicarlo.</p>
+      </div>
+    </section>
+
+    <!-- Qué es -->
+    <section class="section section--light">
+      <div class="container article__body">
+        <h2>Qué es un funnel de ventas (y qué no es)</h2>
+        <p>Un <strong>funnel de ventas</strong> es el sistema que lleva a una persona desde "no te conozco" hasta "te compro". Incluye cada punto de contacto intermedio: la publicidad, la landing page, los emails, el seguimiento por WhatsApp, la reunión y el cierre.</p>
+        <p>No es solo una landing page. No es solo una secuencia de emails. No es un truco de marketing. Es la <strong>infraestructura digital</strong> que conecta tu captación con tu venta.</p>
+        <p>Se llama "embudo" porque de todas las personas que entran en contacto con tu negocio, solo un porcentaje avanza a cada siguiente etapa. El objetivo del funnel es maximizar ese porcentaje en cada paso — no con manipulación, sino con claridad, relevancia y timing.</p>
+
+        <div class="article__callout">
+          <p><strong>La diferencia entre un negocio que depende de la suerte y uno que crece de forma predecible es tener un funnel que funcione.</strong> No hace falta que sea complejo — hace falta que esté conectado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Etapas -->
+    <section class="section section--dark">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Etapas</p>
+        <h2 data-reveal style="--i:1">Las 5 etapas de un funnel de ventas.</h2>
+        <p class="lead" data-reveal style="--i:2">Cada etapa tiene un objetivo distinto. Saltarse una es perder conversiones.</p>
+        <div class="article__etapas">
+          {etapas.map((etapa, i) => (
+            <div class="article__etapa" data-reveal style={`--i:${i + 3}`}>
+              <div class="article__etapa-num">{String(i + 1).padStart(2, '0')}</div>
+              <div>
+                <h3>{etapa.name}</h3>
+                <p>{etapa.desc}</p>
+                <span class="article__etapa-tools">{etapa.tools}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuándo necesitás uno -->
+    <section class="section section--light">
+      <div class="container article__body">
+        <h2>¿Cuándo necesitás un funnel?</h2>
+        <p>No todos los negocios necesitan un funnel complejo desde el día uno. Pero si te identificás con alguna de estas situaciones, es momento de armarlo:</p>
+        <ul>
+          <li><strong>Generás leads pero no cerrás ventas.</strong> El problema no es la captación — es el seguimiento. Un funnel automatiza ese proceso.</li>
+          <li><strong>Dependés 100% de referidos.</strong> Funciona, pero no escala. Un funnel te da un canal predecible que no depende de que alguien te recomiende.</li>
+          <li><strong>Estás haciendo todo manual.</strong> Respondés uno por uno, mandás PDFs por WhatsApp, agendás por chat. Con 5 leads funciona. Con 50, no.</li>
+          <li><strong>Invertís en ads pero no sabés qué pasa después del clic.</strong> Si mandás tráfico a tu Instagram o a una web genérica, estás tirando plata. Un funnel le da un destino y un recorrido claro a ese tráfico.</li>
+          <li><strong>Lanzás un producto o servicio nuevo.</strong> Necesitás una secuencia de captación → información → venta. Eso es un funnel.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tipos -->
+    <section class="section section--dark">
+      <div class="container article__body article__body--dark">
+        <h2>Tipos de funnels más comunes</h2>
+        <p>No todos los funnels son iguales. El tipo depende de tu modelo de negocio, tu ticket y tu audiencia.</p>
+
+        <div class="article__table-wrap">
+          <table class="article__table">
+            <thead>
+              <tr>
+                <th>Tipo de funnel</th>
+                <th>Ideal para</th>
+                <th>Estructura típica</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Lead magnet</strong></td>
+                <td>Captar emails/datos a cambio de un recurso gratuito</td>
+                <td>Ad → Landing → Thank you + Email sequence</td>
+              </tr>
+              <tr>
+                <td><strong>Agenda / Consulta</strong></td>
+                <td>Servicios de alto valor, consultores, agencias</td>
+                <td>Ad → Landing → Formulario → Calendario → Confirmación</td>
+              </tr>
+              <tr>
+                <td><strong>Webinar / Masterclass</strong></td>
+                <td>Infoproductos, cursos, programas grupales</td>
+                <td>Ad → Registro → Recordatorios → Evento → Oferta</td>
+              </tr>
+              <tr>
+                <td><strong>Venta directa</strong></td>
+                <td>Productos digitales o físicos de ticket bajo-medio</td>
+                <td>Ad → Sales page → Checkout → Upsell → Thank you</td>
+              </tr>
+              <tr>
+                <td><strong>WhatsApp</strong></td>
+                <td>Negocios en LATAM que venden por conversación</td>
+                <td>Ad → Landing → WhatsApp bot → Seguimiento → Cierre</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Errores -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="label">Errores frecuentes</span></p>
+        <h2 data-reveal style="--i:1">6 errores que matan la conversión de un funnel.</h2>
+        <div class="article__errores">
+          {errores.map((error, i) => (
+            <div class="article__error" data-reveal style={`--i:${i + 2}`}>
+              <h3>{error.title}</h3>
+              <p>{error.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--dark">
+      <div class="container article__body article__body--dark">
+        <div class="article__callout article__callout--dark">
+          <h2>¿Necesitás armar o mejorar tu funnel?</h2>
+          <p>En NOVAI diseñamos e implementamos funnels completos: landing pages, CRM, automatizaciones, WhatsApp y seguimiento. Todo conectado, todo medible.</p>
+          <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--light">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="label">Preguntas frecuentes</span></p>
+        <h2 data-reveal style="--i:1">Todo lo que necesitás saber sobre funnels.</h2>
+        <div class="article__faq" data-reveal style="--i:2">
+          {faqItems.map((item) => (
+            <details class="article__faq-item">
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/funnel-de-ventas/' },
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__intro { max-width: 48rem; }
+  .article__back { margin-bottom: 2rem; font-size: 0.8rem; }
+
+  .article__body { max-width: 52rem; }
+  .article__body h2 { margin-bottom: 1.5rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body--dark p { color: var(--paper-muted); }
+  .article__body--dark h2 { color: var(--paper); }
+  .article__body ul { padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; color: var(--ink-muted); line-height: 1.8; }
+
+  .article__callout {
+    margin: 2rem 0; padding: 2rem; border-radius: var(--radius-card);
+    background: var(--bg-light); border-left: 4px solid var(--green);
+  }
+  .article__callout p { color: var(--ink); margin-bottom: 0; }
+  .article__callout--dark { background: var(--bg-dark-2); border-left-color: var(--green); text-align: center; }
+  .article__callout--dark h2 { color: var(--paper); margin-bottom: 1rem; font-size: 1.5rem; }
+  .article__callout--dark p { color: var(--paper-muted); margin-bottom: 1.5rem; }
+
+  /* Etapas */
+  .article__etapas { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+  .article__etapa {
+    display: flex; gap: 1.5rem; padding: 2rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+  }
+  .article__etapa-num { font-size: 1.5rem; font-weight: 700; color: var(--green); min-width: 2.5rem; }
+  .article__etapa h3 { margin-bottom: 0.5rem; }
+  .article__etapa p { color: var(--paper-muted); line-height: 1.7; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .article__etapa-tools { font-size: 0.8rem; color: var(--green); opacity: 0.8; }
+
+  /* Tabla */
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .article__table th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--green); color: var(--green); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .article__table td { padding: 1rem; border-bottom: 1px solid var(--line-dark); color: var(--paper-muted); line-height: 1.6; }
+
+  /* Errores */
+  .article__errores { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .article__error {
+    padding: 2rem; border-radius: var(--radius-card);
+    background: var(--paper); border: 1px solid var(--line-light);
+    transition: border-color var(--dur) var(--ease);
+  }
+  .article__error:hover { border-color: var(--green); }
+  .article__error h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+  .article__error p { color: var(--ink-muted); line-height: 1.7; font-size: 0.9rem; }
+
+  /* FAQ */
+  .article__faq { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; }
+  .article__faq-item { border: 1px solid var(--line-light); border-radius: var(--radius-card); overflow: hidden; }
+  .article__faq-item summary {
+    padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+    transition: background var(--dur) var(--ease);
+  }
+  .article__faq-item summary:hover { background: var(--bg-light); }
+  .article__faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--green); font-weight: 300; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { padding: 0 1.5rem 1.25rem; color: var(--ink-muted); line-height: 1.8; font-size: 0.95rem; }
+
+  .section--light .eyebrow .label { color: var(--ink-muted); }
+  .section--light h2 { color: var(--ink); }
+  .section--light .lead { color: var(--ink-muted); }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__errores { grid-template-columns: 1fr; }
+    .article__etapa { flex-direction: column; gap: 0.75rem; }
+  }
+</style>

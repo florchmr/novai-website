@@ -43,7 +43,7 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
             <li>
               {file === 'gohighlevel'
                 ? <span class="marquee__mark">GHL</span>
-                : <img src={`/stack/${file}.svg`} alt="" width="20" height="20" loading="lazy" />}
+                : <img src={`/stack/${file}.svg`} alt={name} width="20" height="20" loading="lazy" />}
               <span>{name}</span>
             </li>
           ))}

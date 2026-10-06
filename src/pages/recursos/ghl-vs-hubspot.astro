@@ -1,0 +1,386 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = 'GoHighLevel vs HubSpot vs alternativas: cuál elegir según tu negocio';
+const description = 'Comparativa honesta entre GoHighLevel, HubSpot, ActiveCampaign, Kommo y Clientify. Precios reales, diferencias clave y para quién sirve cada uno.';
+
+const faqItems = [
+  { q: '¿Cuál es la diferencia principal entre GoHighLevel y HubSpot?', a: 'GoHighLevel ofrece CRM, funnels, email, WhatsApp, SMS y calendario en una sola plataforma por un precio fijo ($97–$297/mes). HubSpot tiene un CRM gratuito muy completo, pero las funcionalidades avanzadas de marketing y ventas cuestan $890–$4.700/mes. GHL está pensado para agencias y negocios de servicios; HubSpot, para empresas medianas y grandes con presupuesto de software alto.' },
+  { q: '¿GoHighLevel es bueno para negocios en Latinoamérica?', a: 'Sí. GoHighLevel tiene integración nativa con WhatsApp (fundamental en Latinoamérica), soporta Mercado Pago y Stripe como pasarelas, y su precio fijo en dólares sigue siendo mucho más accesible que HubSpot para la región. La plataforma está en inglés, pero el contenido que se crea (emails, funnels, automatizaciones) puede estar en cualquier idioma.' },
+  { q: '¿Puedo usar HubSpot gratis para siempre?', a: 'Sí, el CRM de HubSpot es gratuito sin límite de tiempo y permite usuarios ilimitados. Incluye gestión de contactos, pipelines básicos y email. El problema es que funcionalidades como automatizaciones avanzadas, landing pages, reporting personalizado y WhatsApp solo están disponibles en los planes pagos, que empiezan en $890/mes para Marketing Hub Professional.' },
+  { q: '¿Qué CRM tiene mejor integración con WhatsApp?', a: 'GoHighLevel, Kommo y Clientify tienen integración nativa con WhatsApp Business API. HubSpot y ActiveCampaign requieren integraciones de terceros. Si tu proceso de venta depende de WhatsApp, GHL o Kommo son las mejores opciones. GHL además incluye SMS, email y funnels; Kommo se enfoca exclusivamente en ventas conversacionales.' },
+  { q: '¿Necesito una agencia para implementar GoHighLevel?', a: 'No es obligatorio, pero es recomendable. GHL tiene muchas funcionalidades y sin una implementación estratégica se subutiliza. Lo más común es que el negocio termine usando solo 2 o 3 funciones cuando podría aprovechar 10. Una agencia especializada configura el CRM, los funnels, las automatizaciones y las integraciones pensando en el proceso comercial completo.' },
+  { q: '¿Cuánto cuesta realmente usar GoHighLevel por mes?', a: 'El plan Starter cuesta $97/mes y el Unlimited $297/mes, ambos con contactos y usuarios ilimitados. Pero hay costos adicionales por consumo: email ($0.675/1.000 emails), SMS (varía por país), llamadas y uso de IA. Para un negocio promedio, el costo total suele estar entre $120 y $350/mes dependiendo del volumen de comunicación.' },
+  { q: '¿Qué es mejor para un infoproductor: GHL o ActiveCampaign?', a: 'Depende de lo que ya tengas armado. Si necesitás todo (funnel de ventas, CRM, email, WhatsApp, área de miembros, agenda), GoHighLevel es más eficiente porque incluye todo en una plataforma. Si ya tenés tu funnel resuelto con otra herramienta y solo necesitás automatizar emails y segmentar tu audiencia, ActiveCampaign es superior en eso específico.' },
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--purple" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">GoHighLevel vs HubSpot<br><span class="accent-green">vs alternativas.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">No existe un CRM que sea "el mejor" para todos. Existe el que resuelve tu problema sin complicarte la vida. Esta comparativa te ayuda a elegir.</p>
+        <div class="article__meta" data-reveal style="--i:3">
+          <span>NOVAI</span>
+          <span class="article__sep"></span>
+          <time datetime="2026-10">Octubre 2026</time>
+          <span class="article__sep"></span>
+          <span>10 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="section section--light">
+      <div class="container article__body">
+
+        <h2>Primero: ¿qué necesitás realmente?</h2>
+        <p>Antes de comparar herramientas, pensá qué problema estás intentando resolver:</p>
+        <ul>
+          <li><strong>¿Necesitás un CRM para organizar leads y seguirlos?</strong> → Eso es gestión comercial.</li>
+          <li><strong>¿Necesitás armar funnels, landings y automatizar emails?</strong> → Eso es infraestructura de marketing.</li>
+          <li><strong>¿Necesitás las dos cosas conectadas?</strong> → Eso es lo que realmente cambia el juego.</li>
+        </ul>
+        <p>La mayoría de los negocios que llegan a NOVAI no necesitan "un CRM". Necesitan un <strong>sistema donde marketing y ventas estén conectados</strong>. Por eso la herramienta importa menos que cómo se implementa.</p>
+
+        <h2>La comparativa rápida</h2>
+
+        <div class="article__table-wrap">
+          <table class="article__table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>GoHighLevel</th>
+                <th>HubSpot</th>
+                <th>ActiveCampaign</th>
+                <th>Kommo</th>
+                <th>Clientify</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Precio base</strong></td>
+                <td>$97/mes (fijo)</td>
+                <td>Gratis → $20/usuario/mes</td>
+                <td>Desde $15/mes</td>
+                <td>Desde $15/usuario/mes</td>
+                <td>Desde $39/mes</td>
+              </tr>
+              <tr>
+                <td><strong>Precio real en uso</strong></td>
+                <td>$97–$297/mes + consumo</td>
+                <td>$890–$4.700/mes (Professional+)</td>
+                <td>$49–$149/mes</td>
+                <td>$25–$50/usuario/mes</td>
+                <td>$39–$99/mes</td>
+              </tr>
+              <tr>
+                <td><strong>CRM</strong></td>
+                <td>✅ Incluido</td>
+                <td>✅ Gratis (limitado)</td>
+                <td>✅ Básico</td>
+                <td>✅ Su foco principal</td>
+                <td>✅ Incluido</td>
+              </tr>
+              <tr>
+                <td><strong>Funnels / landings</strong></td>
+                <td>✅ Builder incluido</td>
+                <td>⚠️ Solo en planes pagos</td>
+                <td>✅ Básico</td>
+                <td>❌ No</td>
+                <td>✅ Incluido</td>
+              </tr>
+              <tr>
+                <td><strong>Email marketing</strong></td>
+                <td>✅ Incluido</td>
+                <td>✅ Incluido</td>
+                <td>✅ Su punto fuerte</td>
+                <td>⚠️ Limitado</td>
+                <td>✅ Incluido</td>
+              </tr>
+              <tr>
+                <td><strong>WhatsApp</strong></td>
+                <td>✅ Nativo</td>
+                <td>⚠️ Con integración</td>
+                <td>⚠️ Con integración</td>
+                <td>✅ Nativo</td>
+                <td>✅ Nativo</td>
+              </tr>
+              <tr>
+                <td><strong>Automatizaciones</strong></td>
+                <td>✅ Avanzadas</td>
+                <td>✅ Avanzadas (plan Pro+)</td>
+                <td>✅ Muy avanzadas</td>
+                <td>⚠️ Básicas</td>
+                <td>✅ Incluidas</td>
+              </tr>
+              <tr>
+                <td><strong>Agenda / calendar</strong></td>
+                <td>✅ Incluido</td>
+                <td>✅ Incluido</td>
+                <td>❌ No</td>
+                <td>❌ No</td>
+                <td>✅ Incluido</td>
+              </tr>
+              <tr>
+                <td><strong>White-label</strong></td>
+                <td>✅ Sí</td>
+                <td>❌ No</td>
+                <td>❌ No</td>
+                <td>❌ No</td>
+                <td>❌ No</td>
+              </tr>
+              <tr>
+                <td><strong>Ideal para</strong></td>
+                <td>Agencias, coaches, servicios</td>
+                <td>Empresas medianas/grandes</td>
+                <td>Email + automatización</td>
+                <td>Ventas por WhatsApp</td>
+                <td>PyMEs hispanohablantes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>GoHighLevel: todo en uno, precio fijo</h2>
+        <p>GoHighLevel (GHL) nació pensado para agencias de marketing. Su propuesta es simple: <strong>CRM + funnels + email + SMS + WhatsApp + automatizaciones + calendario</strong>, todo en una sola plataforma por un precio fijo.</p>
+
+        <h3>Lo bueno</h3>
+        <ul>
+          <li><strong>Precio predecible.</strong> $97/mes (Starter) o $297/mes (Unlimited) con contactos y usuarios ilimitados. Sin costos por asiento.</li>
+          <li><strong>Todo integrado.</strong> No necesitás conectar 5 herramientas distintas. CRM, email, WhatsApp, funnels y agenda viven en el mismo lugar.</li>
+          <li><strong>White-label.</strong> Podés ponerle tu marca y revenderlo a clientes. Ideal para agencias.</li>
+          <li><strong>IA incluida.</strong> Conversation AI y Voice AI vienen con la suscripción (consumo aparte).</li>
+        </ul>
+
+        <h3>Lo no tan bueno</h3>
+        <ul>
+          <li><strong>Curva de aprendizaje.</strong> Tiene tantas funciones que puede abrumar. Sin alguien que lo configure bien, se subutiliza.</li>
+          <li><strong>Reporting limitado.</strong> Los reportes no son tan profundos como los de HubSpot.</li>
+          <li><strong>Costos ocultos.</strong> Email, SMS y llamadas se cobran por consumo. Hay que contemplarlo en el presupuesto.</li>
+          <li><strong>Integraciones.</strong> Menos integraciones nativas que HubSpot. Necesitás Zapier o Make para algunas conexiones.</li>
+        </ul>
+
+        <h3>Para quién es GHL</h3>
+        <p>Agencias de marketing, coaches, consultores, infoproductores y negocios de servicios que necesitan marketing + ventas integrado sin pagar miles de dólares al mes.</p>
+
+        <h2>HubSpot: el estándar enterprise</h2>
+        <p>HubSpot es probablemente el CRM más conocido del mundo. Su CRM gratuito es un gran punto de entrada, pero el costo real aparece cuando necesitás funcionalidades avanzadas.</p>
+
+        <h3>Lo bueno</h3>
+        <ul>
+          <li><strong>CRM gratuito.</strong> Para empezar, no pagás nada. Gestión de contactos, pipelines básicos y email incluidos.</li>
+          <li><strong>Reporting profundo.</strong> Dashboards personalizables, forecasting, atribución de revenue. Ideal para equipos de ventas grandes.</li>
+          <li><strong>Ecosistema de integraciones.</strong> Más de 1.700 apps en su marketplace.</li>
+          <li><strong>Contenido educativo.</strong> HubSpot Academy es un recurso excelente.</li>
+        </ul>
+
+        <h3>Lo no tan bueno</h3>
+        <ul>
+          <li><strong>El salto de precio es brutal.</strong> Pasar de Starter ($20/usuario) a Professional ($90/usuario + $1.500 de onboarding obligatorio) es un salto que muchos negocios no pueden justificar.</li>
+          <li><strong>Marketing Hub Professional: $890/mes.</strong> Y eso es solo marketing. Si sumás Sales Hub y Service Hub, estás en $1.170–$4.300/mes.</li>
+          <li><strong>No incluye funnels nativos.</strong> Necesitás un builder externo o usar las landing pages limitadas del plan pago.</li>
+          <li><strong>WhatsApp no es nativo.</strong> Requiere integración con terceros.</li>
+        </ul>
+
+        <h3>Para quién es HubSpot</h3>
+        <p>Empresas medianas y grandes con equipos de ventas y marketing que necesitan reporting avanzado, forecasting y un ecosistema amplio de integraciones. Si tu presupuesto de software es de miles de dólares al mes, HubSpot es difícil de superar.</p>
+
+        <h2>ActiveCampaign: el rey del email + automatización</h2>
+        <p>ActiveCampaign no intenta ser un CRM completo ni un builder de funnels. Se especializa en <strong>automatizaciones de email y marketing automation</strong>, y lo hace mejor que casi todos.</p>
+
+        <h3>Lo bueno</h3>
+        <ul>
+          <li><strong>Automatizaciones visuales.</strong> El builder de flujos es intuitivo y potente. Podés crear secuencias complejas sin saber programar.</li>
+          <li><strong>Segmentación avanzada.</strong> Tags, campos personalizados, scoring de leads y comportamiento en tiempo real.</li>
+          <li><strong>Precio accesible.</strong> Desde $15/mes para funcionalidades que en HubSpot cuestan 10x más.</li>
+        </ul>
+
+        <h3>Lo no tan bueno</h3>
+        <ul>
+          <li><strong>No tiene funnels ni landing pages potentes.</strong> Necesitás combinarlo con otra herramienta para eso.</li>
+          <li><strong>Sin agenda ni calendario.</strong> No reemplaza Calendly ni sistemas de reserva.</li>
+          <li><strong>CRM básico.</strong> Funciona para pipelines simples, pero no es su fuerte.</li>
+        </ul>
+
+        <h3>Para quién es ActiveCampaign</h3>
+        <p>Negocios que ya tienen su funnel resuelto y necesitan automatizar la comunicación: secuencias de email, nurturing, recuperación de carritos, scoring de leads.</p>
+
+        <h2>Kommo: ventas por WhatsApp</h2>
+        <p>Kommo (antes amoCRM) se posiciona como el CRM de ventas conversacionales. Su integración nativa con WhatsApp es una de las mejores del mercado.</p>
+
+        <h3>Lo bueno</h3>
+        <ul>
+          <li><strong>WhatsApp nativo.</strong> La integración con WhatsApp Business API es profunda y funcional.</li>
+          <li><strong>Pipeline visual.</strong> Interfaz limpia para gestionar oportunidades de venta.</li>
+          <li><strong>Chatbots.</strong> Podés crear flujos de conversación automatizados.</li>
+        </ul>
+
+        <h3>Lo no tan bueno</h3>
+        <ul>
+          <li><strong>No tiene funnels, landings ni email marketing.</strong> Es solo CRM + mensajería.</li>
+          <li><strong>Precio por usuario.</strong> Escala rápido si tenés un equipo grande.</li>
+          <li><strong>Automatizaciones limitadas.</strong> No compite con GHL ni ActiveCampaign en este aspecto.</li>
+        </ul>
+
+        <h3>Para quién es Kommo</h3>
+        <p>Negocios cuyo proceso de venta pasa principalmente por WhatsApp y necesitan un CRM visual para gestionar esas conversaciones.</p>
+
+        <h2>Clientify: todo en uno para el mercado hispano</h2>
+        <p>Clientify es una plataforma española que combina CRM, marketing automation, WhatsApp y landing pages. Su ventaja es que está pensada para el mercado hispanohablante.</p>
+
+        <h3>Lo bueno</h3>
+        <ul>
+          <li><strong>Todo en español.</strong> Interfaz, soporte y documentación nativos en español.</li>
+          <li><strong>WhatsApp nativo.</strong> Integración directa con WhatsApp Business API.</li>
+          <li><strong>Precio competitivo.</strong> Desde $39/mes con bastante funcionalidad incluida.</li>
+        </ul>
+
+        <h3>Lo no tan bueno</h3>
+        <ul>
+          <li><strong>Menos integraciones.</strong> El ecosistema es más chico que el de HubSpot o GHL.</li>
+          <li><strong>Sin white-label.</strong> No es opción para agencias que quieran revender.</li>
+          <li><strong>Comunidad más chica.</strong> Menos recursos, tutoriales y soporte comunitario que las alternativas grandes.</li>
+        </ul>
+
+        <h3>Para quién es Clientify</h3>
+        <p>PyMEs hispanohablantes que quieren CRM + marketing en una sola herramienta, con soporte en su idioma y sin la complejidad de las plataformas grandes.</p>
+
+        <h2>Entonces, ¿cuál elegir?</h2>
+        <p>La respuesta depende de tu situación:</p>
+
+        <div class="article__highlight">
+          <p><strong>Si sos agencia o consultor</strong> y necesitás CRM + funnels + automatización por un precio fijo → <strong>GoHighLevel</strong>.</p>
+          <p><strong>Si tenés un equipo de ventas grande</strong> y necesitás reporting avanzado y forecasting → <strong>HubSpot</strong>.</p>
+          <p><strong>Si tu prioridad es email marketing y automatización</strong> → <strong>ActiveCampaign</strong>.</p>
+          <p><strong>Si vendés principalmente por WhatsApp</strong> y necesitás un CRM conversacional → <strong>Kommo</strong>.</p>
+          <p><strong>Si querés todo en español</strong> y buscás una plataforma accesible → <strong>Clientify</strong>.</p>
+        </div>
+
+        <h2>Lo que importa más que la herramienta</h2>
+        <p>Después de 7 años implementando estas plataformas, hay algo que aprendimos: <strong>la herramienta nunca es el problema</strong>. El problema es elegir una herramienta sin tener claro qué proceso necesitás resolver.</p>
+        <p>Un GHL mal configurado es tan inútil como un HubSpot que nadie usa. Un ActiveCampaign sin una estrategia de contenido detrás es ruido.</p>
+        <p>Lo que realmente funciona es:</p>
+        <ol>
+          <li>Entender qué tiene que pasar en tu proceso comercial.</li>
+          <li>Diseñar el sistema que lo resuelve.</li>
+          <li>Después elegir la herramienta que mejor lo implementa.</li>
+        </ol>
+        <p>Eso es lo que hacemos en NOVAI. No vendemos herramientas — construimos el sistema que hace que tu marketing y tus ventas funcionen juntos.</p>
+
+        <h2>Preguntas frecuentes</h2>
+
+        <div class="article__faq">
+          {faqItems.map((item, i) => (
+            <details class="article__faq-item" open={i === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+
+        <div class="article__cta">
+          <h2>¿No sabés qué herramienta necesita tu negocio?</h2>
+          <p>Contanos tu situación y te ayudamos a definir qué sistema necesitás antes de elegir una plataforma.</p>
+          <div class="article__cta-buttons">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+            <a href="/agendar" class="btn btn--outline">Agendar videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  datePublished: '2026-10-05',
+  dateModified: '2026-10-05',
+  mainEntityOfPage: 'https://agencianovai.com/recursos/ghl-vs-hubspot/',
+  inLanguage: 'es',
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__back { margin-bottom: 2rem; }
+  .article__intro { max-width: 48rem; }
+  .article__meta { display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--paper-muted); margin-top: 1.5rem; }
+  .article__sep { width: 1px; height: 12px; background: var(--line-dark); }
+
+  .article__body { max-width: 48rem; margin: 0 auto; }
+  .article__body h2 { color: var(--ink); margin-top: 3rem; margin-bottom: 1rem; }
+  .article__body h2:first-child { margin-top: 0; }
+  .article__body h3 { color: var(--ink); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.05rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body ul, .article__body ol { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .article__body li { margin-bottom: 0.5rem; }
+  .article__body strong { color: var(--ink); }
+
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--line-light); border-radius: var(--radius-card); }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 700px; }
+  .article__table th { background: var(--bg-dark); color: var(--paper); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .article__table td { padding: 0.75rem 1rem; border-top: 1px solid var(--line-light); color: var(--ink-muted); vertical-align: top; }
+  .article__table td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .article__table tr:hover td { background: rgba(62, 242, 107, 0.03); }
+
+  .article__highlight {
+    background: var(--bg-dark); color: var(--paper); padding: 2rem; border-radius: var(--radius-card); margin: 2rem 0;
+  }
+  .article__highlight p { color: var(--paper-muted); margin-bottom: 0.75rem; }
+  .article__highlight p:last-child { margin-bottom: 0; }
+  .article__highlight strong { color: var(--paper); }
+
+  .article__cta {
+    margin-top: 3rem; padding: 2.5rem; border-radius: var(--radius-card);
+    background: var(--bg-dark); text-align: center;
+  }
+  .article__cta h2 { color: var(--paper) !important; margin-top: 0 !important; }
+  .article__cta p { color: var(--paper-muted); }
+  .article__cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+
+  .article__faq { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+  .article__faq-item {
+    border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    padding: 1.25rem 1.5rem; transition: border-color var(--dur) var(--ease);
+  }
+  .article__faq-item[open] { border-color: var(--green); }
+  .article__faq-item summary {
+    font-weight: 600; font-size: 0.95rem; color: var(--ink); cursor: pointer;
+    list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .article__faq-item summary::-webkit-details-marker { display: none; }
+  .article__faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--green); flex-shrink: 0; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { margin-top: 1rem; margin-bottom: 0; color: var(--ink-muted); line-height: 1.8; font-size: 0.92rem; }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__meta { flex-wrap: wrap; }
+    .article__cta-buttons { flex-wrap: wrap; }
+  }
+</style>
