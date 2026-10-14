@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = 'CRM para negocios de servicios: cómo elegir e implementar el correcto';
 const description = 'Guía práctica sobre CRM para negocios de servicios. Qué buscar, cómo implementarlo, errores comunes y qué opciones existen según tu tipo de negocio.';
@@ -317,8 +318,8 @@ const errores = [
   '@type': 'Article',
   headline: title,
   description: description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  author: ORG_REF,
+  publisher: ORG_REF,
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/crm-para-negocios/' },
 })} />
 <script type="application/ld+json" set:html={JSON.stringify({

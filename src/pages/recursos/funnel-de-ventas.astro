@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = 'Funnel de ventas: qué es, cómo funciona y cómo armar uno que convierta';
 const description = 'Guía práctica sobre funnels de venta. Qué son, qué etapas tienen, qué herramientas usar y los errores más comunes al implementarlos.';
@@ -257,8 +258,8 @@ const errores = [
   '@type': 'Article',
   headline: title,
   description: description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  author: ORG_REF,
+  publisher: ORG_REF,
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/funnel-de-ventas/' },
 })} />
 <script type="application/ld+json" set:html={JSON.stringify({

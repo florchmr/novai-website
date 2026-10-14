@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = 'GoHighLevel vs HubSpot vs alternativas: cuál elegir según tu negocio';
 const description = 'Comparativa honesta entre GoHighLevel, HubSpot, ActiveCampaign, Kommo y Clientify. Precios reales, diferencias clave y para quién sirve cada uno.';
@@ -329,8 +330,8 @@ const faqItems = [
   '@type': 'Article',
   headline: title,
   description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-10-05',
   dateModified: '2026-10-05',
   mainEntityOfPage: 'https://agencianovai.com/recursos/ghl-vs-hubspot/',

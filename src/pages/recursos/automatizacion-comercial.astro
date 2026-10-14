@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = 'Automatización comercial: qué es, cuándo la necesitas y cómo implementarla';
 const description = 'Guía completa sobre automatización de procesos comerciales. Qué se puede automatizar, cuándo tiene sentido hacerlo y cómo implementarlo sin sobrecomplicar tu negocio.';
@@ -268,8 +269,8 @@ const faqItems = [
   '@type': 'Article',
   headline: title,
   description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-10-05',
   dateModified: '2026-10-05',
   mainEntityOfPage: 'https://agencianovai.com/recursos/automatizacion-comercial/',

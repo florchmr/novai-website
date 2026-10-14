@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = "10 señales de que tu proceso de ventas necesita automatización (y 3 de que todavía no)";
 const description = "Un checklist para saber si es momento de automatizar tu proceso comercial, con ejemplos concretos y las señales de que conviene esperar.";
@@ -148,8 +149,8 @@ const faqItems = [
   '@type': 'Article',
   headline: title,
   description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-10-14',
   dateModified: '2026-10-14',
   mainEntityOfPage: 'https://agencianovai.com/recursos/senales-automatizar-ventas/',

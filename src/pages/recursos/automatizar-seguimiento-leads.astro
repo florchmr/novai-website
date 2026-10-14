@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = 'Cómo automatizar el seguimiento de leads sin perder oportunidades';
 const description = 'Guía paso a paso para automatizar el seguimiento de leads: qué automatizar, qué herramientas usar, cómo configurarlo y errores que evitar.';
@@ -255,8 +256,8 @@ const canales = [
   '@type': 'Article',
   headline: title,
   description: description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  author: ORG_REF,
+  publisher: ORG_REF,
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/automatizar-seguimiento-leads/' },
 })} />
 <script type="application/ld+json" set:html={JSON.stringify({

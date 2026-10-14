@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Icon from '../components/Icon.astro';
 import { WA, CALENDAR_URL } from '../lib/wa';
+import { SITE } from '../lib/site';
 
 const enfoque = [
   {
@@ -24,7 +25,7 @@ const enfoque = [
 ];
 
 ---
-<Base title="Sobre NOVAI — Infraestructura digital para marketing y ventas" description="NOVAI conecta marketing, tecnología y operaciones. Construimos los sistemas digitales que hacen que el marketing y las ventas funcionen: funnels, CRM, automatizaciones e inteligencia artificial.">
+<Base title="Sobre NOVAI | Agencia de marketing y tecnología" description="NOVAI conecta marketing, tecnología y operaciones. Construimos los sistemas digitales que hacen que el marketing y las ventas funcionen: funnels, CRM, automatizaciones e inteligencia artificial.">
   <Nav />
   <main class="about">
 
@@ -34,7 +35,7 @@ const enfoque = [
       <div class="container">
         <p class="eyebrow" data-reveal>Sobre NOVAI</p>
         <h1 data-reveal style="--i:1">Construimos la infraestructura digital<br><span class="accent-green">detrás de tu marketing.</span></h1>
-        <p class="lead about__intro" data-reveal style="--i:2">NOVAI es una agencia que conecta marketing, tecnología y operaciones para que cada parte del sistema trabaje como una sola. No somos una agencia de marketing tradicional ni un estudio de desarrollo. Nuestro foco está en construir y conectar los sistemas que hacen que el marketing y las ventas funcionen.</p>
+        <p class="lead about__intro" data-reveal style="--i:2">{SITE.definition} Conectamos marketing, tecnología y operaciones para que cada parte del sistema trabaje como una sola. No somos una agencia de marketing tradicional ni un estudio de desarrollo. Nuestro foco está en construir y conectar los sistemas que hacen que el marketing y las ventas funcionen.</p>
       </div>
     </section>
 

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = 'WhatsApp Business para ventas: cómo usarlo de forma profesional';
 const description = 'Guía para usar WhatsApp Business en tu proceso de ventas. API vs app, automatización, integración con CRM y errores que evitar.';
@@ -182,8 +183,8 @@ const useCases = [
   '@type': 'Article',
   headline: title,
   description: description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  author: ORG_REF,
+  publisher: ORG_REF,
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://agencianovai.com/recursos/whatsapp-business-ventas/' },
 })} />
 <script type="application/ld+json" set:html={JSON.stringify({
