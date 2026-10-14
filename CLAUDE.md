@@ -99,7 +99,6 @@ Cuando Flor diga que la página "ya está", que la va a publicar, que compró el
 - Páginas de cada proyecto (`Projects.astro`, hoy `href: '#'`).
 - Demos reales (`Demos.astro`, hoy abren WhatsApp).
 - Link de agenda (`Cta.astro`, hoy abre WhatsApp).
-- Revisar la lista de herramientas del marquee.
 - Dominio propio.
 
 ## Convenciones

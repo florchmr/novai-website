@@ -36,7 +36,7 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
   </div>
 
   <div class="container trusted" data-reveal style="--i:8">
-    <span class="trusted__label">Construimos<br>con</span>
+    <span class="trusted__label">Construimos<br>con<br><span class="trusted__more">y más</span></span>
     <div class="marquee" aria-label="Herramientas con las que trabajamos">
       {[0, 1].map(dup => (
         <ul class="marquee__track" aria-hidden={dup === 1}>
@@ -72,6 +72,7 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
 
   .trusted { position: relative; z-index: 2; display: flex; align-items: center; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--line-dark); }
   .trusted__label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); line-height: 1.5; flex-shrink: 0; }
+  .trusted__more { color: var(--paper-muted); }
   .marquee {
     flex: 1; min-width: 0; display: flex; overflow: hidden;
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
