@@ -38,8 +38,8 @@ GoHighLevel, WhatsApp Business, Make, n8n, Zapier, HubSpot, Meta Ads, Google Ads
 
 ## Proyectos destacados
 
-- **Operaciones de eventos**: Plataforma para centralizar ventas, generar accesos únicos y controlar ingreso a eventos.
-- **Sistema de personalización**: Integración con Shopify que adapta la experiencia de compra según cada pedido.
+- [Operaciones de eventos](https://agencianovai.com/proyectos/event-ops/): Plataforma para centralizar ventas, generar accesos únicos y controlar ingreso a eventos.
+- [Sistema de personalización](https://agencianovai.com/proyectos/product-custom/): Integración con Shopify que adapta la experiencia de compra según cada pedido.
 - **Ecosistema de educación digital**: Sistema completo para captar leads, convertirlos en clientes y entregar formación online automatizada.
 
 ## Recursos y guías
