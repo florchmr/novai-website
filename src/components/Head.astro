@@ -3,8 +3,8 @@ import { SITE } from '../lib/site';
 import { WA_NUMBER } from '../lib/wa';
 import { ORG_ID, ORG_REF, WEBSITE_ID } from '../lib/schema';
 
-interface Props { title?: string; description?: string }
-const { title = SITE.title, description = SITE.description } = Astro.props;
+interface Props { title?: string; description?: string; noindex?: boolean }
+const { title = SITE.title, description = SITE.description, noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(SITE.ogImage, Astro.site);
@@ -55,7 +55,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': [organization, webs
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical.href} />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
 <meta name="theme-color" content="#0a0a14" />
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />

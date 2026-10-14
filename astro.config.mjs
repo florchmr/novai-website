@@ -8,6 +8,10 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     react(),
-    sitemap({ lastmod: new Date() }),
+    sitemap({
+      lastmod: new Date(),
+      // Páginas con noindex (utilidad u ocultas): fuera del sitemap para no contradecir la meta robots.
+      filter: (page) => !/\/(agendar|demo-agente|proyectos\/digital-education)\/?$/.test(page),
+    }),
   ],
 });
