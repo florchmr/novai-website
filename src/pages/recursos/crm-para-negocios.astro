@@ -345,6 +345,16 @@ const errores = [
   ],
 })} />
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://agencianovai.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Recursos', item: 'https://agencianovai.com/recursos/' },
+    { '@type': 'ListItem', position: 3, name: 'CRM para negocios de servicios', item: 'https://agencianovai.com/recursos/crm-para-negocios/' },
+  ],
+})} />
+
 <style>
   .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
   .article__hero h1 { margin-bottom: 1.5rem; }
