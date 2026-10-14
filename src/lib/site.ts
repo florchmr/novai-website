@@ -4,8 +4,8 @@ export const SITE = {
   title: 'NOVAI — Infraestructura digital para marketing y ventas',
   description:
     'Conectamos marketing, tecnología y operaciones: funnels, CRM, automatizaciones e inteligencia artificial para escalar tu negocio.',
-  locale: 'es_AR',
-  lang: 'es-AR',
+  locale: 'es_LA',
+  lang: 'es',
   ogImage: '/og.jpg',
   founded: 2019, // 7 años
   areaServed: 'Argentina y Latinoamérica',
