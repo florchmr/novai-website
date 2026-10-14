@@ -1,0 +1,272 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = "10 señales de que tu proceso de ventas necesita automatización (y 3 de que todavía no)";
+const description = "Un checklist para saber si es momento de automatizar tu proceso comercial, con ejemplos concretos y las señales de que conviene esperar.";
+
+const faqItems = [
+  {
+    "q": "¿Cuántas señales hacen falta para automatizar?",
+    "a": "Como regla orientativa, si te identificás con dos o más de las primeras diez y ninguna de las tres que indican esperar, la automatización probablemente te dé un retorno real. No es una medida exacta, es una guía para ordenar la decisión."
+  },
+  {
+    "q": "¿Automatizar es solo para empresas grandes?",
+    "a": "No. Lo que importa no es el tamaño sino que el proceso se repita y que haya oportunidades perdiendo tiempo. Incluso con poco presupuesto se puede empezar con una versión mínima."
+  },
+  {
+    "q": "¿Qué conviene automatizar primero?",
+    "a": "Lo que más impacta con menos esfuerzo: centralizar los leads en un solo lugar, responder de inmediato y tener un CRM básico. El seguimiento y la agenda vienen después."
+  },
+  {
+    "q": "¿La automatización reemplaza al equipo comercial?",
+    "a": "No. Elimina tareas repetitivas para que el equipo dedique su tiempo a las conversaciones de venta, la negociación y el cierre."
+  }
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--green" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">10 señales de que necesitás<br><span class="accent-green">automatizar tus ventas.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">Un checklist para saber si es el momento, con ejemplos concretos. Y tres señales de que todavía conviene esperar.</p>
+        <div class="article__meta" data-reveal style="--i:3">
+          <span>NOVAI</span>
+          <span class="article__sep"></span>
+          <time datetime="2026-10">Octubre 2026</time>
+          <span class="article__sep"></span>
+          <span>6 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="section section--light">
+      <div class="container article__body">
+
+        <h2>Cómo usar este checklist</h2>
+        <p>Antes de elegir una herramienta, conviene saber si el problema es realmente el que creés. Leé las diez señales y contá cuántas te pasan hoy. Los ejemplos son situaciones típicas, no datos de ningún negocio en particular.</p>
+
+        <h2>10 señales de que es momento de automatizar</h2>
+        <h3>1. Los leads se enfrían antes de que alguien responda</h3>
+        <p>Alguien escribe un viernes a la noche y recibe respuesta el lunes. Para entonces ya habló con otra empresa.</p>
+        <h3>2. El seguimiento depende de la memoria</h3>
+        <p>Hay que acordarse de volver a escribirle a cada persona, o de actualizar una planilla que nadie mira.</p>
+        <h3>3. No sabés cuántos leads tenés ni en qué etapa están</h3>
+        <p>Si te preguntan cuántas oportunidades abiertas hay hoy, la respuesta es "más o menos".</p>
+        <h3>4. La información está repartida</h3>
+        <p>Parte está en WhatsApp, parte en el mail, parte en una planilla y parte en la cabeza de quien vende.</p>
+        <h3>5. Respondés las mismas preguntas todos los días</h3>
+        <p>Precio, plazos, qué incluye. Si siempre es lo mismo, es una tarea para automatizar.</p>
+        <h3>6. Agendar una reunión lleva idas y vueltas</h3>
+        <p>"¿Te queda bien el martes?" "No, mejor el jueves". Tres mensajes para fijar una hora.</p>
+        <h3>7. Si alguien falta o se va de vacaciones, se pierden oportunidades</h3>
+        <p>El proceso vive en una persona, no en un sistema.</p>
+        <h3>8. No sabés de dónde viene tu mejor cliente</h3>
+        <p>No podés repetir lo que funciona porque no sabés qué fue.</p>
+        <h3>9. El equipo pasa más tiempo en tareas administrativas que hablando con clientes</h3>
+        <p>Copiar datos de un lugar a otro, mandar recordatorios a mano, armar reportes.</p>
+        <h3>10. Podrías atender más clientes, pero el proceso manual no escala</h3>
+        <p>Contratar más gente no resuelve un proceso que sigue siendo ineficiente.</p>
+
+        <h2>3 señales de que todavía no</h2>
+        <p>No todos los negocios necesitan automatización desde el día uno. Automatizar demasiado pronto suele agregar complejidad sin resolver nada.</p>
+
+        <h3>1. Recibís pocas consultas y las manejás bien a mano</h3>
+        <p>Si respondés rápido y no se te escapa nadie, una planilla, un calendario y WhatsApp Business pueden alcanzar por ahora.</p>
+
+        <h3>2. Tu proceso de venta no está definido</h3>
+        <p>Si no podés describir en un párrafo cómo llega un cliente y qué pasa después, automatizar solo amplifica el desorden. Primero se ordena el proceso.</p>
+
+        <h3>3. No sabés qué querés mejorar</h3>
+        <p>Automatizar "para tener algo moderno" no es un objetivo. Tiene que haber un problema concreto: leads que se pierden, tiempo que se va, información que no aparece.</p>
+
+        <h2>Cómo leer el resultado</h2>
+        <ul>
+          <li><strong>Te pasan dos o más de las diez y ninguna de las tres últimas:</strong> probablemente es el momento. Empezá por fases, con lo que más impacta. La guía de <a href="/recursos/automatizacion-comercial/" style="color: var(--green);">automatización comercial</a> explica cómo.</li>
+          <li><strong>Te pasan varias de las diez, pero también alguna de las tres últimas:</strong> primero ordená el proceso. Un buen punto de partida es entender <a href="/recursos/crm-para-negocios/" style="color: var(--green);">qué CRM te conviene</a> y cómo se usa.</li>
+          <li><strong>Te pasan pocas de las diez:</strong> todavía no hace falta. Volvé a revisar cuando crezca el volumen.</li>
+        </ul>
+        <p>Y si ya sabés que te pasa pero el seguimiento es lo que más duele, mirá cómo <a href="/recursos/automatizar-seguimiento-leads/" style="color: var(--green);">automatizar el seguimiento de leads</a>.</p>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="article__faq">
+          {faqItems.map((item, i) => (
+            <details class="article__faq-item" open={i === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+
+        <div class="article__cta">
+          <h2>¿No sabés por dónde empezar?</h2>
+          <p>La Auditoría de conversión es una revisión de tu sistema con un informe escrito de qué te hace perder ventas hoy y qué arreglar primero.</p>
+          <div class="article__cta-buttons">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+            <a href="/agendar/" class="btn btn--outline">Agendar videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <section class="section section--dark">
+      <div class="container">
+        <h2 data-reveal>Seguí leyendo</h2>
+        <div class="article__related" data-reveal style="--i:1">
+          <a href="/recursos/automatizacion-comercial/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Automatización comercial: la guía completa</h3>
+            <p>Qué es, cuándo la necesitás y cómo implementarla sin sobrecomplicar tu negocio.</p>
+          </a>
+          <a href="/recursos/crm-para-negocios/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>CRM para negocios de servicios</h3>
+            <p>Cómo elegir el CRM correcto e implementarlo sin drama.</p>
+          </a>
+          <a href="/recursos/automatizar-seguimiento-leads/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Automatizar el seguimiento de leads</h3>
+            <p>Cómo automatizar sin perder oportunidades ni el toque humano.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  datePublished: '2026-10-14',
+  dateModified: '2026-10-14',
+  mainEntityOfPage: 'https://agencianovai.com/recursos/senales-automatizar-ventas/',
+  inLanguage: 'es',
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://agencianovai.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Recursos', item: 'https://agencianovai.com/recursos/' },
+    { '@type': 'ListItem', position: 3, name: "10 señales para automatizar ventas", item: 'https://agencianovai.com/recursos/senales-automatizar-ventas/' },
+  ],
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__back { margin-bottom: 2rem; }
+  .article__intro { max-width: 48rem; }
+  .article__meta { display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--paper-muted); margin-top: 1.5rem; }
+  .article__sep { width: 1px; height: 12px; background: var(--line-dark); }
+
+  .article__body { max-width: 48rem; margin: 0 auto; }
+  .article__body h2 { color: var(--ink); margin-top: 3rem; margin-bottom: 1rem; }
+  .article__body h2:first-child { margin-top: 0; }
+  .article__body h3 { color: var(--ink); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.05rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body ul, .article__body ol { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .article__body li { margin-bottom: 0.5rem; }
+  .article__body strong { color: var(--ink); }
+
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--line-light); border-radius: var(--radius-card); }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 600px; }
+  .article__table th { background: var(--bg-dark); color: var(--paper); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .article__table td { padding: 0.75rem 1rem; border-top: 1px solid var(--line-light); color: var(--ink-muted); vertical-align: top; }
+  .article__table td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .article__table tr:hover td { background: rgba(62, 242, 107, 0.03); }
+
+  .article__highlight {
+    background: var(--bg-dark); color: var(--paper); padding: 2rem; border-radius: var(--radius-card); margin: 2rem 0;
+  }
+  .article__highlight p { color: var(--paper-muted); margin-bottom: 0; }
+  .article__highlight strong { color: var(--paper); }
+
+  .article__signals { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+  .article__signal {
+    padding: 1.5rem; border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    transition: border-color var(--dur) var(--ease);
+  }
+  .article__signal:hover { border-color: var(--green); }
+  .article__signal:last-child { grid-column: span 2; }
+  .article__signal h3 { margin-top: 0; margin-bottom: 0.5rem; }
+  .article__signal p { margin-bottom: 0; font-size: 0.92rem; }
+
+  .article__mistakes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+  .article__mistake {
+    padding: 1.5rem; border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    border-left: 3px solid var(--purple);
+  }
+  .article__mistake h3 { margin-top: 0; margin-bottom: 0.5rem; }
+  .article__mistake p { margin-bottom: 0; font-size: 0.92rem; }
+
+  .article__faq { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+  .article__faq-item {
+    border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    padding: 1.25rem 1.5rem; transition: border-color var(--dur) var(--ease);
+  }
+  .article__faq-item[open] { border-color: var(--green); }
+  .article__faq-item summary {
+    font-weight: 600; font-size: 0.95rem; color: var(--ink); cursor: pointer;
+    list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .article__faq-item summary::-webkit-details-marker { display: none; }
+  .article__faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--green); flex-shrink: 0; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { margin-top: 1rem; margin-bottom: 0; color: var(--ink-muted); line-height: 1.8; font-size: 0.92rem; }
+
+  .article__cta {
+    margin-top: 3rem; padding: 2.5rem; border-radius: var(--radius-card);
+    background: var(--bg-dark); text-align: center;
+  }
+  .article__cta h2 { color: var(--paper) !important; margin-top: 0 !important; }
+  .article__cta p { color: var(--paper-muted); }
+  .article__cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+
+  /* Seguí leyendo */
+  .article__related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .article__related-card {
+    display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+    text-decoration: none; color: var(--paper);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .article__related-card:hover { border-color: var(--green); transform: translateY(-2px); }
+  .article__related-tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: var(--radius); background: var(--bg-dark); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); font-weight: 600; }
+  .article__related-card h3 { font-size: 1rem; }
+  .article__related-card p { color: var(--paper-muted); font-size: 0.85rem; line-height: 1.6; }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__meta { flex-wrap: wrap; }
+    .article__signals { grid-template-columns: 1fr; }
+    .article__signal:last-child { grid-column: span 1; }
+    .article__mistakes { grid-template-columns: 1fr; }
+    .article__cta-buttons { flex-wrap: wrap; }
+    .article__related { grid-template-columns: 1fr; }
+  }
+</style>
