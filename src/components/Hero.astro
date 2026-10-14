@@ -2,11 +2,12 @@
 import { WA } from '../lib/wa';
 import Icon from './Icon.astro';
 import Aurora from './Aurora';
-// Stack con el que construyen (Simple Icons, CC0). Reemplazar por las herramientas reales.
+// Stack con el que construyen.
+// [archivo en /public/stack, nombre]. Los .svg vienen de Simple Icons; los .png, de las webs oficiales de cada marca.
 const stack = [
-  ['gohighlevel', 'GoHighLevel'], ['whatsapp', 'WhatsApp'], ['make', 'Make'], ['n8n', 'n8n'], ['zapier', 'Zapier'],
-  ['hubspot', 'HubSpot'], ['meta', 'Meta Ads'], ['googleads', 'Google Ads'], ['notion', 'Notion'],
-  ['calendly', 'Calendly'], ['stripe', 'Stripe'], ['mercadopago', 'Mercado Pago'], ['airtable', 'Airtable'], ['typeform', 'Typeform'],
+  ['gohighlevel.png', 'GoHighLevel'], ['whatsapp.svg', 'WhatsApp'], ['manychat.png', 'ManyChat'], ['kajabi.png', 'Kajabi'],
+  ['wordpress.svg', 'WordPress'], ['woocommerce.png', 'WooCommerce'], ['shopify.svg', 'Shopify'], ['leadpages.svg', 'Leadpages'],
+  ['typeform.png', 'Typeform'], ['klaviyo.png', 'Klaviyo'], ['brevo.svg', 'Brevo'],
 ];
 
 // Palabras del h1 con índice para el stagger; la última va en verde.
@@ -35,15 +36,13 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
   </div>
 
   <div class="container trusted" data-reveal style="--i:8">
-    <span class="trusted__label">Construimos<br>con</span>
+    <span class="trusted__label">Construimos<br>con<br><span class="trusted__more">y más</span></span>
     <div class="marquee" aria-label="Herramientas con las que trabajamos">
       {[0, 1].map(dup => (
         <ul class="marquee__track" aria-hidden={dup === 1}>
           {stack.map(([file, name]) => (
             <li>
-              {file === 'gohighlevel'
-                ? <span class="marquee__mark">GHL</span>
-                : <img src={`/stack/${file}.svg`} alt={name} width="20" height="20" loading="lazy" />}
+              <img src={`/stack/${file}`} alt={name} width="20" height="20" loading="lazy" />
               <span>{name}</span>
             </li>
           ))}
@@ -73,6 +72,7 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
 
   .trusted { position: relative; z-index: 2; display: flex; align-items: center; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--line-dark); }
   .trusted__label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); line-height: 1.5; flex-shrink: 0; }
+  .trusted__more { color: var(--paper-muted); }
   .marquee {
     flex: 1; min-width: 0; display: flex; overflow: hidden;
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -82,7 +82,6 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
   .marquee__track li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 600; color: var(--paper-muted); white-space: nowrap; transition: color var(--dur) var(--ease); }
   .marquee__track li:hover { color: var(--paper); }
   .marquee__track img { width: 20px; height: 20px; filter: brightness(0) invert(1); opacity: 0.7; }
-  .marquee__mark { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.15rem 0.35rem; border: 1px solid currentColor; border-radius: 4px; }
   @keyframes marquee { to { transform: translateX(-100%); } }
   @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
 
