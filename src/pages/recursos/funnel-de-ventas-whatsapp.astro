@@ -1,0 +1,337 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Icon from '../../components/Icon.astro';
+import { WA } from '../../lib/wa';
+
+const title = "Funnel de ventas por WhatsApp: cómo armar uno para negocios que venden conversando";
+const description = "Cómo estructurar un funnel donde la venta ocurre por WhatsApp: etapas, qué automatizar, qué dejar a una persona y cómo medir si funciona.";
+
+const faqItems = [
+  {
+    "q": "¿Qué es un funnel de ventas por WhatsApp?",
+    "a": "Es un recorrido de venta donde la conversación por WhatsApp es el centro: la persona llega desde un anuncio, una publicación o una búsqueda, escribe, se la califica, se le da seguimiento y una persona cierra. La automatización ordena el proceso, pero el cierre suele ser humano."
+  },
+  {
+    "q": "¿Necesito la API de WhatsApp Business para armarlo?",
+    "a": "Para empezar alcanza con la app WhatsApp Business. Cuando el volumen crece y querés automatizar respuestas, calificación y seguimiento, se integra la API de WhatsApp Business con un CRM, por ejemplo GoHighLevel, o conectándola con herramientas como Make o Zapier."
+  },
+  {
+    "q": "¿Se puede automatizar toda la venta por WhatsApp?",
+    "a": "No conviene. Se automatiza lo repetitivo (primera respuesta, preguntas de calificación, recordatorios, registro en el CRM). La negociación, el manejo de objeciones y el cierre se dejan a una persona."
+  },
+  {
+    "q": "¿Sirve para cualquier tipo de negocio?",
+    "a": "Funciona mejor en negocios que venden conversando: servicios, consultoría y productos con una decisión de compra más consultiva. Para productos simples y de ticket bajo, un checkout directo suele ser más sencillo."
+  },
+  {
+    "q": "¿Cómo sé si mi funnel por WhatsApp está funcionando?",
+    "a": "Mirá el tiempo hasta la primera respuesta, cuántas conversaciones se inician por origen, qué porcentaje queda calificado y cuántas llegan a una llamada o a un cierre. Sin estas métricas no sabés dónde se cae el proceso."
+  }
+];
+---
+<Base title={`${title} — NOVAI`} description={description}>
+  <Nav />
+  <main class="article">
+
+    <section class="section section--dark article__hero">
+      <div class="blob blob--green" style="width:420px;height:420px;top:-180px;right:-140px"></div>
+      <div class="container">
+        <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
+        <p class="eyebrow" data-reveal>Recursos</p>
+        <h1 data-reveal style="--i:1">Funnel de ventas<br><span class="accent-green">por WhatsApp.</span></h1>
+        <p class="lead article__intro" data-reveal style="--i:2">Cómo armar un funnel donde la conversación es el centro de la venta: qué automatizar, qué dejar en manos de una persona y cómo medirlo.</p>
+        <div class="article__meta" data-reveal style="--i:3">
+          <span>NOVAI</span>
+          <span class="article__sep"></span>
+          <time datetime="2026-10">Octubre 2026</time>
+          <span class="article__sep"></span>
+          <span>7 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="section section--light">
+      <div class="container article__body">
+
+        <h2>Qué es un funnel de ventas por WhatsApp</h2>
+        <p>Es un <a href="/recursos/funnel-de-ventas/" style="color: var(--green);">funnel de ventas</a> donde la <strong>conversación</strong> —y no la página de pago— es el centro. La persona llega desde un anuncio, una publicación o una búsqueda y, en vez de completar un formulario largo o comprar directo, escribe por WhatsApp. Desde ahí el proceso se ordena: se califica, se da seguimiento y una persona cierra.</p>
+        <p>Funciona sobre todo en negocios que venden conversando: servicios, consultoría y productos con una decisión de compra más consultiva. Para productos simples y de ticket bajo, un checkout directo suele ser más sencillo.</p>
+
+        <h2>Las 5 etapas del recorrido</h2>
+        <div class="article__table-wrap">
+          <table class="article__table">
+            <thead>
+              <tr>
+                <th>Etapa</th>
+                <th>Qué pasa</th>
+                <th>Qué se automatiza</th>
+                <th>Qué hace una persona</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Atracción</strong></td>
+                <td>Un anuncio, una publicación o una búsqueda lleva a una landing simple o directo a WhatsApp</td>
+                <td>Botón con mensaje prearmado, para saber de qué pieza viene cada consulta</td>
+                <td>Define la oferta y el mensaje</td>
+              </tr>
+              <tr>
+                <td><strong>2. Primer contacto</strong></td>
+                <td>La persona escribe</td>
+                <td>Respuesta inmediata con un saludo y la primera pregunta</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>3. Calificación</strong></td>
+                <td>Se entiende qué necesita y si encaja con lo que ofrecés</td>
+                <td>Preguntas guiadas y registro de las respuestas en el CRM</td>
+                <td>Revisa los casos dudosos</td>
+              </tr>
+              <tr>
+                <td><strong>4. Seguimiento</strong></td>
+                <td>Quien no avanzó vuelve a la conversación</td>
+                <td>Recordatorios y mensajes de seguimiento con reglas claras</td>
+                <td>Responde dudas específicas</td>
+              </tr>
+              <tr>
+                <td><strong>5. Cierre</strong></td>
+                <td>Propuesta, objeciones y decisión</td>
+                <td>Agenda de la llamada o envío de material</td>
+                <td>Negocia y cierra</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>La etapa 1 es más simple de lo que parece. En el sitio de NOVAI, por ejemplo, cada botón de contacto abre WhatsApp con un mensaje ya escrito: la persona solo toca "enviar", y nosotros sabemos desde qué sección llegó.</p>
+
+        <h2>En qué se diferencia de un funnel de landing y email</h2>
+        <ul>
+          <li><strong>El ritmo lo marca la conversación.</strong> En un funnel con email, el recorrido está armado de antemano. En WhatsApp, la persona responde cuando quiere y el proceso se adapta.</li>
+          <li><strong>La respuesta rápida pesa más.</strong> Quien escribe por WhatsApp espera una respuesta en minutos, no en días.</li>
+          <li><strong>La calificación es más natural.</strong> Se hace preguntando, en lugar de con un formulario extenso.</li>
+          <li><strong>El cierre ocurre dentro del mismo canal</strong>, o se pasa a una llamada agendada desde la propia conversación.</li>
+        </ul>
+
+        <h2>Qué automatizar y qué no</h2>
+        <h3>Conviene automatizar</h3>
+        <ul>
+          <li>La primera respuesta, en el momento en que llega el mensaje.</li>
+          <li>Las preguntas de calificación.</li>
+          <li>Los recordatorios y el seguimiento a quien no respondió.</li>
+          <li>El registro de cada conversación en el CRM.</li>
+        </ul>
+        <h3>Conviene dejar a una persona</h3>
+        <ul>
+          <li>La negociación y el manejo de objeciones.</li>
+          <li>El cierre.</li>
+          <li>Los reclamos y las situaciones delicadas.</li>
+        </ul>
+        <p>La regla es la de siempre: <strong>automatizá lo repetitivo, dejá lo estratégico para las personas</strong>. Más sobre cómo se conecta esto con tu CRM en la guía de <a href="/recursos/whatsapp-business-ventas/" style="color: var(--green);">WhatsApp Business para ventas</a>.</p>
+
+        <h2>Con qué herramientas</h2>
+        <p>La app WhatsApp Business alcanza para empezar. Cuando el volumen crece, se integra la API de WhatsApp Business con un CRM —por ejemplo GoHighLevel— o se conecta con herramientas como Make o Zapier. La elección depende del proceso que diseñaste, no al revés. Si querés profundizar en el seguimiento, mirá cómo <a href="/recursos/automatizar-seguimiento-leads/" style="color: var(--green);">automatizar el seguimiento de leads</a>.</p>
+
+        <h2>Cómo medir si funciona</h2>
+        <ul>
+          <li><strong>Tiempo hasta la primera respuesta.</strong> Es la métrica que más influye en este tipo de funnel.</li>
+          <li><strong>Conversaciones iniciadas por origen:</strong> qué página, publicación o anuncio genera mensajes. Para eso sirve medir el clic al botón de WhatsApp como evento en Google Analytics y usar UTMs en los links que compartís.</li>
+          <li><strong>Porcentaje de conversaciones calificadas.</strong></li>
+          <li><strong>Cuántas llegan a una llamada o a un cierre</strong> y en qué etapa se cae el resto.</li>
+        </ul>
+
+        <h2>Errores comunes</h2>
+        <div class="article__mistakes">
+          <div class="article__mistake">
+            <h3>Vender desde un celular personal</h3>
+            <p>Sin registro de conversaciones ni seguimiento, funciona con pocos clientes y se vuelve un caos cuando crece el volumen.</p>
+          </div>
+          <div class="article__mistake">
+            <h3>Automatizar el cierre</h3>
+            <p>Una persona decide comprar cuando siente que la entienden. Un bot que negocia suele espantar más de lo que cierra.</p>
+          </div>
+          <div class="article__mistake">
+            <h3>No saber de dónde viene cada consulta</h3>
+            <p>Si todas las conversaciones llegan al mismo número sin ninguna marca, no podés saber qué pieza o qué anuncio funciona.</p>
+          </div>
+          <div class="article__mistake">
+            <h3>Mensajes masivos sin contexto</h3>
+            <p>WhatsApp penaliza el spam con bloqueos. Cada mensaje tiene que ser relevante y esperado.</p>
+          </div>
+        </div>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="article__faq">
+          {faqItems.map((item, i) => (
+            <details class="article__faq-item" open={i === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+
+        <div class="article__cta">
+          <h2>¿Querés armar tu funnel por WhatsApp?</h2>
+          <p>Contanos cómo vendés hoy y te ayudamos a diseñar el recorrido, desde el primer mensaje hasta el cierre.</p>
+          <div class="article__cta-buttons">
+            <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
+            <a href="/agendar/" class="btn btn--outline">Agendar videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <section class="section section--dark">
+      <div class="container">
+        <h2 data-reveal>Seguí leyendo</h2>
+        <div class="article__related" data-reveal style="--i:1">
+          <a href="/recursos/funnel-de-ventas/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Funnel de ventas: la guía práctica</h3>
+            <p>Qué es, cómo funciona y cómo armar uno que convierta.</p>
+          </a>
+          <a href="/recursos/whatsapp-business-ventas/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>WhatsApp Business para ventas</h3>
+            <p>API vs app, automatización, integración con CRM y errores que evitar.</p>
+          </a>
+          <a href="/recursos/automatizar-seguimiento-leads/" class="article__related-card">
+            <span class="article__related-tag">Guía</span>
+            <h3>Automatizar el seguimiento de leads</h3>
+            <p>Cómo automatizar sin perder oportunidades ni el toque humano.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
+  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  datePublished: '2026-10-14',
+  dateModified: '2026-10-14',
+  mainEntityOfPage: 'https://agencianovai.com/recursos/funnel-de-ventas-whatsapp/',
+  inLanguage: 'es',
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://agencianovai.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Recursos', item: 'https://agencianovai.com/recursos/' },
+    { '@type': 'ListItem', position: 3, name: "Funnel de ventas por WhatsApp", item: 'https://agencianovai.com/recursos/funnel-de-ventas-whatsapp/' },
+  ],
+})} />
+
+<style>
+  .article__hero { padding-top: 10rem; padding-bottom: var(--space-section); }
+  .article__hero h1 { margin-bottom: 1.5rem; }
+  .article__back { margin-bottom: 2rem; }
+  .article__intro { max-width: 48rem; }
+  .article__meta { display: flex; align-items: center; gap: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--paper-muted); margin-top: 1.5rem; }
+  .article__sep { width: 1px; height: 12px; background: var(--line-dark); }
+
+  .article__body { max-width: 48rem; margin: 0 auto; }
+  .article__body h2 { color: var(--ink); margin-top: 3rem; margin-bottom: 1rem; }
+  .article__body h2:first-child { margin-top: 0; }
+  .article__body h3 { color: var(--ink); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.05rem; }
+  .article__body p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article__body ul, .article__body ol { color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .article__body li { margin-bottom: 0.5rem; }
+  .article__body strong { color: var(--ink); }
+
+  .article__table-wrap { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--line-light); border-radius: var(--radius-card); }
+  .article__table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 600px; }
+  .article__table th { background: var(--bg-dark); color: var(--paper); padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .article__table td { padding: 0.75rem 1rem; border-top: 1px solid var(--line-light); color: var(--ink-muted); vertical-align: top; }
+  .article__table td:first-child { font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .article__table tr:hover td { background: rgba(62, 242, 107, 0.03); }
+
+  .article__highlight {
+    background: var(--bg-dark); color: var(--paper); padding: 2rem; border-radius: var(--radius-card); margin: 2rem 0;
+  }
+  .article__highlight p { color: var(--paper-muted); margin-bottom: 0; }
+  .article__highlight strong { color: var(--paper); }
+
+  .article__signals { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+  .article__signal {
+    padding: 1.5rem; border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    transition: border-color var(--dur) var(--ease);
+  }
+  .article__signal:hover { border-color: var(--green); }
+  .article__signal:last-child { grid-column: span 2; }
+  .article__signal h3 { margin-top: 0; margin-bottom: 0.5rem; }
+  .article__signal p { margin-bottom: 0; font-size: 0.92rem; }
+
+  .article__mistakes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+  .article__mistake {
+    padding: 1.5rem; border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    border-left: 3px solid var(--purple);
+  }
+  .article__mistake h3 { margin-top: 0; margin-bottom: 0.5rem; }
+  .article__mistake p { margin-bottom: 0; font-size: 0.92rem; }
+
+  .article__faq { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+  .article__faq-item {
+    border: 1px solid var(--line-light); border-radius: var(--radius-card);
+    padding: 1.25rem 1.5rem; transition: border-color var(--dur) var(--ease);
+  }
+  .article__faq-item[open] { border-color: var(--green); }
+  .article__faq-item summary {
+    font-weight: 600; font-size: 0.95rem; color: var(--ink); cursor: pointer;
+    list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .article__faq-item summary::-webkit-details-marker { display: none; }
+  .article__faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--green); flex-shrink: 0; }
+  .article__faq-item[open] summary::after { content: '−'; }
+  .article__faq-item p { margin-top: 1rem; margin-bottom: 0; color: var(--ink-muted); line-height: 1.8; font-size: 0.92rem; }
+
+  .article__cta {
+    margin-top: 3rem; padding: 2.5rem; border-radius: var(--radius-card);
+    background: var(--bg-dark); text-align: center;
+  }
+  .article__cta h2 { color: var(--paper) !important; margin-top: 0 !important; }
+  .article__cta p { color: var(--paper-muted); }
+  .article__cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+
+  /* Seguí leyendo */
+  .article__related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .article__related-card {
+    display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem;
+    border: 1px solid var(--line-dark); border-radius: var(--radius-card);
+    text-decoration: none; color: var(--paper);
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .article__related-card:hover { border-color: var(--green); transform: translateY(-2px); }
+  .article__related-tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: var(--radius); background: var(--bg-dark); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); font-weight: 600; }
+  .article__related-card h3 { font-size: 1rem; }
+  .article__related-card p { color: var(--paper-muted); font-size: 0.85rem; line-height: 1.6; }
+
+  @media (max-width: 900px) {
+    .article__hero { padding-top: 7rem; }
+    .article__meta { flex-wrap: wrap; }
+    .article__signals { grid-template-columns: 1fr; }
+    .article__signal:last-child { grid-column: span 1; }
+    .article__mistakes { grid-template-columns: 1fr; }
+    .article__cta-buttons { flex-wrap: wrap; }
+    .article__related { grid-template-columns: 1fr; }
+  }
+</style>
