@@ -2,11 +2,12 @@
 import { WA } from '../lib/wa';
 import Icon from './Icon.astro';
 import Aurora from './Aurora';
-// Stack con el que construyen (Simple Icons, CC0). Reemplazar por las herramientas reales.
+// Stack con el que construyen (Simple Icons, CC0).
+// [archivo en /public/stack, nombre, siglas si no hay ícono en Simple Icons]
 const stack = [
-  ['gohighlevel', 'GoHighLevel'], ['whatsapp', 'WhatsApp'], ['make', 'Make'], ['n8n', 'n8n'], ['zapier', 'Zapier'],
-  ['notion', 'Notion'],
-  ['calendly', 'Calendly'], ['stripe', 'Stripe'], ['mercadopago', 'Mercado Pago'], ['airtable', 'Airtable'], ['typeform', 'Typeform'],
+  ['gohighlevel', 'GoHighLevel', 'GHL'], ['whatsapp', 'WhatsApp'], ['manychat', 'ManyChat', 'MC'], ['kajabi', 'Kajabi', 'KJ'],
+  ['wordpress', 'WordPress'], ['woocommerce', 'WooCommerce'], ['shopify', 'Shopify'], ['leadpages', 'Leadpages', 'LP'],
+  ['typeform', 'Typeform'], ['klaviyo', 'Klaviyo', 'KL'], ['brevo', 'Brevo'],
 ];
 
 // Palabras del h1 con índice para el stagger; la última va en verde.
@@ -39,10 +40,10 @@ const words = ['La', 'infraestructura', 'digital', 'detrás', 'de', 'tu', 'marke
     <div class="marquee" aria-label="Herramientas con las que trabajamos">
       {[0, 1].map(dup => (
         <ul class="marquee__track" aria-hidden={dup === 1}>
-          {stack.map(([file, name]) => (
+          {stack.map(([file, name, mark]) => (
             <li>
-              {file === 'gohighlevel'
-                ? <span class="marquee__mark">GHL</span>
+              {mark
+                ? <span class="marquee__mark">{mark}</span>
                 : <img src={`/stack/${file}.svg`} alt={name} width="20" height="20" loading="lazy" />}
               <span>{name}</span>
             </li>
