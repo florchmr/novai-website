@@ -8,6 +8,6 @@ export const SITE = {
   lang: 'es',
   ogImage: '/og.jpg',
   founded: 2019, // 7 años
-  areaServed: 'Argentina y Latinoamérica',
+  areaServed: 'Todo el mundo (servicio remoto)',
   services: ['Conversión', 'Operations', 'Integración', 'Intelligence'],
 } as const;
