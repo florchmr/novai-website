@@ -30,7 +30,7 @@ npm run build    # genera dist/
 - `src/lib/wa.ts` — número de WhatsApp y mensajes prearmados de cada botón. Cambiar el número ahí y se actualiza en todo el sitio.
 - `src/scripts/live.ts` — interacciones nativas: reveal por scroll (`data-reveal`), contadores (`data-count`), spotlight en cards (`data-spotlight`), nav con blur.
 - `src/components/Icon.astro` — iconos de [Lucide](https://lucide.dev/icons). Para agregar uno: importarlo de `lucide-static/icons/<nombre>.svg?raw` y sumarlo al mapa. **Nunca emojis ni SVGs dibujados a mano.**
-- `public/stack/` — iconos de herramientas (Simple Icons) para el marquee "Construimos con" del hero. La lista está en `Hero.astro` (`stack`).
+- `public/stack/` — iconos de herramientas (Simple Icons o logo oficial de la marca, en blanco y fondo transparente) para el marquee "Construimos con" del hero. La lista está en `Hero.astro` (`stack`).
 - Los textos vienen del documento "COPY REDUCIDO" de Flor. Si cambia el copy, tocar solo el componente de esa sección.
 
 ## React Bits (efectos modernos)
