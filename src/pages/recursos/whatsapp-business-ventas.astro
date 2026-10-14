@@ -10,10 +10,10 @@ const description = 'Guía para usar WhatsApp Business en tu proceso de ventas. 
 const faqItems = [
   { q: '¿Cuál es la diferencia entre WhatsApp Business app y WhatsApp Business API?', a: 'La app de WhatsApp Business es gratuita y funciona en un solo teléfono. Permite catálogo, respuestas rápidas y etiquetas, pero no se conecta con CRM ni permite automatizaciones reales. La API de WhatsApp Business permite múltiples agentes, integración con CRM, chatbots, automatizaciones y mensajes masivos segmentados. La API requiere un proveedor (Meta Business Suite, 360dialog, Twilio, o viene integrada en plataformas como GoHighLevel).' },
   { q: '¿Se puede automatizar WhatsApp sin que parezca spam?', a: 'Sí, si los mensajes son relevantes, esperados y tienen valor. Un mensaje de bienvenida cuando alguien llena un formulario no es spam — es atención. Un recordatorio de una cita agendada no es spam — es servicio. Lo que sí es spam: mandar promociones masivas a contactos que nunca te dieron permiso, o insistir después de que alguien no respondió 3 veces.' },
-  { q: '¿Cuánto cuesta usar la API de WhatsApp Business?', a: 'Meta cobra por conversación: las conversaciones iniciadas por el negocio (marketing, utilidad) cuestan entre $0.02 y $0.08 USD dependiendo del país. Las conversaciones iniciadas por el usuario son gratuitas las primeras 1.000 por mes. Si usás GoHighLevel, la API viene integrada y se paga por mensaje enviado. Si usás un proveedor directo, hay costos de setup más el costo por conversación.' },
-  { q: '¿WhatsApp Business funciona con CRM?', a: 'Con la API sí. GoHighLevel, Kommo y Clientify tienen integración nativa con WhatsApp. HubSpot y Salesforce requieren conectores de terceros. Con Make o Zapier podés conectar WhatsApp API a casi cualquier CRM. La integración permite que las conversaciones de WhatsApp queden registradas en el CRM, se asignen a vendedores y disparen automatizaciones.' },
-  { q: '¿Puedo usar WhatsApp para vender sin la API?', a: 'Sí, la app gratuita de WhatsApp Business funciona para negocios chicos con poco volumen. Podés usar respuestas rápidas, catálogo y etiquetas para organizar contactos. El límite es que todo es manual, no se conecta con otras herramientas y solo funciona en un dispositivo. Cuando el volumen crece, la API se vuelve necesaria.' },
-  { q: '¿Cómo evitar que WhatsApp me bloquee la cuenta?', a: 'Meta penaliza el spam con restricciones y bloqueos. Para evitarlo: solo mandá mensajes a personas que te dieron permiso, no envíes más de un mensaje promocional por semana al mismo contacto, usá plantillas aprobadas por Meta para mensajes masivos, mantené una tasa de bloqueo baja (menos del 2%) y siempre ofrecé una forma de dejar de recibir mensajes.' },
+  { q: '¿Cuánto cuesta usar la API de WhatsApp Business?', a: 'Meta cobra por conversación: las conversaciones iniciadas por el negocio (marketing, utilidad) cuestan entre $0.02 y $0.08 USD dependiendo del país. Las conversaciones iniciadas por el usuario son gratuitas las primeras 1.000 por mes. Si usas GoHighLevel, la API viene integrada y se paga por mensaje enviado. Si usas un proveedor directo, hay costos de setup más el costo por conversación.' },
+  { q: '¿WhatsApp Business funciona con CRM?', a: 'Con la API sí. GoHighLevel, Kommo y Clientify tienen integración nativa con WhatsApp. HubSpot y Salesforce requieren conectores de terceros. Con Make o Zapier puedes conectar WhatsApp API a casi cualquier CRM. La integración permite que las conversaciones de WhatsApp queden registradas en el CRM, se asignen a vendedores y disparen automatizaciones.' },
+  { q: '¿Puedo usar WhatsApp para vender sin la API?', a: 'Sí, la app gratuita de WhatsApp Business funciona para negocios chicos con poco volumen. Puedes usar respuestas rápidas, catálogo y etiquetas para organizar contactos. El límite es que todo es manual, no se conecta con otras herramientas y solo funciona en un dispositivo. Cuando el volumen crece, la API se vuelve necesaria.' },
+  { q: '¿Cómo evitar que WhatsApp me bloquee la cuenta?', a: 'Meta penaliza el spam con restricciones y bloqueos. Para evitarlo: solo manda mensajes a personas que te dieron permiso, no envíes más de un mensaje promocional por semana al mismo contacto, usa plantillas aprobadas por Meta para mensajes masivos, mantén una tasa de bloqueo baja (menos del 2%) y siempre ofrece una forma de dejar de recibir mensajes.' },
   { q: '¿Qué tipo de mensajes puedo automatizar por WhatsApp?', a: 'Los más comunes y efectivos: mensaje de bienvenida cuando un lead deja sus datos, confirmación y recordatorio de citas agendadas, seguimiento post-reunión, notificación de estado de pedido o proyecto, encuestas de satisfacción y secuencias de nutrición con contenido educativo. Lo que no conviene automatizar: negociaciones de precio, manejo de quejas y cierre de ventas high-ticket.' },
 ];
 
@@ -69,7 +69,7 @@ const useCases = [
       <div class="container article__body">
         <h2>WhatsApp ya no es opcional en ventas</h2>
         <p>En Latinoamérica, <strong>WhatsApp es donde pasan las conversaciones de venta</strong>. No en email, no en formularios web, no en llamadas en frío. Si tu proceso comercial no incluye WhatsApp, estás perdiendo la mayoría de las oportunidades.</p>
-        <p>El problema es que la mayoría de los negocios usan WhatsApp de forma artesanal: un vendedor con su celular personal, sin registro de conversaciones, sin seguimiento, sin métricas. Funciona con 5 clientes. Con 50, es un caos.</p>
+        <p>El problema es que la mayoría de los negocios usan WhatsApp de forma artesanal: un vendedor con su teléfono personal, sin registro de conversaciones, sin seguimiento, sin métricas. Funciona con 5 clientes. Con 50, es un caos.</p>
         <p><strong>Usar WhatsApp Business de forma profesional</strong> significa integrarlo con tu CRM, automatizar lo repetitivo, medir resultados y mantener un estándar de comunicación. No es reemplazar al vendedor — es darle superpoderes. Es una pieza de tu <a href="/recursos/automatizacion-comercial/">proceso de automatización comercial</a>, y también el canal donde termina un <a href="/recursos/funnel-de-ventas/">funnel de ventas</a> en muchos negocios de la región.</p>
       </div>
     </section>
@@ -77,7 +77,7 @@ const useCases = [
     <!-- App vs API -->
     <section class="section section--dark">
       <div class="container article__body article__body--dark">
-        <h2>WhatsApp Business App vs API: cuál necesitás</h2>
+        <h2>WhatsApp Business App vs API: cuál necesitas</h2>
         <div class="article__table-wrap">
           <table class="article__table">
             <thead>
@@ -99,7 +99,7 @@ const useCases = [
             </tbody>
           </table>
         </div>
-        <p><strong>Regla práctica:</strong> si respondés más de 20 conversaciones por día o tenés más de una persona vendiendo, necesitás la API.</p>
+        <p><strong>Regla práctica:</strong> si respondes más de 20 conversaciones por día o tienes más de una persona vendiendo, necesitas la API.</p>
       </div>
     </section>
 
@@ -125,7 +125,7 @@ const useCases = [
     <section class="section section--dark">
       <div class="container article__body article__body--dark">
         <div class="article__callout article__callout--dark">
-          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Querés profesionalizar tu uso de WhatsApp?</h2>
+          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Quieres profesionalizar tu uso de WhatsApp?</h2>
           <p>En NOVAI integramos WhatsApp Business API con tu CRM, configuramos automatizaciones y entrenamos a tu equipo para vender más sin perder el toque personal.</p>
           <div style="margin-top: 1.5rem;">
             <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
@@ -150,10 +150,10 @@ const useCases = [
       </div>
     </section>
 
-    <!-- Seguí leyendo -->
+    <!-- Sigue leyendo -->
     <section class="section section--dark">
       <div class="container">
-        <h2 data-reveal>Seguí leyendo</h2>
+        <h2 data-reveal>Sigue leyendo</h2>
         <div class="article__related" data-reveal style="--i:1">
           <a href="/recursos/automatizar-seguimiento-leads/" class="article__related-card">
             <span class="article__related-tag">Guía</span>

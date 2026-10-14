@@ -44,7 +44,7 @@ GoHighLevel, WhatsApp Business, Make, n8n, Zapier, HubSpot, Meta Ads, Google Ads
 
 ## Recursos y guías
 
-- [Automatización comercial: qué es, cuándo la necesitás y cómo implementarla](https://agencianovai.com/recursos/automatizacion-comercial/)
+- [Automatización comercial: qué es, cuándo la necesitas y cómo implementarla](https://agencianovai.com/recursos/automatizacion-comercial/)
 - [Funnel de ventas: qué es, cómo funciona y cómo armar uno que convierta](https://agencianovai.com/recursos/funnel-de-ventas/)
 - [CRM para negocios de servicios: cómo elegir e implementar el correcto](https://agencianovai.com/recursos/crm-para-negocios/)
 - [Cómo automatizar el seguimiento de leads sin perder oportunidades](https://agencianovai.com/recursos/automatizar-seguimiento-leads/)

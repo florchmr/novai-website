@@ -9,8 +9,8 @@ const description = 'Guía práctica sobre CRM para negocios de servicios. Qué 
 
 const faqItems = [
   { q: '¿Qué es un CRM y para qué sirve?', a: 'CRM significa Customer Relationship Management (gestión de relaciones con clientes). Es un sistema que centraliza toda la información de tus contactos, leads y clientes en un solo lugar: datos de contacto, historial de conversaciones, estado de cada oportunidad de venta y tareas pendientes. Sirve para que ningún lead se pierda y para que todo el equipo tenga visibilidad del proceso comercial.' },
-  { q: '¿Cuándo un negocio necesita un CRM?', a: 'Cuando tenés más leads de los que podés seguir de memoria o con una planilla. Si alguna vez perdiste una venta porque te olvidaste de hacer seguimiento, o si tenés leads en WhatsApp, email y redes sin saber en qué estado está cada uno, necesitás un CRM. También cuando sumás un equipo comercial y necesitás visibilidad de qué hace cada vendedor.' },
-  { q: '¿Puedo usar una planilla de Excel o Google Sheets como CRM?', a: 'Podés, pero tiene límites claros: no automatiza seguimientos, no registra conversaciones, no envía recordatorios y requiere actualización manual constante. Funciona para 20-30 contactos activos. Más allá de eso, empezás a perder oportunidades. Un CRM real no solo guarda datos — ejecuta acciones automáticas basadas en esos datos.' },
+  { q: '¿Cuándo un negocio necesita un CRM?', a: 'Cuando tienes más leads de los que puedes seguir de memoria o con una hoja de cálculo. Si alguna vez perdiste una venta porque te olvidaste de hacer seguimiento, o si tienes leads en WhatsApp, email y redes sin saber en qué estado está cada uno, necesitas un CRM. También cuando sumas un equipo comercial y necesitas visibilidad de qué hace cada vendedor.' },
+  { q: '¿Puedo usar una hoja de cálculo de Excel o Google Sheets como CRM?', a: 'Puedes, pero tiene límites claros: no automatiza seguimientos, no registra conversaciones, no envía recordatorios y requiere actualización manual constante. Funciona para 20-30 contactos activos. Más allá de eso, empiezas a perder oportunidades. Un CRM real no solo guarda datos — ejecuta acciones automáticas basadas en esos datos.' },
   { q: '¿Cuál es el mejor CRM para negocios en Latinoamérica?', a: 'Depende del tipo de negocio. GoHighLevel es ideal para negocios de servicios y agencias que necesitan CRM + funnels + WhatsApp + automatizaciones en una sola plataforma. HubSpot tiene un CRM gratuito muy completo pero escala caro. Kommo se especializa en ventas por WhatsApp. Clientify es una opción en español pensada para el mercado hispano. No hay "mejor" universal — hay mejor para tu caso.' },
   { q: '¿Cuánto cuesta un CRM?', a: 'Desde $0 (HubSpot CRM gratuito, Zoho gratis para 3 usuarios) hasta miles de dólares por mes (Salesforce, HubSpot Enterprise). Para negocios de servicios PyME, las opciones más comunes están entre $50-300/mes. GoHighLevel cuesta $97-297/mes con todo incluido. Lo que importa no es el precio del CRM sino cuánto te cuesta NO tenerlo: leads perdidos, seguimientos olvidados, ventas que no cerraron.' },
   { q: '¿Cuánto tarda implementar un CRM?', a: 'Una implementación básica (importar contactos, configurar pipeline, entrenar al equipo) puede estar lista en 1-2 semanas. Una implementación completa (con automatizaciones, integraciones, WhatsApp, formularios y reportes) tarda entre 3-6 semanas. Lo más importante es que el equipo realmente lo use — la implementación técnica es solo la mitad del trabajo.' },
@@ -18,12 +18,12 @@ const faqItems = [
 ];
 
 const signals = [
-  'Tenés leads en 3 o más lugares distintos (WhatsApp, email, DMs, planilla)',
-  'No sabés cuántos leads activos tenés ni en qué etapa está cada uno',
-  'Te olvidás de hacer seguimiento y perdés ventas por eso',
-  'No podés medir cuántas consultas se convierten en ventas',
+  'Tienes leads en 3 o más lugares distintos (WhatsApp, email, DMs, hoja de cálculo)',
+  'No sabes cuántos leads activos tienes ni en qué etapa está cada uno',
+  'Te olvidas de hacer seguimiento y pierdes ventas por eso',
+  'No puedes medir cuántas consultas se convierten en ventas',
   'Sumaste un vendedor y no hay forma de saber qué hace con cada lead',
-  'Respondés a todos igual sin importar si están listos para comprar o no',
+  'Respondes a todos igual sin importar si están listos para comprar o no',
 ];
 
 const queBuscar = [
@@ -37,7 +37,7 @@ const queBuscar = [
   },
   {
     title: 'Automatizaciones',
-    desc: 'Emails automáticos, recordatorios de seguimiento, cambio de etapa por acción del contacto. Si todo es manual, el CRM es solo una planilla cara.',
+    desc: 'Emails automáticos, recordatorios de seguimiento, cambio de etapa por acción del contacto. Si todo es manual, el CRM es solo una hoja de cálculo cara.',
   },
   {
     title: 'Formularios y landing pages',
@@ -56,11 +56,11 @@ const queBuscar = [
 const errores = [
   {
     title: 'Comprar el CRM antes de definir el proceso',
-    desc: 'El CRM organiza tu proceso de venta. Si no tenés claro cómo vendés (etapas, criterios, acciones), el CRM no va a inventarlo por vos.',
+    desc: 'El CRM organiza tu proceso de venta. Si no tienes claro cómo vendes (etapas, criterios, acciones), el CRM no va a inventarlo por ti.',
   },
   {
     title: 'Elegir por features en vez de por problema',
-    desc: 'No necesitás el CRM con más funciones. Necesitás el que resuelve tu problema principal. Un CRM simple que se usa es mejor que uno complejo que se abandona.',
+    desc: 'No necesitas el CRM con más funciones. Necesitas el que resuelve tu problema principal. Un CRM simple que se usa es mejor que uno complejo que se abandona.',
   },
   {
     title: 'No capacitar al equipo',
@@ -68,15 +68,15 @@ const errores = [
   },
   {
     title: 'Querer automatizar todo desde el día uno',
-    desc: 'Primero usá el CRM de forma manual para entender tu proceso. Después automatizá lo repetitivo. Automatizar un proceso que no entendés es multiplicar errores.',
+    desc: 'Primero usa el CRM de forma manual para entender tu proceso. Después automatiza lo repetitivo. Automatizar un proceso que no entiendes es multiplicar errores.',
   },
   {
     title: 'No limpiar los datos al migrar',
-    desc: 'Si importás una planilla con leads duplicados, datos viejos y contactos que nunca respondieron, arrancás con ruido. Limpiá antes de migrar.',
+    desc: 'Si importas una hoja de cálculo con leads duplicados, datos viejos y contactos que nunca respondieron, arrancas con ruido. Limpia antes de migrar.',
   },
   {
     title: 'Usar el CRM solo como agenda de contactos',
-    desc: 'Un CRM no es una libreta de teléfonos. Si solo guardás nombres y mails pero no registrás interacciones, etapas y seguimientos, estás desperdiciando la herramienta.',
+    desc: 'Un CRM no es una libreta de teléfonos. Si solo guardas nombres y mails pero no registras interacciones, etapas y seguimientos, estás desperdiciando la herramienta.',
   },
 ];
 ---
@@ -98,8 +98,8 @@ const errores = [
     <section class="section section--light">
       <div class="container article__body">
         <h2>Qué es un CRM (sin vueltas)</h2>
-        <p>Un <strong>CRM</strong> es el sistema donde vivE toda la información de tus clientes y potenciales clientes. No es solo una base de datos — es la herramienta que te dice <strong>quién te contactó, qué necesita, en qué etapa está y qué tenés que hacer para avanzar esa venta</strong>.</p>
-        <p>Sin CRM, la información vive en la cabeza del vendedor, en WhatsApp, en una planilla, en emails sueltos. Con CRM, todo está en un solo lugar y el proceso avanza de forma visible y predecible.</p>
+        <p>Un <strong>CRM</strong> es el sistema donde vivE toda la información de tus clientes y potenciales clientes. No es solo una base de datos — es la herramienta que te dice <strong>quién te contactó, qué necesita, en qué etapa está y qué tienes que hacer para avanzar esa venta</strong>.</p>
+        <p>Sin CRM, la información vive en la cabeza del vendedor, en WhatsApp, en una hoja de cálculo, en emails sueltos. Con CRM, todo está en un solo lugar y el proceso avanza de forma visible y predecible.</p>
         <p>Para un negocio de servicios — consultor, agencia, profesional, empresa PyME — el CRM es la diferencia entre "creo que tengo como 30 leads" y "tengo 47 leads activos, 12 en etapa de propuesta y 3 por cerrar esta semana".</p>
 
         <div class="article__callout">
@@ -112,7 +112,7 @@ const errores = [
     <section class="section section--dark">
       <div class="container">
         <p class="eyebrow" data-reveal>Señales</p>
-        <h2 data-reveal style="--i:1">¿Necesitás un CRM? Estas señales te lo confirman.</h2>
+        <h2 data-reveal style="--i:1">¿Necesitas un CRM? Estas señales te lo confirman.</h2>
         <div class="article__signals">
           {signals.map((signal, i) => (
             <div class="article__signal" data-reveal style={`--i:${i + 2}`}>
@@ -192,7 +192,7 @@ const errores = [
           </table>
         </div>
 
-        <p>Para una comparativa más detallada, leé nuestra <a href="/recursos/ghl-vs-hubspot/">guía completa de GHL vs HubSpot vs alternativas</a>.</p>
+        <p>Para una comparativa más detallada, lee nuestra <a href="/recursos/ghl-vs-hubspot/">guía completa de GHL vs HubSpot vs alternativas</a>.</p>
       </div>
     </section>
 
@@ -221,36 +221,36 @@ const errores = [
           <div class="article__paso" data-reveal style="--i:2">
             <div class="article__paso-num">01</div>
             <div>
-              <h3>Definí tu proceso de venta</h3>
-              <p>Antes de tocar cualquier herramienta, mapeá cómo vendés hoy: desde que llega un lead hasta que cierra (o se pierde). Etapas, acciones, criterios.</p>
+              <h3>Define tu proceso de venta</h3>
+              <p>Antes de tocar cualquier herramienta, mapea cómo vendes hoy: desde que llega un lead hasta que cierra (o se pierde). Etapas, acciones, criterios.</p>
             </div>
           </div>
           <div class="article__paso" data-reveal style="--i:3">
             <div class="article__paso-num">02</div>
             <div>
-              <h3>Elegí el CRM según tu realidad</h3>
-              <p>No el más caro ni el más popular. El que se ajusta a tu proceso, tu volumen, tu presupuesto y las herramientas que ya usás.</p>
+              <h3>Elige el CRM según tu realidad</h3>
+              <p>No el más caro ni el más popular. El que se ajusta a tu proceso, tu volumen, tu presupuesto y las herramientas que ya usas.</p>
             </div>
           </div>
           <div class="article__paso" data-reveal style="--i:4">
             <div class="article__paso-num">03</div>
             <div>
-              <h3>Configurá el pipeline y los campos</h3>
-              <p>Armá las etapas de tu embudo, los campos que necesitás de cada contacto y las vistas que va a usar cada persona del equipo.</p>
+              <h3>Configura el pipeline y los campos</h3>
+              <p>Arma las etapas de tu embudo, los campos que necesitas de cada contacto y las vistas que va a usar cada persona del equipo.</p>
             </div>
           </div>
           <div class="article__paso" data-reveal style="--i:5">
             <div class="article__paso-num">04</div>
             <div>
-              <h3>Importá datos y conectá fuentes</h3>
-              <p>Traé tus contactos existentes (limpios) y conectá los formularios, WhatsApp y landing pages para que los leads nuevos entren directo.</p>
+              <h3>Importa datos y conecta fuentes</h3>
+              <p>Trae tus contactos existentes (limpios) y conecta los formularios, WhatsApp y landing pages para que los leads nuevos entren directo.</p>
             </div>
           </div>
           <div class="article__paso" data-reveal style="--i:6">
             <div class="article__paso-num">05</div>
             <div>
-              <h3>Capacitá y medí</h3>
-              <p>Entrenamiento al equipo + revisión semanal de métricas. Después de 2-3 semanas de uso real, automatizá lo que sea repetitivo.</p>
+              <h3>Capacita y mide</h3>
+              <p>Entrenamiento al equipo + revisión semanal de métricas. Después de 2-3 semanas de uso real, automatiza lo que sea repetitivo.</p>
             </div>
           </div>
         </div>
@@ -261,7 +261,7 @@ const errores = [
     <section class="section section--light">
       <div class="container article__body">
         <div class="article__callout">
-          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Necesitás implementar un CRM?</h2>
+          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Necesitas implementar un CRM?</h2>
           <p>En NOVAI configuramos e implementamos CRM completos: pipeline, automatizaciones, WhatsApp, formularios y capacitación. Todo conectado a tu proceso de venta real.</p>
           <div style="margin-top: 1.5rem;">
             <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
@@ -274,7 +274,7 @@ const errores = [
     <section class="section section--dark">
       <div class="container">
         <p class="eyebrow" data-reveal>Preguntas frecuentes</p>
-        <h2 data-reveal style="--i:1">Todo lo que necesitás saber sobre CRM.</h2>
+        <h2 data-reveal style="--i:1">Todo lo que necesitas saber sobre CRM.</h2>
         <div class="article__faq article__faq--dark" data-reveal style="--i:2">
           {faqItems.map((item) => (
             <details class="article__faq-item">
@@ -288,12 +288,12 @@ const errores = [
 
     <section class="section section--light">
       <div class="container">
-        <h2 data-reveal>Seguí leyendo</h2>
+        <h2 data-reveal>Sigue leyendo</h2>
         <div class="article__related" data-reveal style="--i:1">
           <a href="/recursos/automatizacion-comercial/" class="article__related-card">
             <span class="article__related-tag">Guía</span>
             <h3>Automatización comercial</h3>
-            <p>Qué es, cuándo la necesitás y cómo implementarla.</p>
+            <p>Qué es, cuándo la necesitas y cómo implementarla.</p>
           </a>
           <a href="/recursos/funnel-de-ventas/" class="article__related-card">
             <span class="article__related-tag">Guía</span>
@@ -337,11 +337,11 @@ const errores = [
   name: 'Cómo implementar un CRM en un negocio de servicios',
   description: 'Guía paso a paso para elegir e implementar un CRM en un negocio de servicios, desde definir el proceso de venta hasta capacitar al equipo.',
   step: [
-    { '@type': 'HowToStep', name: 'Definí tu proceso de venta', text: 'Antes de tocar cualquier herramienta, mapeá cómo vendés hoy: desde que llega un lead hasta que cierra (o se pierde). Etapas, acciones, criterios.' },
-    { '@type': 'HowToStep', name: 'Elegí el CRM según tu realidad', text: 'No el más caro ni el más popular. El que se ajusta a tu proceso, tu volumen, tu presupuesto y las herramientas que ya usás.' },
-    { '@type': 'HowToStep', name: 'Configurá el pipeline y los campos', text: 'Armá las etapas de tu embudo, los campos que necesitás de cada contacto y las vistas que va a usar cada persona del equipo.' },
-    { '@type': 'HowToStep', name: 'Importá datos y conectá fuentes', text: 'Traé tus contactos existentes (limpios) y conectá los formularios, WhatsApp y landing pages para que los leads nuevos entren directo.' },
-    { '@type': 'HowToStep', name: 'Capacitá y medí', text: 'Entrenamiento al equipo + revisión semanal de métricas. Después de 2-3 semanas de uso real, automatizá lo que sea repetitivo.' },
+    { '@type': 'HowToStep', name: 'Define tu proceso de venta', text: 'Antes de tocar cualquier herramienta, mapea cómo vendes hoy: desde que llega un lead hasta que cierra (o se pierde). Etapas, acciones, criterios.' },
+    { '@type': 'HowToStep', name: 'Elige el CRM según tu realidad', text: 'No el más caro ni el más popular. El que se ajusta a tu proceso, tu volumen, tu presupuesto y las herramientas que ya usas.' },
+    { '@type': 'HowToStep', name: 'Configura el pipeline y los campos', text: 'Arma las etapas de tu embudo, los campos que necesitas de cada contacto y las vistas que va a usar cada persona del equipo.' },
+    { '@type': 'HowToStep', name: 'Importa datos y conecta fuentes', text: 'Trae tus contactos existentes (limpios) y conecta los formularios, WhatsApp y landing pages para que los leads nuevos entren directo.' },
+    { '@type': 'HowToStep', name: 'Capacita y mide', text: 'Entrenamiento al equipo + revisión semanal de métricas. Después de 2-3 semanas de uso real, automatiza lo que sea repetitivo.' },
   ],
 })} />
 

@@ -4,16 +4,16 @@ import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
 
-const title = 'Automatización comercial: qué es, cuándo la necesitás y cómo implementarla';
+const title = 'Automatización comercial: qué es, cuándo la necesitas y cómo implementarla';
 const description = 'Guía completa sobre automatización de procesos comerciales. Qué se puede automatizar, cuándo tiene sentido hacerlo y cómo implementarlo sin sobrecomplicar tu negocio.';
 
 const faqItems = [
   { q: '¿Qué es la automatización comercial?', a: 'La automatización comercial es el uso de tecnología para ejecutar tareas repetitivas del proceso de ventas sin intervención manual: seguimiento de leads, envío de emails, recordatorios de agenda, calificación de contactos y actualización de CRM. El objetivo es que el equipo comercial se enfoque en vender, no en tareas administrativas.' },
-  { q: '¿Cuándo una empresa necesita automatizar su proceso comercial?', a: 'Cuando empieza a perder oportunidades por falta de seguimiento, cuando el equipo dedica más tiempo a tareas administrativas que a vender, o cuando el volumen de leads supera la capacidad de gestionarlos manualmente. Si tenés leads que se enfrían porque nadie los contactó a tiempo, necesitás automatización.' },
-  { q: '¿Qué herramientas se usan para automatizar procesos comerciales?', a: 'Las más comunes son GoHighLevel (CRM + automatización todo en uno), HubSpot (CRM con automatización avanzada en planes pagos), ActiveCampaign (email marketing y automatización), Make y Zapier (conectores entre herramientas), y WhatsApp Business API (comunicación automatizada). La elección depende del proceso que necesitás resolver.' },
+  { q: '¿Cuándo una empresa necesita automatizar su proceso comercial?', a: 'Cuando empieza a perder oportunidades por falta de seguimiento, cuando el equipo dedica más tiempo a tareas administrativas que a vender, o cuando el volumen de leads supera la capacidad de gestionarlos manualmente. Si tienes leads que se enfrían porque nadie los contactó a tiempo, necesitas automatización.' },
+  { q: '¿Qué herramientas se usan para automatizar procesos comerciales?', a: 'Las más comunes son GoHighLevel (CRM + automatización todo en uno), HubSpot (CRM con automatización avanzada en planes pagos), ActiveCampaign (email marketing y automatización), Make y Zapier (conectores entre herramientas), y WhatsApp Business API (comunicación automatizada). La elección depende del proceso que necesitas resolver.' },
   { q: '¿Cuánto cuesta automatizar el proceso comercial de una empresa?', a: 'El costo varía según la complejidad. Una automatización básica (emails + CRM) puede costar entre $100-200/mes en herramientas. Un sistema completo (funnels + CRM + WhatsApp + automatizaciones + integraciones) puede estar entre $200-500/mes en herramientas más el costo de implementación. Lo importante es que el retorno supere la inversión: un lead que se pierde por falta de seguimiento es más caro que cualquier herramienta.' },
-  { q: '¿Se puede automatizar el seguimiento de leads por WhatsApp?', a: 'Sí. Con herramientas como GoHighLevel o integraciones con la API de WhatsApp Business, podés automatizar mensajes de bienvenida, recordatorios de citas, seguimiento post-reunión y secuencias de nutrición. Lo importante es que los mensajes sean relevantes y no spam — la automatización debe mejorar la experiencia del contacto, no empeorarla.' },
-  { q: '¿La automatización reemplaza al equipo comercial?', a: 'No. La automatización elimina tareas repetitivas (seguimiento, recordatorios, actualización de datos) para que el equipo se enfoque en lo que realmente requiere intervención humana: conversaciones de venta, negociación, cierre y relación con el cliente. Un vendedor que no pierde tiempo copiando datos entre planillas vende más.' },
+  { q: '¿Se puede automatizar el seguimiento de leads por WhatsApp?', a: 'Sí. Con herramientas como GoHighLevel o integraciones con la API de WhatsApp Business, puedes automatizar mensajes de bienvenida, recordatorios de citas, seguimiento post-reunión y secuencias de nutrición. Lo importante es que los mensajes sean relevantes y no spam — la automatización debe mejorar la experiencia del contacto, no empeorarla.' },
+  { q: '¿La automatización reemplaza al equipo comercial?', a: 'No. La automatización elimina tareas repetitivas (seguimiento, recordatorios, actualización de datos) para que el equipo se enfoque en lo que realmente requiere intervención humana: conversaciones de venta, negociación, cierre y relación con el cliente. Un vendedor que no pierde tiempo copiando datos entre hojas de cálculo vende más.' },
   { q: '¿Qué es un funnel de ventas automatizado?', a: 'Es un sistema donde el recorrido del potencial cliente está diseñado y conectado: desde que ve un anuncio o llega a una landing page, hasta que agenda una reunión o compra. Incluye páginas de captura, secuencias de email, calificación automática de leads, recordatorios y seguimiento. Todo funciona sin intervención manual constante, aunque el cierre suele ser humano.' },
 ];
 ---
@@ -27,7 +27,7 @@ const faqItems = [
         <a href="/recursos/" class="btn btn--ghost article__back"><Icon name="arrow-left" size={16} strokeWidth={2} /> Recursos</a>
         <p class="eyebrow" data-reveal>Recursos</p>
         <h1 data-reveal style="--i:1">Automatización comercial:<br><span class="accent-green">la guía completa.</span></h1>
-        <p class="lead article__intro" data-reveal style="--i:2">Qué es, cuándo la necesitás y cómo implementarla sin sobrecomplicar tu negocio.</p>
+        <p class="lead article__intro" data-reveal style="--i:2">Qué es, cuándo la necesitas y cómo implementarla sin sobrecomplicar tu negocio.</p>
         <div class="article__meta" data-reveal style="--i:3">
           <span>NOVAI</span>
           <span class="article__sep"></span>
@@ -44,9 +44,9 @@ const faqItems = [
         <h2>¿Qué es la automatización comercial?</h2>
         <p>La automatización comercial es el uso de tecnología para ejecutar tareas repetitivas del proceso de ventas sin intervención manual. Seguimiento de leads, envío de emails, recordatorios de agenda, calificación de contactos, actualización de CRM — todo eso puede funcionar solo.</p>
         <p>El objetivo no es reemplazar al equipo comercial. Es <strong>liberar tiempo</strong> para que se enfoque en lo que realmente requiere una persona: conversaciones, negociación, cierre y relación con el cliente.</p>
-        <p>Un vendedor que no pierde tiempo copiando datos entre planillas, mandando recordatorios a mano o preguntándose qué leads tiene que llamar hoy, vende más.</p>
+        <p>Un vendedor que no pierde tiempo copiando datos entre hojas de cálculo, mandando recordatorios a mano o preguntándose qué leads tiene que llamar hoy, vende más.</p>
 
-        <h2>¿Cuándo necesitás automatizar?</h2>
+        <h2>¿Cuándo necesitas automatizar?</h2>
         <p>No todos los negocios necesitan automatización desde el día uno. Pero hay señales claras de que llegó el momento:</p>
 
         <div class="article__signals">
@@ -56,11 +56,11 @@ const faqItems = [
           </div>
           <div class="article__signal">
             <h3>Seguimiento manual</h3>
-            <p>El seguimiento depende de la memoria o de una planilla que nadie actualiza. Si alguien se enferma o se va de vacaciones, se pierden oportunidades.</p>
+            <p>El seguimiento depende de la memoria o de una hoja de cálculo que nadie actualiza. Si alguien se enferma o se va de vacaciones, se pierden oportunidades.</p>
           </div>
           <div class="article__signal">
-            <h3>No sabés dónde está cada lead</h3>
-            <p>No hay visibilidad de en qué etapa está cada oportunidad. No sabés cuántos leads tenés, cuántos se contactaron, cuántos están por cerrar.</p>
+            <h3>No sabes dónde está cada lead</h3>
+            <p>No hay visibilidad de en qué etapa está cada oportunidad. No sabes cuántos leads tienes, cuántos se contactaron, cuántos están por cerrar.</p>
           </div>
           <div class="article__signal">
             <h3>Tareas repetitivas</h3>
@@ -72,7 +72,7 @@ const faqItems = [
           </div>
         </div>
 
-        <p>Si te identificás con 2 o más de estas señales, la automatización probablemente te va a dar un retorno real.</p>
+        <p>Si te identificas con 2 o más de estas señales, la automatización probablemente te va a dar un retorno real.</p>
 
         <h2>¿Qué se puede automatizar en un proceso comercial?</h2>
         <p>No todo se debe automatizar. La clave es identificar qué tareas son repetitivas, predecibles y no requieren criterio humano.</p>
@@ -135,7 +135,7 @@ const faqItems = [
           <li><strong>Decisiones estratégicas.</strong> Qué vender, a quién, a qué precio — eso no se automatiza.</li>
         </ul>
 
-        <p>La regla es simple: <strong>automatizá lo repetitivo, dejá lo estratégico para las personas</strong>.</p>
+        <p>La regla es simple: <strong>automatiza lo repetitivo, deja lo estratégico para las personas</strong>.</p>
 
         <h2>Cómo implementar automatización comercial</h2>
         <p>El error más común es empezar por la herramienta. "¿Qué CRM me conviene?" es la pregunta equivocada. La pregunta correcta es:</p>
@@ -147,23 +147,23 @@ const faqItems = [
         <p>Este es el proceso que usamos en NOVAI:</p>
 
         <h3>1. Mapear el proceso actual</h3>
-        <p>Antes de automatizar, necesitás entender qué pasa hoy. ¿De dónde vienen los leads? ¿Quién los contacta? ¿Qué pasa después del primer contacto? ¿Dónde se pierden? ¿Cuánto tarda cada etapa?</p>
-        <p>Si no podés describir tu proceso en un párrafo, probablemente no lo tenés claro — y automatizar algo que no entendés solo amplifica el desorden.</p>
+        <p>Antes de automatizar, necesitas entender qué pasa hoy. ¿De dónde vienen los leads? ¿Quién los contacta? ¿Qué pasa después del primer contacto? ¿Dónde se pierden? ¿Cuánto tarda cada etapa?</p>
+        <p>Si no puedes describir tu proceso en un párrafo, probablemente no lo tienes claro — y automatizar algo que no entiendes solo amplifica el desorden.</p>
 
         <h3>2. Identificar los cuellos de botella</h3>
         <p>¿Dónde se pierde tiempo, información o leads? Los cuellos de botella más comunes son:</p>
         <ul>
           <li>Tiempo de respuesta al primer contacto (más de 24hs = oportunidad perdida)</li>
           <li>Seguimiento inconsistente (depende de que alguien se acuerde)</li>
-          <li>Información dispersa (datos en WhatsApp, email, planilla y cabeza del vendedor)</li>
-          <li>Falta de visibilidad (no sabés cuántos leads tenés ni en qué etapa están)</li>
+          <li>Información dispersa (datos en WhatsApp, email, hoja de cálculo y cabeza del vendedor)</li>
+          <li>Falta de visibilidad (no sabes cuántos leads tienes ni en qué etapa están)</li>
         </ul>
 
         <h3>3. Diseñar el sistema</h3>
         <p>Definir qué tiene que pasar en cada etapa del proceso: qué acción se dispara, quién interviene, qué comunicación se envía, qué datos se registran. Esto es <strong>diseño de sistema</strong>, no configuración de herramientas.</p>
 
         <h3>4. Elegir las herramientas</h3>
-        <p>Recién acá elegís la tecnología. Y la elección depende del sistema que diseñaste, no al revés. Algunas combinaciones comunes:</p>
+        <p>Recién acá eliges la tecnología. Y la elección depende del sistema que diseñaste, no al revés. Algunas combinaciones comunes:</p>
         <ul>
           <li><strong>Todo en uno:</strong> GoHighLevel (CRM + funnels + email + WhatsApp + agenda + automatización)</li>
           <li><strong>Modular:</strong> HubSpot (CRM) + ActiveCampaign (email) + Calendly (agenda) + Zapier (conexión)</li>
@@ -171,7 +171,7 @@ const faqItems = [
         </ul>
 
         <h3>5. Implementar por fases</h3>
-        <p>No intentes automatizar todo de una vez. Empezá por lo que más impacta:</p>
+        <p>No intentes automatizar todo de una vez. Empieza por lo que más impacta:</p>
         <ol>
           <li><strong>Fase 1:</strong> Captura de leads centralizada + respuesta automática + CRM básico</li>
           <li><strong>Fase 2:</strong> Seguimiento automatizado + agenda con recordatorios</li>
@@ -180,7 +180,7 @@ const faqItems = [
         </ol>
 
         <h3>6. Medir y ajustar</h3>
-        <p>La automatización no es "set and forget". Necesitás medir qué funciona: tasa de respuesta, tiempo de cierre, leads perdidos, conversión por etapa. Y ajustar en base a datos reales, no suposiciones.</p>
+        <p>La automatización no es "set and forget". Necesitas medir qué funciona: tasa de respuesta, tiempo de cierre, leads perdidos, conversión por etapa. Y ajustar en base a datos reales, no suposiciones.</p>
 
         <h2>Errores comunes</h2>
 
@@ -199,7 +199,7 @@ const faqItems = [
           </div>
           <div class="article__mistake">
             <h3>No medir resultados</h3>
-            <p>"Implementamos automatización" no es un resultado. ¿Bajó el tiempo de respuesta? ¿Aumentaron las reuniones agendadas? ¿Se pierden menos leads? Sin métricas, no sabés si funciona.</p>
+            <p>"Implementamos automatización" no es un resultado. ¿Bajó el tiempo de respuesta? ¿Aumentaron las reuniones agendadas? ¿Se pierden menos leads? Sin métricas, no sabes si funciona.</p>
           </div>
         </div>
 
@@ -226,8 +226,8 @@ const faqItems = [
         </div>
 
         <div class="article__cta">
-          <h2>¿Querés automatizar tu proceso comercial?</h2>
-          <p>Contanos cómo funciona tu proceso hoy y te ayudamos a diseñar el sistema que lo haga escalar.</p>
+          <h2>¿Quieres automatizar tu proceso comercial?</h2>
+          <p>Cuéntanos cómo funciona tu proceso hoy y te ayudamos a diseñar el sistema que lo haga escalar.</p>
           <div class="article__cta-buttons">
             <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
             <a href="/agendar/" class="btn btn--outline">Agendar videollamada <Icon name="arrow-right" size={16} strokeWidth={2} /></a>
@@ -239,7 +239,7 @@ const faqItems = [
 
     <section class="section section--dark">
       <div class="container">
-        <h2 data-reveal>Seguí leyendo</h2>
+        <h2 data-reveal>Sigue leyendo</h2>
         <div class="article__related" data-reveal style="--i:1">
           <a href="/recursos/senales-automatizar-ventas/" class="article__related-card">
             <span class="article__related-tag">Checklist</span>

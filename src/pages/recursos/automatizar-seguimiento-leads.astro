@@ -9,9 +9,9 @@ const description = 'Guía paso a paso para automatizar el seguimiento de leads:
 
 const faqItems = [
   { q: '¿Qué significa automatizar el seguimiento de leads?', a: 'Significa usar tecnología para que el contacto con un potencial cliente ocurra de forma automática en los momentos clave: un email de bienvenida cuando deja sus datos, un recordatorio antes de una reunión, un mensaje de seguimiento si no respondió, una notificación al vendedor cuando el lead hace algo importante. El objetivo es que ningún lead se enfríe por falta de atención.' },
-  { q: '¿Cuántos leads se pierden por falta de seguimiento?', a: 'Estudios de la industria indican que entre el 40% y el 60% de los leads nunca reciben un segundo contacto después del primero. En negocios sin CRM ni automatización, el número es aún mayor. La mayoría de las ventas se cierran entre el tercer y el séptimo contacto — si solo hacés uno, estás dejando plata sobre la mesa.' },
+  { q: '¿Cuántos leads se pierden por falta de seguimiento?', a: 'Estudios de la industria indican que entre el 40% y el 60% de los leads nunca reciben un segundo contacto después del primero. En negocios sin CRM ni automatización, el número es aún mayor. La mayoría de las ventas se cierran entre el tercer y el séptimo contacto — si solo haces uno, estás dejando dinero sobre la mesa.' },
   { q: '¿Qué herramientas se usan para automatizar el seguimiento?', a: 'Las más comunes son GoHighLevel (CRM + automatización todo en uno con WhatsApp nativo), HubSpot (CRM con workflows en planes pagos), ActiveCampaign (email + automatización), Make o Zapier (para conectar herramientas entre sí) y la API de WhatsApp Business (mensajes automatizados). La elección depende de tu proceso y tu stack actual.' },
-  { q: '¿Puedo automatizar mensajes de WhatsApp?', a: 'Sí. Con la API de WhatsApp Business (integrada en GoHighLevel, o conectada vía Make/Zapier) podés enviar mensajes automáticos de bienvenida, recordatorios de citas, seguimiento post-reunión y secuencias de nutrición. Lo importante es que sean mensajes relevantes y esperados — WhatsApp penaliza el spam con bloqueos.' },
+  { q: '¿Puedo automatizar mensajes de WhatsApp?', a: 'Sí. Con la API de WhatsApp Business (integrada en GoHighLevel, o conectada vía Make/Zapier) puedes enviar mensajes automáticos de bienvenida, recordatorios de citas, seguimiento post-reunión y secuencias de nutrición. Lo importante es que sean mensajes relevantes y esperados — WhatsApp penaliza el spam con bloqueos.' },
   { q: '¿Automatizar el seguimiento reemplaza al vendedor?', a: 'No. Automatizar el seguimiento se encarga de las tareas repetitivas: enviar el primer email, recordar una reunión, hacer follow-up si no hubo respuesta. El vendedor interviene cuando el lead está calificado y listo para una conversación real. El resultado es que el vendedor habla solo con personas interesadas, en vez de perseguir leads fríos.' },
   { q: '¿Cuánto tarda implementar un sistema de seguimiento automatizado?', a: 'Una automatización básica (email de bienvenida + recordatorio + follow-up) se configura en 1-2 días. Un sistema completo con CRM, WhatsApp, calificación de leads y múltiples secuencias según el comportamiento del contacto tarda entre 2-4 semanas. Lo importante es empezar simple y agregar complejidad con datos.' },
   { q: '¿Cuál es el mejor momento para contactar a un lead?', a: 'Los primeros 5 minutos después de que un lead deja sus datos son críticos — la probabilidad de contacto exitoso cae un 80% después de los primeros 30 minutos. Por eso la automatización es clave: un email o WhatsApp instantáneo garantiza que el lead recibe atención cuando todavía está pensando en tu negocio.' },
@@ -19,28 +19,28 @@ const faqItems = [
 
 const pasos = [
   {
-    name: 'Mapeá tu proceso de seguimiento actual',
-    text: 'Antes de automatizar, escribí qué pasa hoy cuando llega un lead: ¿quién lo contacta? ¿por qué canal? ¿cuántas veces? ¿qué pasa si no responde? Esto te muestra qué pasos son manuales y repetitivos — esos son los que vas a automatizar.',
+    name: 'Mapea tu proceso de seguimiento actual',
+    text: 'Antes de automatizar, escribe qué pasa hoy cuando llega un lead: ¿quién lo contacta? ¿por qué canal? ¿cuántas veces? ¿qué pasa si no responde? Esto te muestra qué pasos son manuales y repetitivos — esos son los que vas a automatizar.',
   },
   {
-    name: 'Definí los triggers y las acciones',
-    text: 'Un trigger es lo que dispara la automatización (un formulario enviado, una cita agendada, un email abierto). Una acción es lo que pasa después (enviar un email, crear una tarea, notificar al vendedor). Mapeá cada trigger con su acción correspondiente.',
+    name: 'Define los triggers y las acciones',
+    text: 'Un trigger es lo que dispara la automatización (un formulario enviado, una cita agendada, un email abierto). Una acción es lo que pasa después (enviar un email, crear una tarea, notificar al vendedor). Mapea cada trigger con su acción correspondiente.',
   },
   {
-    name: 'Elegí la herramienta según tu stack',
-    text: 'Si ya tenés CRM, buscá sus automatizaciones nativas. Si no tenés nada, GoHighLevel es la opción más completa para negocios de servicios en Latinoamérica (CRM + email + WhatsApp + calendario en uno). Si solo necesitás conectar herramientas que ya usás, Make o Zapier resuelven.',
+    name: 'Elige la herramienta según tu stack',
+    text: 'Si ya tienes CRM, busca sus automatizaciones nativas. Si no tienes nada, GoHighLevel es la opción más completa para negocios de servicios en Latinoamérica (CRM + email + WhatsApp + calendario en uno). Si solo necesitas conectar herramientas que ya usas, Make o Zapier resuelven.',
   },
   {
-    name: 'Armá la secuencia de seguimiento',
-    text: 'Una secuencia básica efectiva: mensaje de bienvenida inmediato → email con información relevante (día 1) → follow-up si no abrió (día 3) → último contacto con llamada a la acción clara (día 7). Adaptá los tiempos y canales según tu negocio.',
+    name: 'Arma la secuencia de seguimiento',
+    text: 'Una secuencia básica efectiva: mensaje de bienvenida inmediato → email con información relevante (día 1) → follow-up si no abrió (día 3) → último contacto con llamada a la acción clara (día 7). Adapta los tiempos y canales según tu negocio.',
   },
   {
-    name: 'Configurá la calificación de leads',
-    text: 'No todos los leads son iguales. Definí criterios para saber cuáles están listos para hablar con un vendedor (abrieron 3 emails, visitaron la página de precios, respondieron un mensaje) y cuáles necesitan más nutrición. Esto evita que el equipo pierda tiempo con leads fríos.',
+    name: 'Configura la calificación de leads',
+    text: 'No todos los leads son iguales. Define criterios para saber cuáles están listos para hablar con un vendedor (abrieron 3 emails, visitaron la página de precios, respondieron un mensaje) y cuáles necesitan más nutrición. Esto evita que el equipo pierda tiempo con leads fríos.',
   },
   {
-    name: 'Activá, medí y ajustá',
-    text: 'Lanzá la automatización con un grupo pequeño primero. Medí tasas de apertura, respuesta y conversión. Ajustá los mensajes, los tiempos y los canales según los datos. Una automatización nunca está "terminada" — se optimiza continuamente.',
+    name: 'Activa, mide y ajusta',
+    text: 'Lanza la automatización con un grupo pequeño primero. Mide tasas de apertura, respuesta y conversión. Ajusta los mensajes, los tiempos y los canales según los datos. Una automatización nunca está "terminada" — se optimiza continuamente.',
   },
 ];
 
@@ -86,7 +86,7 @@ const canales = [
       <div class="container article__body">
         <h2>El seguimiento es donde se gana (o se pierde) la venta</h2>
         <p>La mayoría de los negocios invierte tiempo y dinero en generar leads — ads, contenido, referidos — pero pierde la mayoría de esas oportunidades por falta de seguimiento. No porque no quieran hacerlo, sino porque <strong>hacerlo manualmente no escala</strong>.</p>
-        <p>Un lead que llena un formulario y no recibe respuesta en la primera hora ya se enfrió. Un prospecto que tuvo una buena reunión pero no recibió follow-up en 48 horas, se fue con la competencia. Un contacto que mostró interés hace 2 semanas pero nadie lo volvió a contactar, ya se olvidó de vos.</p>
+        <p>Un lead que llena un formulario y no recibe respuesta en la primera hora ya se enfrió. Un prospecto que tuvo una buena reunión pero no recibió follow-up en 48 horas, se fue con la competencia. Un contacto que mostró interés hace 2 semanas pero nadie lo volvió a contactar, ya se olvidó de ti.</p>
         <p><strong>Automatizar el seguimiento de leads</strong> significa que cada contacto recibe atención en el momento justo, por el canal correcto, sin que alguien tenga que acordarse de hacerlo. El vendedor interviene solo cuando el lead está listo para una conversación real.</p>
 
         <div class="article__callout">
@@ -141,7 +141,7 @@ const canales = [
           </table>
         </div>
 
-        <p>En Latinoamérica, <strong>WhatsApp + email</strong> es la combinación más efectiva. WhatsApp para lo inmediato y conversacional, email para lo educativo y de largo plazo. Más sobre herramientas en nuestra <a href="/recursos/automatizacion-comercial/">guía de automatización comercial</a>. Si todavía estás eligiendo plataforma, mirá la <a href="/recursos/ghl-vs-hubspot/">comparativa de GoHighLevel, HubSpot y alternativas</a>.</p>
+        <p>En Latinoamérica, <strong>WhatsApp + email</strong> es la combinación más efectiva. WhatsApp para lo inmediato y conversacional, email para lo educativo y de largo plazo. Más sobre herramientas en nuestra <a href="/recursos/automatizacion-comercial/">guía de automatización comercial</a>. Si todavía estás eligiendo plataforma, mira la <a href="/recursos/ghl-vs-hubspot/">comparativa de GoHighLevel, HubSpot y alternativas</a>.</p>
       </div>
     </section>
 
@@ -173,7 +173,7 @@ const canales = [
           <div class="article__tl-item">
             <span class="article__tl-time">+3 días</span>
             <div>
-              <strong>Follow-up por email</strong> — "¿Pudiste ver la información? Si tenés dudas, podemos coordinar una llamada rápida."
+              <strong>Follow-up por email</strong> — "¿Pudiste ver la información? Si tienes dudas, podemos coordinar una llamada rápida."
             </div>
           </div>
           <div class="article__tl-item">
@@ -190,7 +190,7 @@ const canales = [
           </div>
         </div>
 
-        <p>¿Necesitás un CRM para gestionar esto? Leé nuestra <a href="/recursos/crm-para-negocios/">guía de CRM para negocios de servicios</a>.</p>
+        <p>¿Necesitas un CRM para gestionar esto? Lee nuestra <a href="/recursos/crm-para-negocios/">guía de CRM para negocios de servicios</a>.</p>
       </div>
     </section>
 
@@ -198,7 +198,7 @@ const canales = [
     <section class="section section--light">
       <div class="container article__body">
         <div class="article__callout">
-          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Querés automatizar tu seguimiento de leads?</h2>
+          <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Quieres automatizar tu seguimiento de leads?</h2>
           <p>En NOVAI configuramos sistemas completos de seguimiento: CRM, WhatsApp, email, calificación de leads y notificaciones al equipo. Todo conectado y midiendo resultados.</p>
           <div style="margin-top: 1.5rem;">
             <a href={WA.proyecto} target="_blank" rel="noopener" class="btn btn--green">Hablemos por WhatsApp <Icon name="arrow-up-right" size={16} strokeWidth={2} /></a>
@@ -223,15 +223,15 @@ const canales = [
       </div>
     </section>
 
-    <!-- Seguí leyendo -->
+    <!-- Sigue leyendo -->
     <section class="section section--light">
       <div class="container">
-        <h2 data-reveal>Seguí leyendo</h2>
+        <h2 data-reveal>Sigue leyendo</h2>
         <div class="article__related" data-reveal style="--i:1">
           <a href="/recursos/automatizacion-comercial/" class="article__related-card">
             <span class="article__related-tag">Guía</span>
             <h3>Automatización comercial</h3>
-            <p>Qué es, cuándo la necesitás y cómo implementarla.</p>
+            <p>Qué es, cuándo la necesitas y cómo implementarla.</p>
           </a>
           <a href="/recursos/crm-para-negocios/" class="article__related-card">
             <span class="article__related-tag">Guía</span>
