@@ -1,21 +1,26 @@
 ---
 import { SITE } from '../lib/site';
 import { WA_NUMBER } from '../lib/wa';
+import { ORG_ID, ORG_REF, WEBSITE_ID } from '../lib/schema';
 
-interface Props { title?: string; description?: string }
-const { title = SITE.title, description = SITE.description } = Astro.props;
+interface Props { title?: string; description?: string; noindex?: boolean }
+const { title = SITE.title, description = SITE.description, noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(SITE.ogImage, Astro.site);
 
 // JSON-LD: quién es la agencia, qué hace, cómo contactarla. Ayuda a Google y a los buscadores con IA.
-const jsonLd = {
-  '@context': 'https://schema.org',
+const organization = {
   '@type': 'ProfessionalService',
+  '@id': ORG_ID,
   name: SITE.name,
+  alternateName: SITE.alternateName,
   url: Astro.site?.href,
   description: SITE.description,
+  disambiguatingDescription: SITE.definition,
+  logo: new URL(SITE.logo, Astro.site).href,
   image: ogImage.href,
+  address: { '@type': 'PostalAddress', addressCountry: SITE.country },
   foundingDate: String(SITE.founded),
   areaServed: SITE.areaServed,
   knowsAbout: ['Marketing digital', 'Funnels', 'CRM', 'Automatización', 'GoHighLevel', 'Integraciones', 'Agentes de IA', 'WhatsApp Business'],
@@ -32,13 +37,25 @@ const jsonLd = {
     itemListElement: SITE.services.map(s => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s } })),
   },
 };
+
+const website = {
+  '@type': 'WebSite',
+  '@id': WEBSITE_ID,
+  name: SITE.name,
+  alternateName: SITE.alternateName,
+  url: Astro.site?.href,
+  inLanguage: SITE.lang,
+  publisher: ORG_REF,
+};
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': [organization, website] };
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical.href} />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
 <meta name="theme-color" content="#0a0a14" />
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
@@ -56,7 +73,7 @@ const jsonLd = {
 <meta property="og:image" content={ogImage.href} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="NOVAI — Infraestructura digital para marketing y ventas" />
+<meta property="og:image:alt" content={SITE.title} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />

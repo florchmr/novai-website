@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA, CALENDAR_URL } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 ---
-<Base title="Operaciones de Eventos — NOVAI" description="Diseñamos una plataforma para centralizar ventas, generar accesos únicos y controlar el ingreso a eventos desde un mismo sistema.">
+<Base title="Operaciones de Eventos | Agencia NOVAI" description="Diseñamos una plataforma para centralizar ventas, generar accesos únicos y controlar el ingreso a eventos desde un mismo sistema.">
   <Nav />
   <main class="case">
 
@@ -160,8 +161,8 @@ import { WA, CALENDAR_URL } from '../../lib/wa';
   '@type': 'Article',
   headline: 'Operaciones de Eventos',
   description: 'Diseñamos una plataforma para centralizar ventas, generar accesos únicos y controlar el ingreso a eventos desde un mismo sistema.',
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-09-18',
   dateModified: '2026-09-30',
   mainEntityOfPage: 'https://agencianovai.com/proyectos/event-ops/',

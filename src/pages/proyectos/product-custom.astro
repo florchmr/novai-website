@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA, CALENDAR_URL } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 ---
-<Base title="Sistema de Personalización — NOVAI" description="Sistema de personalización conectado con Shopify que adapta automáticamente la experiencia según cada pedido.">
+<Base title="Sistema de Personalización | Agencia NOVAI" description="Sistema de personalización conectado con Shopify que adapta automáticamente la experiencia según cada pedido.">
   <Nav />
   <main class="case">
 
@@ -161,8 +162,8 @@ import { WA, CALENDAR_URL } from '../../lib/wa';
   '@type': 'Article',
   headline: 'Sistema de Personalización',
   description: 'Sistema de personalización conectado con Shopify que adapta automáticamente la experiencia según cada pedido.',
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-09-18',
   dateModified: '2026-09-30',
   mainEntityOfPage: 'https://agencianovai.com/proyectos/product-custom/',

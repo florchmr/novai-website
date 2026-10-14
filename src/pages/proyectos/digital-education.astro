@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA, CALENDAR_URL } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 ---
-<Base title="Ecosistema de Educación Digital — NOVAI" description="Ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada.">
+<Base title="Ecosistema de Educación Digital | Agencia NOVAI" description="Ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada." noindex>
   <Nav />
   <main class="case">
 
@@ -168,8 +169,8 @@ import { WA, CALENDAR_URL } from '../../lib/wa';
   '@type': 'Article',
   headline: 'Ecosistema de Educación Digital',
   description: 'Ecosistema digital completo para captar leads, convertirlos en clientes y entregar una formación online de manera automatizada.',
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-09-18',
   dateModified: '2026-09-30',
   mainEntityOfPage: 'https://agencianovai.com/proyectos/digital-education/',

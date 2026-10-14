@@ -1,16 +1,16 @@
-# NOVAI
+# Agencia NOVAI
 
 > Infraestructura digital para marketing y ventas.
 
-NOVAI es una agencia que conecta marketing, tecnología y operaciones. Construimos los sistemas digitales que hacen que el marketing y las ventas funcionen: funnels, CRM, automatizaciones, integraciones y agentes de IA.
+Agencia NOVAI (NOVAI) es una agencia argentina de marketing y tecnología, fundada en 2019, que construye funnels, CRM y automatizaciones con IA para infoproductores, expertos, negocios de servicios y agencias. Conecta marketing, tecnología y operaciones para que el marketing y las ventas funcionen como un solo sistema.
 
 ## Datos clave
 
-- Nombre: NOVAI
+- Nombre: Agencia NOVAI (también NOVAI)
 - Sitio web: https://agencianovai.com
 - Fundada: 2019
 - Ubicación: Argentina
-- Área de servicio: Argentina y Latinoamérica
+- Área de servicio: servicio remoto, trabajamos con negocios de cualquier país
 - Idioma: Español
 - Contacto: WhatsApp +54 9 11 2398-3952
 

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Icon from '../../components/Icon.astro';
 import { WA } from '../../lib/wa';
+import { ORG_REF } from '../../lib/schema';
 
 const title = "Cuánto cuesta GoHighLevel realmente: planes, consumo y costos que no se ven";
 const description = "Qué incluye el precio fijo de GoHighLevel, qué se paga por consumo (email, SMS, llamadas, IA) y cómo estimar tu costo mensual real antes de decidir.";
@@ -191,8 +192,8 @@ const faqItems = [
   '@type': 'Article',
   headline: title,
   description,
-  author: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com' },
-  publisher: { '@type': 'Organization', name: 'NOVAI', url: 'https://agencianovai.com', logo: { '@type': 'ImageObject', url: 'https://agencianovai.com/logo-novai.png' } },
+  author: ORG_REF,
+  publisher: ORG_REF,
   datePublished: '2026-10-14',
   dateModified: '2026-10-14',
   mainEntityOfPage: 'https://agencianovai.com/recursos/cuanto-cuesta-gohighlevel/',
